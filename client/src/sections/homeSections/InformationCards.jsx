@@ -50,7 +50,6 @@ const InformationCards = () => {
                 </div>
               </div>
             </div>
-          
           </div>
         </div>
       </div>

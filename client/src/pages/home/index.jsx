@@ -4,6 +4,7 @@ import "./index.scss";
 import Search from "../../sections/homeSections/Search";
 import Activities from "../../sections/homeSections/Activities";
 import InformationCards from "../../sections/homeSections/InformationCards";
+import AboutCamper from "../../sections/homeSections/AboutCamper";
 
 
 const HomePage = () => {
@@ -13,6 +14,7 @@ const HomePage = () => {
       <Search />
       <InformationCards/>
       <Activities/>
+      <AboutCamper/>
     </>
   );
 };
