@@ -62,10 +62,9 @@
         font-size: 18px;
         font-weight: 500;
       }
-      input{
+      input {
         // text-indent: 10px;
         outline: none;
-   
       }
       input,
       select {
@@ -84,12 +83,45 @@
       border-radius: 20px;
       font-size: 18px;
       font-weight: 400;
-     
     }
   }
 }
 
-.test {
-  background-color: white;
-  height: 100vh;
+#information-cards {
+  padding: 170px 0;
+  background-image: url("../../../src/assets/img/homePage/top-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  .information-cards {
+    .card {
+      background-color: transparent;
+// padding: 20px;
+border: none;
+      .card-img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          height: 130px;
+          width: 130px;
+        }
+      }
+      .card-content{
+        padding-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        h4{
+          font-size: 22px;
+        }
+        p{
+          color: #717171;
+          font-size: 19px;
+        }
+      }
+    }
+  }
 }
