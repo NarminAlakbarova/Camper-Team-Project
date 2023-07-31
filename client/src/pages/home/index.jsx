@@ -3,6 +3,7 @@ import HeroBanner from "../../sections/homeSections/HeroBanner";
 import "./index.scss";
 import Search from "../../sections/homeSections/Search";
 import InformationCards from "../../sections/homeSections/InformationCards";
+import AboutCamper from "../../sections/homeSections/AboutCamper";
 
 
 const HomePage = () => {
@@ -11,6 +12,7 @@ const HomePage = () => {
       <HeroBanner />
       <Search />
       <InformationCards/>
+      <AboutCamper/>
       
     </>
   );
