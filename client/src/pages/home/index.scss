@@ -1,3 +1,4 @@
+// HERO-BANNER
 .home-hero-banner {
   height: 100vh;
   background-image: url("../../../src/assets/img/homePage/hero-campger-bg.jpg");
@@ -87,6 +88,7 @@
   }
 }
 
+//INFORMATION-CARDS
 #information-cards {
   padding: 170px 0;
   background-image: url("../../../src/assets/img/homePage/top-bg.jpg");
@@ -96,8 +98,8 @@
   .information-cards {
     .card {
       background-color: transparent;
-// padding: 20px;
-border: none;
+      // padding: 20px;
+      border: none;
       .card-img {
         display: flex;
         justify-content: center;
@@ -107,17 +109,17 @@ border: none;
           width: 130px;
         }
       }
-      .card-content{
+      .card-content {
         padding-top: 30px;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         text-align: center;
-        h4{
+        h4 {
           font-size: 22px;
         }
-        p{
+        p {
           color: #717171;
           font-size: 19px;
         }
@@ -217,6 +219,54 @@ border: none;
         &:nth-child(5),
         &:nth-child(6) {
           display: none;
+        }
+      }
+    }
+  }
+}
+
+//ABOUT CAMPER
+
+#about-camper {
+  padding: 20px 0;
+  .about-camper {
+    .camper-img {
+      display: flex;
+      column-gap: 50px;
+      .left-content {
+        padding: 0;
+        @media only screen and (max-width: 991px) {
+          display: none;
+        }
+      }
+      .right-content {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        justify-content: center;
+        // margin-left: 10px;
+        h2 {
+          font-size: 32px;
+          font-weight: 500;
+        }
+        p {
+          font-size: 18px;
+          color: #717171;
+        }
+        .count-info {
+          .card {
+            border: none;
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+            background-color: transparent;
+            h1 {
+              color: #ffaf19;
+            }
+            img {
+              width: 50px;
+            }
+          }
         }
       }
     }
