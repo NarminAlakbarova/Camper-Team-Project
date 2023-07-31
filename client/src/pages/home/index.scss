@@ -62,10 +62,9 @@
         font-size: 18px;
         font-weight: 500;
       }
-      input{
+      input {
         // text-indent: 10px;
         outline: none;
-   
       }
       input,
       select {
@@ -84,7 +83,6 @@
       border-radius: 20px;
       font-size: 18px;
       font-weight: 400;
-     
     }
   }
 }
@@ -92,4 +90,101 @@
 .test {
   background-color: white;
   height: 100vh;
+}
+
+// ACTIVITIES SECTION
+
+.activities {
+  padding: 2.5rem 0;
+  .activities-top-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 28px;
+    font-weight: 700;
+    font-family: "Josefin Sans", sans-serif;
+    a {
+      font-weight: 400;
+      font-size: 24px;
+      color: #ffaf19;
+    }
+  }
+  .slick-slider {
+    .slick-list {
+      .activities-card {
+        overflow: hidden;
+        position: relative;
+        .activities-img {
+          img {
+            width: 100%;
+          }
+        }
+        .activities-text {
+          font-family: "Roboto Condensed", sans-serif;
+          position: absolute;
+          z-index: 2;
+          font-weight: 700;
+          font-size: 24px;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          a {
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            width: 100%;
+            position: absolute;
+            bottom: 10%;
+            &:nth-child(2) {
+              bottom: -7%;
+              color: #ffaf19;
+              font-size: 20px;
+              &:hover {
+                color: #fff;
+                transition: none;
+              }
+            }
+          }
+        }
+        &:hover {
+          .activities-text {
+            transition: all 0.7s ease-in-out;
+            background-color: rgba($color: #000000, $alpha: 0.5);
+            a {
+              bottom: 18%;
+              transition: all 0.9s ease-in-out;
+              &:nth-child(2) {
+                bottom: 9%;
+              }
+            }
+          }
+        }
+      }
+    }
+    .slick-dots {
+      position: static;
+      li {
+        button {
+          border-radius: 100%;
+          &::before {
+            width: 100%;
+            font-size: 24px;
+            color: #ffaf19;
+            opacity: 0.5;
+          }
+        }
+        &.slick-active {
+          button {
+            &::before {
+              opacity: 1;
+            }
+          }
+        }
+        &:nth-child(4),
+        &:nth-child(5),
+        &:nth-child(6) {
+          display: none;
+        }
+      }
+    }
+  }
 }
