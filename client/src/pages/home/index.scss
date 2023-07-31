@@ -129,7 +129,7 @@ border: none;
 // ACTIVITIES SECTION
 
 .activities {
-  padding: 2.5rem 0;
+  overflow: hidden;
   .activities-top-text {
     display: flex;
     justify-content: space-between;
@@ -196,6 +196,7 @@ border: none;
     }
     .slick-dots {
       position: static;
+      margin: 1.5rem 0;
       li {
         button {
           border-radius: 100%;

@@ -11,9 +11,8 @@ const HomePage = () => {
     <>
       <HeroBanner />
       <Search />
-      <Activities/>
       <InformationCards/>
-      
+      <Activities/>
     </>
   );
 };
