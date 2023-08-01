@@ -175,7 +175,7 @@
     }
   }
 }
-// ACTIVITIES SECTION
+// ACTIVITIES
 
 .activities {
   overflow: hidden;
@@ -281,10 +281,9 @@
     background-image: url("../../assets/img/homePage/popularTourBg.jpg");
   }
   &#new-tours {
-    background-repeat: no-repeat;
+    background: url("../../assets/img/homePage/newTourBg.jpg") no-repeat center;
     background-size: cover;
-    background-position: center;
-    background-image: url("../../assets/img/homePage/newTourBg.jpg");
+    padding-bottom: 70px;
   }
   .our-popular-tours {
     .our-popular-tours-top {
@@ -383,6 +382,111 @@
     flex-wrap: wrap;
     img {
       max-width: 230px;
+    }
+  }
+}
+
+// DISCOVER TOURS
+
+#discover-tours {
+  background: url("../../assets/img/homePage/discoverToursBg.png") no-repeat center;
+  .discover-tours {
+    height: 55vh;
+    text-align: center;
+    margin: 0 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h2 {
+      font-family: "Roboto Condensed", sans-serif;
+      font-weight: 700;
+      font-size: 40px;
+    }
+    p {
+      color: #44444a;
+      font-size: 18px;
+      margin: 40px 0;
+    }
+  }
+}
+
+// DISCOVER BUTTON
+
+.discover-btn {
+  position: relative;
+  padding: 1rem 1.5rem;
+  font-size: 20px;
+  font-family: "Roboto Condensed", sans-serif;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #ffaf19;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.5s;
+  svg {
+    opacity: 0.7;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    border-radius: 8px;
+    z-index: -1;
+    transition: all 0.5s;
+  }
+  &:hover {
+    &::after {
+      top: 0;
+      left: 0;
+    }
+    .icon-1 {
+      z-index: 1;
+      width: 25%;
+      transform: rotate(-35deg) translateX(150%) translateY(-40%);
+    }
+    .icon-2 {
+      width: 50%;
+      top: -40px;
+      left: -100px;
+      transform: rotate(60deg);
+      z-index: 1;
+    }
+  }
+  .icon-1 {
+    width: 5%;
+    top: 10px;
+    right: 15px;
+    transform: rotate(-25deg) translateX(120%) translateY(20%);
+  }
+  .icon-2 {
+    width: 15%;
+    top: 20px;
+    left: 10px;
+  }
+  .icon-1,
+  .icon-2 {
+    position: absolute;
+    transform-origin: 100% 100%;
+    z-index: -1;
+    transition: all 0.5s;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  #discover-tours {
+    .discover-tours {
+      h2 {
+        font-size: 24px;
+      }
+      p {
+        font-size: 16px;
+      }
     }
   }
 }
