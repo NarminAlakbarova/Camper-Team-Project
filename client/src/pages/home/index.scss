@@ -273,7 +273,7 @@
   }
 }
 
-// OUR POPULAR TOURS
+// OUR TOURS
 
 .our-tours {
   padding: 20px 0;
@@ -368,6 +368,21 @@
           }
         }
       }
+    }
+  }
+}
+
+// GALLERY HOME
+
+#gallery-home {
+  padding: 100px 0;
+  .gallery-home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    img {
+      max-width: 230px;
     }
   }
 }
