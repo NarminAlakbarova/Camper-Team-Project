@@ -5,6 +5,7 @@ import Search from "../../sections/homeSections/Search";
 import Activities from "../../sections/homeSections/Activities";
 import InformationCards from "../../sections/homeSections/InformationCards";
 import AboutCamper from "../../sections/homeSections/AboutCamper";
+import LastestNews from "../../sections/homeSections/LastestNews";
 
 
 const HomePage = () => {
@@ -15,7 +16,8 @@ const HomePage = () => {
       <Activities/>
       <InformationCards/>
       <AboutCamper/>
-      
+      <LastestNews/>
+     
     </>
   );
 };
