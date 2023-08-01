@@ -15,7 +15,7 @@ const HomePage = () => {
       <InformationCards/>
       <Activities/>
       <OurTours sectionTitle={"our-popular-tours"}/>
-      {/* <OurTours sectionTitle={"new-tours"}/> */}
+      <OurTours sectionTitle={"new-tours"}/>
       <AboutCamper/>
     </>
   );

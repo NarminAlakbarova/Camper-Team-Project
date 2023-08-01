@@ -5,7 +5,7 @@ const SliderContent = ({img,tourName,tourCount}) => {
   return (
     <div className="activities-card">
       <div className="activities-img">
-        <img src={img} alt="" />
+        <img src={img} alt="activities image" />
       </div>
       <div className="activities-text">
         <Link to={""}>{tourName}</Link>
