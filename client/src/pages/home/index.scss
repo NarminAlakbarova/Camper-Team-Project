@@ -273,4 +273,101 @@
   }
 }
 
+// OUR POPULAR TOURS
 
+.our-tours {
+  padding: 20px 0;
+  &#our-popular-tours {
+    background-image: url("../../assets/img/homePage/popularTourBg.jpg");
+  }
+  &#new-tours {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url("../../assets/img/homePage/newTourBg.jpg");
+  }
+  .our-popular-tours {
+    .our-popular-tours-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 28px;
+      font-weight: 700;
+      font-family: "Josefin Sans", sans-serif;
+      a {
+        font-weight: 400;
+        font-size: 24px;
+        color: #ffaf19;
+      }
+    }
+    .slick-slider {
+      margin: 0 auto;
+      position: relative;
+      padding: 0 40px;
+      .slick-dots {
+        display: none !important;
+      }
+      .slick-arrow {
+        &.slick-prev,
+        &.slick-next {
+          &::before {
+            color: #ffaf19;
+            font-size: 48px;
+          }
+        }
+        &.slick-prev {
+          position: absolute;
+          left: 0;
+        }
+        &.slick-next {
+          position: absolute;
+          right: 30px;
+        }
+      }
+      .popular-tour-card {
+        padding: 10px;
+        .popular-card-img {
+          position: relative;
+          img {
+            width: 100%;
+            border-radius: 7px;
+          }
+          .img-text {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            color: #fff;
+            background-color: #000;
+            padding: 0.2rem 0.5rem;
+            font-size: 14px;
+            border-radius: 5px;
+          }
+        }
+        .popular-card-info {
+          a {
+            color: #000;
+            font-size: 20px;
+            font-weight: 700;
+          }
+          p {
+            margin-top: 0.5rem;
+            color: #717171;
+            svg {
+              width: 12px;
+              color: #000;
+            }
+            span {
+              &:first-child {
+                text-decoration: line-through !important;
+              }
+              &:nth-child(2) {
+                color: #ffaf19;
+                font-size: 18px;
+                font-weight: 700;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
