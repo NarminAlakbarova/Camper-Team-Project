@@ -2,14 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/header/logo.png";
 import "./index.scss";
+import SelectCurrency from "../../components/SelectCurrency";
 
 const Footer = () => {
   return (
     <footer>
       <div className="container">
         <div className="footer-top row">
-          <div className="col col-12 col-md-6 col-lg-3">
+          <div className="col col-12 col-md-6 col-lg-3 img-select">
             <img src={logo} alt="website logo" />
+            <br />
+            <SelectCurrency/>
           </div>
           <div className="col col-12 col-md-6 col-lg-3">
             <ul>

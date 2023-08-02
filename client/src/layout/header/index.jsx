@@ -2,19 +2,8 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/header/logo.png";
 import "./index.scss";
-import { Dropdown, Space } from "antd";
-import DropdownPages from "../../components/DropdownPages";
-
-const items = [
-  {
-    label: <NavLink to={"signIn"}>Sign In</NavLink>,
-    key: "1",
-  },
-  {
-    label: <NavLink to={"signUp"}>Sign Up</NavLink>,
-    key: "2",
-  },
-];
+import DropdownComponent from "../../components/DropdownComponent";
+import SelectCurrency from "../../components/SelectCurrency";
 
 const Header = () => {
   return (
@@ -35,21 +24,16 @@ const Header = () => {
               <NavLink to={"allTours"}>All Tours</NavLink>
             </li>
             <li>
-              <DropdownPages />
+              <DropdownComponent dropdownSpace={"pages"} />
             </li>
             <li>
               <NavLink to={"contact"}>Contact</NavLink>
             </li>
           </ul>
-          <Dropdown
-            menu={{
-              items,
-            }}
-          >
-            <Link>
-              <Space>Join Us</Space>
-            </Link>
-          </Dropdown>
+          <div className="header-right">
+            <SelectCurrency />
+            <DropdownComponent dropdownSpace={"join-us"} />
+          </div>
         </nav>
       </div>
     </header>
