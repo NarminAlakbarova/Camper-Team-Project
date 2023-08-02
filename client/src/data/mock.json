@@ -1,5 +1,53 @@
 {
   "toursCamper": [],
-  "newCamper": [],
-  "feedBackCamper":[]
+  "newsCamper": [
+    {
+      "newsImg": {
+        "img1": "../../assets/img/newsAndBlog/news1.jpg",
+        "img2": "../../assets/img/newsAndBlog/news2.jpg",
+        "img3": "../../assets/img/newsAndBlog/news3.jpeg",
+        "img4": "../../assets/img/newsAndBlog/news4.jpg"
+      },
+      "releaseDay": "March 10, 2023",
+      "author": {
+        "authorImg": "../../assets/img/newsAndBlog/author/author1.jpeg",
+        "authorName": "Jhon Smith",
+        "aboutAuthor": "There is no better way to learn about the Napa Valley and all it has to offer than on a guided tour. There is something for everyone – whether you are looking to drink."
+      },
+      "newsTitle": "Tips for a Safe and Enjoyable Tour"
+    },
+    {
+      "newsImg": {
+        "img1": "../../assets/img/newsAndBlog/news1.jpg",
+        "img2": "../../assets/img/newsAndBlog/news2.jpg",
+        "img3": "../../assets/img/newsAndBlog/news3.jpeg",
+        "img4": "../../assets/img/newsAndBlog/news4.jpg"
+      },
+      "releaseDay": "March 10, 2023",
+      "author": {
+        "authorImg": "../../assets/img/newsAndBlog/author/author1.jpeg",
+        "authorName": "Jhon Smith",
+        "aboutAuthor": "There is no better way to learn about the Napa Valley and all it has to offer than on a guided tour. There is something for everyone – whether you are looking to drink."
+      },
+      "newsTitle": "Tips for a Safe and Enjoyable Tour"
+    },
+    {
+      "newsImg": {
+        "img1": "../../assets/img/newsAndBlog/news1.jpg",
+        "img2": "../../assets/img/newsAndBlog/news2.jpg",
+        "img3": "../../assets/img/newsAndBlog/news3.jpeg",
+        "img4": "../../assets/img/newsAndBlog/news4.jpg"
+      },
+      "releaseDay": "March 10, 2023",
+      "author": {
+        "authorImg": "../../assets/img/newsAndBlog/author/author1.jpeg",
+        "authorName": "Jhon Smith",
+        "aboutAuthor": "There is no better way to learn about the Napa Valley and all it has to offer than on a guided tour. There is something for everyone – whether you are looking to drink."
+      },
+      "newsTitle": "Tips for a Safe and Enjoyable Tour"
+    }
+  ],
+  "feedBackCamper": [
+ 
+  ]
 }
