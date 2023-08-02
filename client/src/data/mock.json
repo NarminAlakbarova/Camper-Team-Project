@@ -48,6 +48,40 @@
     }
   ],
   "feedBackCamper": [
- 
+    {
+      "userName": "David Doe",
+      "userImg": "../../assets/img/feedBack/user1.jpg",
+      "raiting": 10,
+      "userStatus": "Traveler",
+      "feedBack": "The tours in this website are great. I had been really enjoy with my family! The team is very professional and taking care of the customers. Will surely recommend to my freind to join this company!"
+    },
+    {
+      "userName": "David Doe",
+      "userImg": "../../assets/img/feedBack/user2.jpg",
+      "raiting": 10,
+      "userStatus": "Traveler",
+      "feedBack": "The tours in this website are great. I had been really enjoy with my family! The team is very professional and taking care of the customers. Will surely recommend to my freind to join this company!"
+    },
+    {
+      "userName": "David Doe",
+      "userImg": "../../assets/img/feedBack/user3.jpg",
+      "raiting": 10,
+      "userStatus": "Traveler",
+      "feedBack": "The tours in this website are great. I had been really enjoy with my family! The team is very professional and taking care of the customers. Will surely recommend to my freind to join this company!"
+    },
+    {
+      "userName": "David Doe",
+      "userImg": "../../assets/img/feedBack/user4.jpg",
+      "raiting": 10,
+      "userStatus": "Traveler",
+      "feedBack": "The tours in this website are great. I had been really enjoy with my family! The team is very professional and taking care of the customers. Will surely recommend to my freind to join this company!"
+    },
+    {
+      "userName": "David Doe",
+      "userImg": "../../assets/img/feedBack/user1.jpg",
+      "raiting": 10,
+      "userStatus": "Traveler",
+      "feedBack": "The tours in this website are great. I had been really enjoy with my family! The team is very professional and taking care of the customers. Will surely recommend to my freind to join this company!"
+    }
   ]
 }

@@ -16,6 +16,7 @@ import CustomerSaid from "../../sections/homeSections/CustomerSaid";
 
 
 const HomePage = () => {
+  
   return (
     <>
       <HeroBanner />
