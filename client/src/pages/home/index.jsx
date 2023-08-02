@@ -24,10 +24,8 @@ const HomePage = () => {
       <OurTours sectionTitle={"our-popular-tours"}/>
       <OurTours sectionTitle={"new-tours"}/>
       <AboutCamper/>
-
-      <LastestNews/>
-
       <GalleryHome/>
+      <LastestNews/>
       <DiscoverTours/>
 
     </>

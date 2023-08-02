@@ -6,11 +6,35 @@ footer {
   font-size: 17px;
   .footer-top {
     margin-left: 0;
+    .img-select {
+      img {
+        width: 100px;
+      }
+      .ant-select {
+        margin-top: 15px;
+        width: 70px !important;
+        height: 100px;
+        .ant-select-selector {
+          color: #fff;
+          border: none;
+          background-color: #2d2d2d;
+          border-radius: 0;
+          height: 100%;
+          .ant-select-selection-item {
+            color: #fff;
+            display: flex;
+            align-items: center;
+          }
+        }
+        .ant-select-arrow {
+          .anticon {
+            color: #fff;
+          }
+        }
+      }
+    }
     div {
       padding: 1.5rem 0;
-    }
-    img {
-      width: 100px;
     }
     p {
       color: #a4a4a4;
