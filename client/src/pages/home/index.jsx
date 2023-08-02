@@ -12,6 +12,9 @@ import LastestNews from "../../sections/homeSections/LastestNews";
 import CustomerSaid from "../../sections/homeSections/CustomerSaid";
 
 
+
+
+
 const HomePage = () => {
   return (
     <>
@@ -27,6 +30,9 @@ const HomePage = () => {
       <DiscoverTours/>
       <CustomerSaid/>
      
+
+
+
     </>
   );
 };

@@ -287,6 +287,7 @@
   }
 }
 
+
 //LASTEST NEWS
 #lastest-news {
   margin-bottom: 150px;
@@ -405,6 +406,9 @@
     }
   }
 }
+
+// OUR TOURS
+
 
 // OUR TOURS
 .our-tours {
@@ -553,15 +557,12 @@
   font-family: "Roboto Condensed", sans-serif;
   letter-spacing: 2px;
   font-weight: bold;
-  color: #fff;
+  color: #2f2f2f;
   background-color: #ffaf19;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.5s;
-  svg {
-    opacity: 0.7;
-  }
   &::after {
     content: "";
     position: absolute;
@@ -580,14 +581,14 @@
     }
     .icon-1 {
       z-index: 1;
-      width: 25%;
-      transform: rotate(-35deg) translateX(150%) translateY(-40%);
+      width: 20%;
+      transform: rotate(-35deg) translateX(170%) translateY(-40%);
     }
     .icon-2 {
-      width: 50%;
+      width: 40%;
       top: -40px;
       left: -100px;
-      transform: rotate(60deg);
+      transform: rotate(80deg);
       z-index: 1;
     }
   }
@@ -608,6 +609,7 @@
     transform-origin: 100% 100%;
     z-index: -1;
     transition: all 0.5s;
+    opacity: 0.7;
   }
 }
 
