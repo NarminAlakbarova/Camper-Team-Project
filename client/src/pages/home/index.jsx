@@ -8,6 +8,9 @@ import AboutCamper from "../../sections/homeSections/AboutCamper";
 import OurTours from "../../sections/homeSections/OurTours";
 import GalleryHome from "../../sections/homeSections/GalleryHome";
 import DiscoverTours from "../../sections/homeSections/DiscoverTours";
+import LastestNews from "../../sections/homeSections/LastestNews";
+import CustomerSaid from "../../sections/homeSections/CustomerSaid";
+
 
 const HomePage = () => {
   return (
@@ -20,7 +23,10 @@ const HomePage = () => {
       <OurTours sectionTitle={"new-tours"}/>
       <AboutCamper/>
       <GalleryHome/>
+      <LastestNews/>
       <DiscoverTours/>
+      <CustomerSaid/>
+     
     </>
   );
 };

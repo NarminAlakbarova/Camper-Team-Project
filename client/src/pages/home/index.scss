@@ -5,6 +5,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+
   .hero-content {
     text-align: center;
     display: flex;
@@ -42,48 +43,61 @@
 }
 
 // search section
-.search-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  form {
-    position: absolute;
-    top: -60px;
-    padding: 25px 50px;
+
+#search-section {
+  .search-section {
     display: flex;
-    column-gap: 90px;
-    border-radius: 40px;
-    background-color: #f3f3f3;
-    .title {
-      row-gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: -60px;
+
+    form {
+      padding: 25px 50px;
       display: flex;
-      flex-direction: column;
-      label {
-        font-size: 18px;
-        font-weight: 500;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      border-radius: 40px;
+      background-color: #f3f3f3;
+
+      .title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        label {
+          font-size: 18px;
+          font-weight: 500;
+        }
+
+        input {
+          width: 250px;
+          padding: 8px;
+          outline: none;
+          border: 1px solid #ccc;
+          border-radius: 8px;
+        }
+
+        select {
+          width: 280px;
+          padding: 8px;
+          outline: none;
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          background-color: #f3f3f3;
+        }
       }
-      input {
-        // text-indent: 10px;
-        outline: none;
-      }
-      input,
-      select {
+
+      button {
+        width: 150px;
+        padding: 10px;
+        background-color: #ffaf19;
         border: none;
-        padding: 8px 0;
-        background-color: #f3f3f3;
+        border-radius: 20px;
+        font-size: 18px;
+        font-weight: 400;
       }
-      select {
-        width: 280px;
-      }
-    }
-    button {
-      padding: 10px 30px;
-      background-color: #ffaf19;
-      border: none;
-      border-radius: 20px;
-      font-size: 18px;
-      font-weight: 400;
     }
   }
 }
@@ -273,8 +287,126 @@
   }
 }
 
-// OUR TOURS
+//LASTEST NEWS
+#lastest-news {
+  margin-bottom: 150px;
+  padding-top: 30px;
+  height: 420px;
+  background-image: url("../../../src/assets/img/homePage/hp-blog-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
+  @media (max-width: 768px) {
+    height: auto;
+    padding-bottom: 50px;
+  }
+
+  .news-heading {
+    display: flex;
+    justify-content: space-between;
+    font-size: 28px;
+    font-weight: 700;
+    font-family: "Josefin Sans", sans-serif;
+    a {
+      font-weight: 400;
+      font-size: 24px;
+      color: #ffaf19;
+    }
+  }
+
+  .news-content {
+    .card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0px 13px 18px -8px rgba(0, 0, 0, 0.75);
+      -webkit-box-shadow: 0px 13px 18px -8px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 0px 13px 18px -8px rgba(0, 0, 0, 0.75);
+
+      .card-img {
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 11;
+          height: 100%;
+          width: 100%;
+          background-color: rgba(255, 175, 25, 0.7);
+          border-radius: 10px;
+          display: none;
+        }
+        img {
+          width: 100%;
+          border-radius: 10px;
+          transition: 1s;
+        }
+        &:hover {
+          .overlay {
+            display: block;
+          }
+
+          img {
+            transform: scale(1.2);
+          }
+        }
+      }
+
+      .card-content {
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+
+        p {
+          margin-bottom: 0;
+        }
+
+        .title-link {
+          display: flex;
+          align-items: start;
+
+          .arrow {
+            width: 30px;
+            margin-top: 10px;
+          }
+
+          .title {
+            color: #000000;
+            font-size: 20px;
+            font-weight: 500;
+            transition: 0.5s;
+            &:hover{
+              color: #ffaf19;
+
+            }
+          }
+        }
+
+        .tags {
+          display: flex;
+          column-gap: 10px;
+
+          a {
+            padding: 3px 10px;
+            color: black;
+            border: 1px solid #7777;
+            border-radius: 10px;
+            transition: 0.5s;
+            &:hover{
+              color: #ffaf19;
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// OUR TOURS
 .our-tours {
   padding: 20px 0;
   &#our-popular-tours {
@@ -389,7 +521,8 @@
 // DISCOVER TOURS
 
 #discover-tours {
-  background: url("../../assets/img/homePage/discoverToursBg.png") no-repeat center;
+  background: url("../../assets/img/homePage/discoverToursBg.png") no-repeat
+    center;
   .discover-tours {
     height: 55vh;
     text-align: center;
@@ -486,6 +619,27 @@
       }
       p {
         font-size: 16px;
+      }
+    }
+  }
+}
+
+// FEEDBACK SECTION
+#customers-said {
+  padding: 100px;
+  .customer-said {
+    h2 {
+      text-align: center;
+    }
+
+    .slide {
+      opacity: 0.5;
+      transform: scale(0.7);
+      transition: all 0.3s ease;
+
+      &-active {
+        opacity: 1;
+        transform: scale(1);
       }
     }
   }
