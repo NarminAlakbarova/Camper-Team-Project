@@ -1,6 +1,6 @@
 //HERO BANNER SECTION
 
-.hero-banner-about {
+#hero-banner-about {
   position: relative;
   .ant-carousel {
     img {
@@ -98,6 +98,24 @@
           color: #717171;
           font-size: 17px;
         }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  #hero-banner-about {
+    .ant-carousel {
+      .slick-dots {
+        display: none !important;
+      }
+    }
+    .hero-banner-text {
+      p {
+        font-size: 36px;
+      }
+      span {
+        font-size: 16px;
       }
     }
   }

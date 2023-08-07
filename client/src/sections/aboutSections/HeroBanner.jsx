@@ -6,7 +6,7 @@ import image3 from "../../assets/img/homePage/popularTour4.jpg"
 
 const HeroBanner = () => {
   return (
-    <div className="hero-banner-about">
+    <div id="hero-banner-about">
       <Carousel autoplay>
         <div>
           <img src={image1} alt="Tour Image" />
