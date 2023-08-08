@@ -125,7 +125,7 @@
 
 #about-counter {
   background-image: url("../../../src/assets/img/about/top-about-scaled.jpg");
-  padding: 150px 0;
+  padding: 100px 0;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -162,7 +162,7 @@
 //LEADER SECTION
 
 #leaders {
- padding-top: 100px;
+  padding-top: 100px;
   .leaders {
     .title {
       font-size: 26px;
@@ -214,13 +214,55 @@
           font-size: 20px;
           letter-spacing: 1px;
           transition: 0.5s;
-          &:hover{
-            color: rgb(255, 175, 25) ;
+          &:hover {
+            color: rgb(255, 175, 25);
           }
         }
         p {
           font-size: 15px;
           color: #717171;
+        }
+      }
+    }
+  }
+}
+
+//OUR MISSION SECTION
+
+#our-mission {
+  padding: 70px 0;
+  .our-mission {
+    .left-col {
+      h3 {
+        padding-bottom: 20px;
+        font-weight: 600;
+      }
+      .mission-title {
+        font-size: 18px;
+        color: #717171;
+      }
+    }
+    .right-col {
+      .variety,
+      .satisfaction,
+      .quality {
+        .percent-title {
+          display: flex;
+          justify-content: space-between;
+          font-size: 18px;
+          P {
+            font-weight: 600;
+          }
+        }
+        .percent {
+          width: 100%;
+          height: 7px;
+          background-color: #7777;
+          margin-bottom: 20px;
+          .percent-color {
+            height: 100%;
+            background-color: #000000;
+          }
         }
       }
     }

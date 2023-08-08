@@ -5,6 +5,7 @@ import FaqSection from '../../sections/aboutSections/FaqSection'
 import DiscoverTours from '../../sections/homeSections/DiscoverTours'
 import AboutCounter from '../../sections/aboutSections/AboutCounter'
 import Leaders from '../../sections/aboutSections/Leaders'
+import OurMission from '../../sections/aboutSections/OurMission'
 
 const AboutPage = () => {
   return (
@@ -13,6 +14,7 @@ const AboutPage = () => {
       <AboutCounter/>
       <Leaders/>
       <DiscoverTours/>
+      <OurMission/>
       <FaqSection/>
     </>
   )
