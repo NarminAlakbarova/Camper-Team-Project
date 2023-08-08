@@ -123,13 +123,38 @@
 
 //ABOUT-COUNTER SECTION
 
-#about-counter{
+#about-counter {
   background-image: url("../../../src/assets/img/about/top-about-scaled.jpg");
-  padding: 100px 0;
+  padding: 150px 0;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  .about-counter{
-
+  .about-counter {
+    .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      border: none;
+      row-gap: 20px;
+      .img {
+        img {
+          width: 70px;
+          height: 70px;
+        }
+      }
+      .content {
+        text-align: center;
+        .text {
+          font-size: 50px;
+          font-weight: 700;
+        }
+        p {
+          font-weight: 400;
+          font-size: 18px;
+        }
+      }
+    }
   }
 }
