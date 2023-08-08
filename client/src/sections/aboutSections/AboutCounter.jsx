@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+
 import cameraImg from "../../assets/img/about/camera.png";
 import compassImg from "../../assets/img/about/compass.png";
 import viewImg from "../../assets/img/about/view.png";
