@@ -1,0 +1,302 @@
+//HERO BANNER GALLERY
+
+#hero-banner-gallery {
+  background: url(../../assets/img/homePage/hero-campger-bg.jpg) no-repeat
+    center;
+  background-size: cover;
+  .hero-banner-gallery {
+    height: 70vh;
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Barlow Condensed", sans-serif;
+    p {
+      font-size: 72px;
+      letter-spacing: 2px;
+    }
+    span {
+      font-size: 24px;
+    }
+  }
+}
+
+//GALLERY SECTION-1
+
+#gallery-sec1 {
+  position: relative;
+  height: 600px;
+  margin: 50px 0;
+  .gallery-sec1-item {
+    position: absolute;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    height: 50%;
+    width: 25%;
+    padding: 10px;
+    span {
+      display: none;
+      font-size: 24px;
+      font-family: "Barlow Condensed", sans-serif;
+      color: #fff;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color: #000000, $alpha: 0.7);
+      justify-content: center;
+      align-items: center;
+    }
+    .bg-img {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    &:first-child {
+      top: 0;
+      height: 100%;
+      width: 50%;
+      .bg-img {
+        background: url(../../assets/img/gallery/gallery3-76.jpg) no-repeat
+          center;
+        background-size: cover;
+      }
+    }
+    &:nth-child(2) {
+      top: 0;
+      left: 50%;
+      .bg-img {
+        background: url(../../assets/img/gallery/gallery6-6.jpg) no-repeat
+          center;
+        background-size: cover;
+      }
+    }
+    &:nth-child(3) {
+      top: 0;
+      left: 75%;
+      .bg-img {
+        background: url(../../assets/img/gallery/gallery2-6.jpg) no-repeat
+          center;
+        background-size: cover;
+      }
+    }
+    &:nth-child(4) {
+      top: 50%;
+      left: 50%;
+      .bg-img {
+        background: url(../../assets/img/gallery/gallery4-6.jpg) no-repeat
+          center;
+        background-size: cover;
+      }
+    }
+    &:nth-child(5) {
+      top: 50%;
+      left: 75%;
+      .bg-img {
+        background: url(../../assets/img/gallery/gallery5-6.jpg) no-repeat
+          center;
+        background-size: cover;
+      }
+    }
+    &:hover {
+      span {
+        display: flex;
+      }
+    }
+  }
+}
+
+// GALLERY SECTION-2
+
+#gallery-sec2 {
+  position: relative;
+  height: 600px;
+  margin: 50px 0;
+  .gallery-sec1-item {
+    position: absolute;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    height: 50%;
+    width: 25%;
+    padding: 10px;
+    span {
+      display: none;
+      font-size: 24px;
+      font-family: "Barlow Condensed", sans-serif;
+      color: #fff;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color: #000000, $alpha: 0.7);
+      justify-content: center;
+      align-items: center;
+    }
+    .bg-img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    &:first-child {
+      top: 0;
+      left: 0;
+      .bg-img {
+        background: url(../../assets/img/gallery/gallery9-6.jpg) no-repeat
+          center;
+        background-size: cover;
+      }
+    }
+    &:nth-child(2) {
+      top: 0;
+      left: 25%;
+      .bg-img {
+        background: url(../../assets/img/gallery/gallery7-6.jpg) no-repeat
+          center;
+        background-size: cover;
+      }
+    }
+    &:nth-child(3) {
+      top: 50%;
+      left: 0;
+      .bg-img {
+        background: url(../../assets/img/gallery/gallery8-6.jpg) no-repeat
+          center;
+        background-size: cover;
+      }
+    }
+    &:nth-child(4) {
+      top: 50%;
+      left: 25%;
+      .bg-img {
+        background: url(../../assets/img/gallery/gallery4-76.jpg) no-repeat
+          center;
+        background-size: cover;
+      }
+    }
+    &:nth-child(5) {
+      top: 0;
+      left: 50%;
+      height: 100%;
+      width: 50%;
+      .bg-img {
+        background: url(../../assets/img/gallery/gallery1-76.jpg) no-repeat
+          center;
+        background-size: cover;
+      }
+    }
+    &:hover {
+      span {
+        display: flex;
+      }
+    }
+  }
+}
+
+// GALLERY MODAL
+
+.ant-modal-wrap {
+  display: flex;
+  align-items: center;
+  .ant-modal {
+    width: 650px !important;
+    padding-bottom: 0 !important;
+    top: 0;
+    .ant-modal-content {
+      background-color: transparent !important;
+      box-shadow: none;
+      padding: 0;
+      .ant-modal-footer,
+      .slick-dots {
+        display: none !important;
+      }
+      .ant-modal-close-icon {
+        color: #fff;
+        font-size: 20px;
+        margin-left: 10px;
+      }
+      .ant-modal-body {
+        img {
+          width: 100%;
+          max-height: 546px;
+        }
+        .carousel-img-div {
+          overflow: hidden;
+          padding: 35px;
+        }
+        .slick-arrow {
+          z-index: 2;
+          &.slick-next {
+            right: 0;
+          }
+          &.slick-prev {
+            left: -2%;
+          }
+          &::before {
+            font-size: 35px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #gallery-sec1 {
+    position: static;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    .gallery-sec1-item {
+      position: static;
+      height: 35%;
+      width: 50%;
+      &:first-child {
+        width: 50%;
+        height: 35%;
+      }
+    }
+  }
+  #gallery-sec2 {
+    position: static;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    .gallery-sec1-item {
+      position: static;
+      height: 35%;
+      width: 50%;
+      &:nth-child(5) {
+        height: 35%;
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  #gallery-sec1 {
+    position: static;
+    .gallery-sec1-item {
+      position: static;
+      height: 20%;
+      width: 100%;
+      &:first-child {
+        width: 100%;
+        height: 20%;
+      }
+    }
+  }
+  #gallery-sec2 {
+    position: static;
+    .gallery-sec1-item {
+      position: static;
+      height: 20%;
+      width: 100%;
+      &:nth-child(5) {
+        height: 20%;
+        width: 100%;
+      }
+    }
+  }
+}
