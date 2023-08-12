@@ -1,8 +1,8 @@
 import React from "react";
 import { Carousel } from "antd";
-import image1 from "../../assets/img/homePage/newTour6.jpg"
+import image1 from "../../assets/img/homePage/popularTour4.jpg"
 import image2 from "../../assets/img/homePage/newTour4.jpg"
-import image3 from "../../assets/img/homePage/popularTour4.jpg"
+import image3 from "../../assets/img/homePage/newTour6.jpg"
 
 const HeroBanner = () => {
   return (
