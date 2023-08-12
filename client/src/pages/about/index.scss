@@ -14,12 +14,11 @@
         width: 15px;
         padding: 11px 5px;
         border-radius: 100%;
-        border: 2px solid #ddd;
         display: flex;
         justify-content: center;
         align-items: center;
         button {
-          padding: 9px;
+          padding: 11px;
           border-radius: 50%;
           width: 5px;
           height: 5px;
@@ -47,9 +46,9 @@
     transform: translate(-50%, -50%);
     color: #fff;
     z-index: 3;
+    font-family: "Barlow Condensed", sans-serif;
     p {
-      font-family: 'Playfair Display', serif;
-      font-size: 64px;
+      font-size: 72px;
       margin: 0;
     }
     span {
