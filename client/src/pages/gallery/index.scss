@@ -199,41 +199,39 @@
   display: flex;
   align-items: center;
   .ant-modal {
-    width: 650px !important;
+    width: 900px !important;
     padding-bottom: 0 !important;
     top: 0;
     .ant-modal-content {
       background-color: transparent !important;
       box-shadow: none;
-      padding: 0;
-      .ant-modal-footer,
-      .slick-dots {
-        display: none !important;
-      }
       .ant-modal-close-icon {
         color: #fff;
         font-size: 20px;
         margin-left: 10px;
       }
       .ant-modal-body {
-        img {
-          width: 100%;
-          max-height: 546px;
+        button {
+          border: none;
+          outline: none;
+          background-color: transparent;
+          position: absolute;
+          top: 50%;
+          svg {
+            font-size: 32px;
+            color: #fff;
+          }
         }
-        .carousel-img-div {
+        .next-btn {
+          right: 20px;
+        }
+        .img-div {
+          max-width: 730px;
+          margin: 0 auto;
           overflow: hidden;
-          padding: 35px;
-        }
-        .slick-arrow {
-          z-index: 2;
-          &.slick-next {
-            right: 0;
-          }
-          &.slick-prev {
-            left: -2%;
-          }
-          &::before {
-            font-size: 35px;
+          padding: 30px;
+          img {
+            width: 100%;
           }
         }
       }

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
 
 * {
   margin: 0;
@@ -14,4 +14,17 @@
   max-width: 1200px;
   padding: 0 15px;
   margin: 0 auto;
+}
+.arrow-up {
+  padding: 15px;
+  background-color: #ffaf19;
+  position: fixed;
+  z-index: 1000;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  display: none;
+}
+.arrow-up svg {
+  color: #fff;
 }
