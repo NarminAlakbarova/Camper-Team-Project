@@ -1,7 +1,12 @@
+//HEADER
+
 header {
   background-color: #000;
   font-family: "Barlow Condensed", sans-serif;
   font-size: 18px;
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
   nav {
     display: flex;
     justify-content: space-between;
@@ -74,15 +79,90 @@ header {
           }
         }
       }
+      .menu-btn {
+        background-color: transparent;
+        outline: none;
+        border: none;
+        display: none;
+        svg {
+          color: #ffaf19;
+        }
+      }
     }
   }
 }
 
-@media only screen and (max-width:768px){
-  header{
-    nav{
-      ul{
+// ANTD DROPDOWN
+
+.ant-dropdown {
+  .ant-dropdown-menu {
+    margin-top: 28px;
+  }
+}
+
+// MENU CONTENT
+
+#menu {
+  position: fixed;
+  background-color: rgba($color: #000, $alpha: 0.9);
+  margin-top: 43px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  z-index: 2000;
+  overflow: hidden;
+  width: 0;
+  transition: all 0.5s ease-in-out;
+  .menu-content {
+    .close-btn {
+      position: absolute;
+      top: 3%;
+      right: 3%;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      svg {
+        color: #ffaf19;
+        font-size: 24px;
+      }
+    }
+    .menu-content-items {
+      font-size: 19px;
+      hr {
+        color: #fff;
+      }
+      li {
+        color: #fff;
+        svg {
+          font-size: 16px;
+        }
+        a {
+          color: #fff;
+        }
+        ul {
+          margin-left: 3%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          overflow: hidden;
+          height: 0;
+          transition: all 0.5s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  header {
+    nav {
+      ul {
         display: none;
+      }
+      .header-right {
+        .menu-btn {
+          display: block;
+        }
       }
     }
   }
