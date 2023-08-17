@@ -30,7 +30,7 @@ const OurMission = () => {
       <div className="container">
         <div className="our-mission">
           <div className="row">
-            <div className="col-md-6 col left-col">
+            <div className="col-md-6 col-sm-12  left-col">
               <h3>Our Mission</h3>
               <p className="mission-title">
                 Our wildlife tours are perfect for those who are interested in
@@ -40,7 +40,7 @@ const OurMission = () => {
                 explore the natural beauty and awe-inspiring landscapes
               </p>
             </div>
-            <div className="col-md-6 col right-col">
+            <div className="col-md-6  col-sm-12  right-col">
               {progressPercent.map((percentage, index) => (
                 <div className={percentage.title.toLowerCase()} key={index}>
                   <div className="percent-title">
