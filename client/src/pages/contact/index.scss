@@ -1,0 +1,59 @@
+//HERO-BANNER SECTION
+#hero-banner {
+  background-image: url("../../../src/assets/img/contact/hero-campger-bg\ \(1\).jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 200px 0;
+
+  .hero-banner {
+    color: white;
+    h1 {
+      font-size: 75px;
+    }
+    p {
+      font-size: 25px;
+    }
+  }
+}
+
+///LOCATION SECTION
+#location {
+  .location {
+    display: flex;
+    .location-card {
+      width: 350px;
+      height: 500px;
+    }
+
+    .img {
+      position: relative;
+      .overlay {
+        color: white;
+        position: absolute;
+        padding: 0 80px;
+        top: 50%;
+        transform: translate(0, -50%);
+        h3 {
+          font-size: 30px;
+          &::after {
+            content: "";
+            width: 55%;
+            background-color: white;
+            height: 3px;
+            display: block;
+            margin: 8px 0;
+          }
+        }
+      }
+      img {
+        width: 350px;
+        height: 500px;
+      }
+    }
+    @media only screen and (max-width: 991px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
