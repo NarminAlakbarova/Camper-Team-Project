@@ -1,7 +1,6 @@
 import React from "react";
 import locationImg1 from "../../assets/img/contact/locationImg1.jpg";
 import locationImg2 from "../../assets/img/contact/locationImg2.jpg";
-import Map from "../../components/Map";
 
 const Location = () => {
   return (
@@ -47,7 +46,11 @@ const Location = () => {
           </div>
         </div>
         <div className="location-card">
-          <Map />
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d18878260.622820545!2d39.22144715378151!3d44.54321324720923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2saz!4v1691612489236!5m2!1sen!2saz"
+          
+            loading="lazy"
+          ></iframe>
         </div>
       </div>
     </div>

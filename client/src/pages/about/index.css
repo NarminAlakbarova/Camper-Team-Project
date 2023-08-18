@@ -1,0 +1,241 @@
+#hero-banner-about {
+  position: relative;
+}
+#hero-banner-about .ant-carousel img {
+  width: 100%;
+  max-height: 80vh;
+}
+#hero-banner-about .ant-carousel .slick-dots {
+  justify-content: end;
+  padding-inline-end: 50px;
+}
+#hero-banner-about .ant-carousel .slick-dots li {
+  width: 15px;
+  padding: 11px 5px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#hero-banner-about .ant-carousel .slick-dots li button {
+  padding: 11px;
+  border-radius: 50%;
+  width: 5px;
+  height: 5px;
+}
+#hero-banner-about .ant-carousel .slick-dots li button::before {
+  content: "";
+}
+#hero-banner-about .dark-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  top: 0;
+}
+#hero-banner-about .hero-banner-text {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  z-index: 3;
+  font-family: "Barlow Condensed", sans-serif;
+}
+#hero-banner-about .hero-banner-text p {
+  font-size: 72px;
+  margin: 0;
+}
+#hero-banner-about .hero-banner-text span {
+  font-size: 20px;
+  color: #ddd;
+}
+
+#faq-section {
+  background: url("../../assets/img/about/faqBg.jpg") no-repeat center;
+  background-size: cover;
+  padding: 90px 0;
+}
+#faq-section h2 {
+  text-align: center;
+}
+#faq-section .accordions {
+  margin: 50px 0;
+}
+#faq-section .accordions .ant-collapse {
+  background-color: transparent;
+}
+#faq-section .accordions .ant-collapse .ant-collapse-header {
+  padding: 23px;
+}
+#faq-section .accordions .ant-collapse .ant-collapse-header .ant-collapse-expand-icon {
+  position: absolute;
+  right: 0;
+}
+#faq-section .accordions .ant-collapse .ant-collapse-header .ant-collapse-header-text {
+  font-weight: 600;
+  font-size: 19px;
+}
+#faq-section .accordions .ant-collapse .ant-collapse-content {
+  border-radius: 17px;
+}
+#faq-section .accordions .ant-collapse .ant-collapse-item-active {
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 17px;
+  margin: 20px 0;
+  border: none;
+}
+#faq-section .accordions .ant-collapse .ant-collapse-item-active .ant-collapse-content-box {
+  color: #717171;
+  font-size: 17px;
+}
+
+#about-counter {
+  background-image: url("../../../src/assets/img/about/top-about-scaled.jpg");
+  padding: 100px 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#about-counter .about-counter .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  row-gap: 20px;
+}
+#about-counter .about-counter .card .img img {
+  width: 70px;
+  height: 70px;
+}
+#about-counter .about-counter .card .content {
+  text-align: center;
+}
+#about-counter .about-counter .card .content .text {
+  font-size: 50px;
+  font-weight: 700;
+}
+#about-counter .about-counter .card .content p {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+#leaders {
+  padding-top: 100px;
+}
+#leaders .leaders .title {
+  font-size: 26px;
+  font-weight: 600;
+}
+#leaders .leaders .card {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+#leaders .leaders .card .img {
+  position: relative;
+  overflow: hidden;
+}
+#leaders .leaders .card .img:hover {
+  border-radius: 10px;
+}
+#leaders .leaders .card .img:hover img {
+  transform: scale(1.2);
+  transition: 1s;
+}
+#leaders .leaders .card .img:hover .overlay {
+  display: flex;
+}
+#leaders .leaders .card .img .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  background-color: rgba(255, 175, 25, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+#leaders .leaders .card .img .overlay .icons {
+  display: flex;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  font-size: 18px;
+}
+#leaders .leaders .card .img img {
+  border-radius: 10px;
+  width: 100%;
+}
+#leaders .leaders .card .content {
+  padding-top: 20px;
+}
+#leaders .leaders .card .content h3 {
+  font-size: 20px;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+#leaders .leaders .card .content h3:hover {
+  color: rgb(255, 175, 25);
+}
+#leaders .leaders .card .content p {
+  font-size: 15px;
+  color: #717171;
+}
+
+#our-mission {
+  padding: 70px 0;
+}
+#our-mission .our-mission .left-col h3 {
+  padding-bottom: 20px;
+  font-weight: 600;
+}
+#our-mission .our-mission .left-col .mission-title {
+  font-size: 18px;
+  color: #717171;
+}
+#our-mission .our-mission .right-col .variety .percent-title,
+#our-mission .our-mission .right-col .satisfaction .percent-title,
+#our-mission .our-mission .right-col .quality .percent-title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+}
+#our-mission .our-mission .right-col .variety .percent-title P,
+#our-mission .our-mission .right-col .satisfaction .percent-title P,
+#our-mission .our-mission .right-col .quality .percent-title P {
+  font-weight: 600;
+}
+#our-mission .our-mission .right-col .variety .percent,
+#our-mission .our-mission .right-col .satisfaction .percent,
+#our-mission .our-mission .right-col .quality .percent {
+  width: 100%;
+  height: 7px;
+  background-color: rgba(119, 119, 119, 0.4666666667);
+  margin-bottom: 20px;
+}
+#our-mission .our-mission .right-col .variety .percent .percent-color,
+#our-mission .our-mission .right-col .satisfaction .percent .percent-color,
+#our-mission .our-mission .right-col .quality .percent .percent-color {
+  height: 100%;
+  background-color: #000000;
+}
+
+@media only screen and (max-width: 576px) {
+  #hero-banner-about .ant-carousel .slick-dots {
+    display: none !important;
+  }
+  #hero-banner-about .hero-banner-text p {
+    font-size: 36px;
+  }
+  #hero-banner-about .hero-banner-text span {
+    font-size: 16px;
+  }
+}/*# sourceMappingURL=index.css.map */
