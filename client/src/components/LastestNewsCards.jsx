@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const LastestNewsCards = ({ newsimg, newsdate, newtitle }) => {
+  console.log(newsimg);
   return (
     <div className="col col-xl-4 col-lg-4 col-md-4 col-sm-4 my-2">
       <div className="card">

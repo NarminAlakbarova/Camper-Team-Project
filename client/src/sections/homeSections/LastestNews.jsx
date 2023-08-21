@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import newsimg1 from "../../assets/img/homePage/lucija-ros-538672-unsplash-700x500.jpg";
-import newsimg2 from "../../assets/img/homePage/pexels-photo-739365-700x500.jpeg";
-import newsimg3 from "../../assets/img/homePage/anastasia-petrova-193818-unsplash-700x500.jpg";
 import LastestNewsCards from "../../components/LastestNewsCards";
+import { useDispatch, useSelector } from "react-redux";
+import { getData } from "../../redux/allDataSlice";
 
 const LastestNews = () => {
+  const lastestNews = useSelector((state) => state.data.data);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getData("newsCamper"));
+    console.log(lastestNews);
+  }, [dispatch]);
+  console.log(lastestNews);
+
   return (
     <div id="lastest-news">
       <div className="container">
@@ -16,21 +24,19 @@ const LastestNews = () => {
           </div>
           <div className="news-content">
             <div className="row">
-              <LastestNewsCards
-                newsimg={newsimg1}
-                newsdate={"March 10, 2023 • Jane Smith"}
-                newtitle={"Tips for a Safe and Enjoyable Tour"}
-              />
-              <LastestNewsCards
-                newsimg={newsimg2}
-                newsdate={"March 10, 2023 • Jane Smith"}
-                newtitle={"Tips for a Safe and Enjoyable Tour"}
-              />
-              <LastestNewsCards
-                newsimg={newsimg3}
-                newsdate={"March 10, 2023 • Jane Smith"}
-                newtitle={"Tips for a Safe and Enjoyable Tour"}
-              />
+              {lastestNews.map(
+                (news, index) => (
+                  console.log(news.newsImg.img1),
+                  (
+                    <LastestNewsCards
+                      key={index}
+                      newsimg={news.newsImg.img1}
+                      newsdate={`${news.releaseDay}•${news.author.authorName}`}
+                      newtitle={news.newsTitle}
+                    />
+                  )
+                )
+              )}
             </div>
           </div>
         </div>
