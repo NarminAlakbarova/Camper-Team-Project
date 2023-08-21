@@ -8,8 +8,8 @@ const ContactPage = () => {
   return (
     <>
       <HeroBanner/>
-      <Location/>
       <Form/>
+      <Location/>
     </>
   )
 }
