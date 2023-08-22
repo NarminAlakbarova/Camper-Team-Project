@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import user1 from "../../assets/img/homePage/user1.jpg";
-import user2 from "../../assets/img/homePage/user2.jpg";
-import user3 from "../../assets/img/homePage/user3.jpg";
+import { useSelector } from "react-redux";
 
-const images = [user1, user2, user3, user1, user2, user3];
+// const images = [user1, user2, user3, user1, user2, user3];
 const FeedBack = () => {
+  const users = useSelector((state) => state.feedBackData.data);
+  console.log(users);
   const [slideIndex, setSlideIndex] = useState(0);
   const settings = {
     dots: true,
@@ -40,12 +40,12 @@ const FeedBack = () => {
   };
   return (
     <Slider {...settings}>
-      {images.map((img, index) => (
+      {users.map((user, index) => (
         <div
           className={index === slideIndex ? `slide slide-active` : `slide`}
           key={index}
         >
-          <img src={img} alt="" />
+          <img src={user.userImg} alt="" />
         </div>
       ))}
       {/* <FeedBackContent

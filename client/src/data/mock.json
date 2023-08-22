@@ -329,7 +329,7 @@
   "newsCamper": [
     {
       "newsImg": {
-        "img1": "../assets/img/newsAndBlog/news1.jpg",
+        "img1": "../../assets/img/newsAndBlog/news1.jpg",
         "img2": "../../assets/img/newsAndBlog/news2.jpg",
         "img3": "../../assets/img/newsAndBlog/news3.jpeg",
         "img4": "../../assets/img/newsAndBlog/news4.jpg"
@@ -344,7 +344,7 @@
     },
     {
       "newsImg": {
-        "img1": "../assets/img/newsAndBlog/news1.jpg",
+        "img1": "../../assets/img/newsAndBlog/news1.jpg",
         "img2": "../../assets/img/newsAndBlog/news2.jpg",
         "img3": "../../assets/img/newsAndBlog/news3.jpeg",
         "img4": "../../assets/img/newsAndBlog/news4.jpg"
@@ -359,7 +359,7 @@
     },
     {
       "newsImg": {
-        "img1": "../assets/img/newsAndBlog/news1.jpg",
+        "img1": "../../assets/img/feedBack/user1.jpg",
         "img2": "../../assets/img/newsAndBlog/news2.jpg",
         "img3": "../../assets/img/newsAndBlog/news3.jpeg",
         "img4": "../../assets/img/newsAndBlog/news4.jpg"

@@ -1,19 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import LastestNewsCards from "../../components/LastestNewsCards";
-import { useDispatch, useSelector } from "react-redux";
-import { getData } from "../../redux/allDataSlice";
+import { useSelector } from "react-redux";
 
 const LastestNews = () => {
-  const lastestNews = useSelector((state) => state.data.data);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getData("newsCamper"));
-    console.log(lastestNews);
-  }, [dispatch]);
-  console.log(lastestNews);
-
+  const lastestNews=useSelector(state=>state.newsData.data)
   return (
     <div id="lastest-news">
       <div className="container">
@@ -24,19 +15,15 @@ const LastestNews = () => {
           </div>
           <div className="news-content">
             <div className="row">
-              {lastestNews.map(
-                (news, index) => (
-                  console.log(news.newsImg.img1),
-                  (
-                    <LastestNewsCards
-                      key={index}
-                      newsimg={news.newsImg.img1}
-                      newsdate={`${news.releaseDay}•${news.author.authorName}`}
-                      newtitle={news.newsTitle}
-                    />
-                  )
-                )
-              )}
+              {lastestNews.map((news, index) => (
+                // console.log(news.newsImg.img1),
+                <LastestNewsCards
+                  key={index}
+                  newsimg={news.newsImg?.img1}
+                  newsdate={`${news.releaseDay}•${news.author?.authorName}`}
+                  newtitle={news.newsTitle}
+                />
+              ))}
             </div>
           </div>
         </div>

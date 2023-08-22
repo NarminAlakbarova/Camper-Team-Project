@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import dataReducer from "./allDataSlice";
-
+import newsDataReducer from "./newsDataSlice"
+import feedBackDataReducer from "./feedBackDataSlice"
 export const store = configureStore({
   reducer: {
-    data: dataReducer,
+    newsData:newsDataReducer,
+    feedBackData:feedBackDataReducer
   },
 });
