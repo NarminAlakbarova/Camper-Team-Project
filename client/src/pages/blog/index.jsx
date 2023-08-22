@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import "./index.scss";
+import HeroBanner from "../../sections/blogSections/HeroBanner";
+import BlogContent from "../../sections/blogSections/BlogContent";
 
 const BlogPage = () => {
   return (
-    <div>BlogPage</div>
-  )
-}
+    <>
+      <HeroBanner />
+      <BlogContent />
+    </>
+  );
+};
 
-export default BlogPage
+export default BlogPage;
