@@ -13,13 +13,15 @@ import CustomerSaid from "../../sections/homeSections/CustomerSaid";
 import { useDispatch } from "react-redux";
 import { getNewsData } from "../../redux/newsDataSlice";
 import { feedBackData } from "../../redux/feedBackDataSlice";
+import { getToursData } from "../../redux/toursDataSlice";
 
 const HomePage = () => {
-  const dispatc = useDispatch();
+  const dispatch = useDispatch();
   useEffect(() => {
-    dispatc(getNewsData());
-    dispatc(feedBackData())
-  }, [dispatc]);
+    dispatch(getNewsData());
+    dispatch(feedBackData());
+    dispatch(getToursData());
+  }, [dispatch]);
   return (
     <>
       <HeroBanner />
