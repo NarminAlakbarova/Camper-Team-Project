@@ -12,7 +12,7 @@ const LastestNewsCards = ({ newsimg, newsdate, newtitle }) => {
         <div className="card-content">
           <p>{newsdate}</p>
          <div className="title-link">
-         <Link className="title">{newtitle}</Link>
+         <Link to={"/details"} className="title">{newtitle}</Link>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
