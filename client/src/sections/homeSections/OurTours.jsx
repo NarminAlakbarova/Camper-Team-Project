@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { v4 as uuid } from "uuid";
+import { AiFillStar } from "react-icons/ai";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -72,61 +73,21 @@ const OurTours = ({ sectionTitle }) => {
                     </div>
                     <div className="popular-card-info">
                       <p>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
+                        <span>
+                          <AiFillStar />
+                        </span>
+                        <span>
+                          <AiFillStar />
+                        </span>
+                        <span>
+                          <AiFillStar />
+                        </span>
+                        <span>
+                          <AiFillStar />
+                        </span>
+                        <span>
+                          <AiFillStar />
+                        </span>
                         ({item?.tourReview} review)
                       </p>
                       <Link to={""}>{item?.tourTitle}</Link>
@@ -135,17 +96,18 @@ const OurTours = ({ sectionTitle }) => {
                         {item?.tourDuringNight && "night"}
                       </p>
                       <p>{item.tourLocation}</p>
-                      {item?.tourDiscountUSD ? (
-                        <p>
-                          From <span>${item?.tourPriceUSD}</span>
-                          <span> ${item?.tourDiscountUSD}</span>
-                        </p>
-                      ) : (
-                        <p>
-                          From <span></span>
-                          <span>${item?.tourPriceUSD}</span>
-                        </p>
-                      )}
+                      <p>
+                        From{" "}
+                        {item.tourPrevPrice && (
+                          <span className="tour-prev-price">
+                            ${item.tourPrevPrice}
+                          </span>
+                        )}
+                        <span className="tour-price">
+                          {" "}
+                          ${item?.tourPriceUSD}
+                        </span>
+                      </p>
                     </div>
                   </div>
                 );
@@ -166,61 +128,21 @@ const OurTours = ({ sectionTitle }) => {
                     </div>
                     <div className="popular-card-info">
                       <p>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
+                        <span>
+                          <AiFillStar />
+                        </span>
+                        <span>
+                          <AiFillStar />
+                        </span>
+                        <span>
+                          <AiFillStar />
+                        </span>
+                        <span>
+                          <AiFillStar />
+                        </span>
+                        <span>
+                          <AiFillStar />
+                        </span>
                         ({item?.tourReview} review)
                       </p>
                       <Link to={""}>{item?.tourTitle}</Link>
@@ -229,17 +151,18 @@ const OurTours = ({ sectionTitle }) => {
                         {item?.tourDuringNight && "night"}
                       </p>
                       <p>{item?.tourLocation}</p>
-                      {item?.tourDiscountUSD ? (
-                        <p>
-                          From <span>${item?.tourPriceUSD}</span>
-                          <span> ${item?.tourDiscountUSD}</span>
-                        </p>
-                      ) : (
-                        <p>
-                          From <span></span>
-                          <span> ${item?.tourPriceUSD}</span>
-                        </p>
-                      )}
+                      <p>
+                        From{" "}
+                        {item.tourPrevPrice && (
+                          <span className="tour-prev-price">
+                            ${item.tourPrevPrice}
+                          </span>
+                        )}
+                        <span className="tour-price">
+                          {" "}
+                          ${item?.tourPriceUSD}
+                        </span>
+                      </p>
                     </div>
                   </div>
                 );

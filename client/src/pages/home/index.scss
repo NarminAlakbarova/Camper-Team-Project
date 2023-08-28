@@ -378,9 +378,8 @@
             font-size: 20px;
             font-weight: 500;
             transition: 0.5s;
-            &:hover{
+            &:hover {
               color: #ffaf19;
-
             }
           }
         }
@@ -395,9 +394,8 @@
             border: 1px solid #7777;
             border-radius: 10px;
             transition: 0.5s;
-            &:hover{
+            &:hover {
               color: #ffaf19;
-
             }
           }
         }
@@ -487,15 +485,13 @@
               width: 12px;
               color: #000;
             }
-            span {
-              &:first-child {
-                text-decoration: line-through !important;
-              }
-              &:nth-child(2) {
-                color: #ffaf19;
-                font-size: 18px;
-                font-weight: 700;
-              }
+            .tour-prev-price {
+              text-decoration: line-through !important;
+            }
+            .tour-price {
+              color: #ffaf19;
+              font-size: 18px;
+              font-weight: 700;
             }
           }
         }
@@ -524,7 +520,7 @@
 #discover-tours {
   background: url("../../assets/img/homePage/discoverToursBg.png") no-repeat
     center;
-    padding: 30px 0;
+  padding: 30px 0;
   .discover-tours {
     height: 55vh;
     text-align: center;
