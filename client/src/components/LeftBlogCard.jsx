@@ -1,6 +1,7 @@
 import React from "react";
 import blogImg1 from "../assets/img/newsAndBlog/news1.jpg";
 import { Link } from "react-router-dom";
+import { Pagination } from "antd";
 
 const LeftBlogCard = () => {
   return (
@@ -68,6 +69,7 @@ const LeftBlogCard = () => {
           <Link className="read-more-btn">Read More</Link>
         </div>
       </div>
+      <Pagination defaultCurrent={1} total={20} className="pagination"/>
     </>
   );
 };

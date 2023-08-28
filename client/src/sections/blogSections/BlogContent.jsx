@@ -8,10 +8,10 @@ const BlogContent = () => {
       <div className="container">
         <div className="blog-content">
           <div className="row">
-            <div className="col-8">
+            <div className="col-lg-8 col-md-12">
               <LeftSide />
             </div>
-            <div className="col-4">
+            <div className="col-lg-4 col-md-12">
               <RightSide />
             </div>
           </div>
