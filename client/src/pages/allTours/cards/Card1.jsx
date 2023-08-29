@@ -29,7 +29,7 @@ const Card1 = ({ tour }) => {
           </span>
           <span className="tour-text">({tour?.tourReview} Review)</span>
         </div>
-        <Link className="tour-title" to={""}>
+        <Link className="tour-title" to={`/tourDetails/${tour.id}`}>
           {tour?.tourTitle}
         </Link>
         <p className="tour-text">

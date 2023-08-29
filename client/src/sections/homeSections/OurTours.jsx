@@ -9,7 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const OurTours = ({ sectionTitle }) => {
   const tours = useSelector((state) => state.toursData.data);
-  const ourPopularTours = tours.filter((item) => item.tourRaiting > 7 && item);
+  const ourPopularTours = tours.filter((item) => item.tourRating > 7 && item);
   const newTours = tours.slice(-9);
 
   const settings = {
@@ -64,10 +64,10 @@ const OurTours = ({ sectionTitle }) => {
                 return (
                   <div key={uuid()} className="popular-tour-card">
                     <div className="popular-card-img">
-                      <Link to={""}>
+                      <Link to={`/tourDetails/${item.id}`}>
                         <img src={item?.tourImg[0]} alt="popular tour image" />
                       </Link>
-                      <Link to={""} className="img-text">
+                      <Link to={`/tourDetails/${item.id}`} className="img-text">
                         Popular Tour
                       </Link>
                     </div>
@@ -90,7 +90,7 @@ const OurTours = ({ sectionTitle }) => {
                         </span>
                         ({item?.tourReview} review)
                       </p>
-                      <Link to={""}>{item?.tourTitle}</Link>
+                      <Link to={`/tourDetails/${item.id}`}>{item?.tourTitle}</Link>
                       <p>
                         {item?.tourDuringDay} days {item?.tourDuringNight}{" "}
                         {item?.tourDuringNight && "night"}
@@ -119,10 +119,10 @@ const OurTours = ({ sectionTitle }) => {
                 return (
                   <div key={uuid()} className="popular-tour-card">
                     <div className="popular-card-img">
-                      <Link to={""}>
+                      <Link to={`/tourDetails/${item.id}`}>
                         <img src={item.tourImg[0]} alt="popular tour image" />
                       </Link>
-                      <Link to={""} className="img-text">
+                      <Link to={`/tourDetails/${item.id}`} className="img-text">
                         Popular Tour
                       </Link>
                     </div>
@@ -145,7 +145,7 @@ const OurTours = ({ sectionTitle }) => {
                         </span>
                         ({item?.tourReview} review)
                       </p>
-                      <Link to={""}>{item?.tourTitle}</Link>
+                      <Link to={`/tourDetails/${item.id}`}>{item?.tourTitle}</Link>
                       <p>
                         {item?.tourDuringDay} days {item?.tourDuringNight}{" "}
                         {item?.tourDuringNight && "night"}
