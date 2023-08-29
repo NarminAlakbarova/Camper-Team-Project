@@ -119,7 +119,7 @@ const GalleryPage = () => {
               key={i}
               className="gallery-sec1-item"
               onClick={() => {
-                showModal(item.img), handleImageData(item.img, i + 5);
+                showModal(), handleImageData(item.img, i + 5);
               }}
             >
               <div className="bg-img">

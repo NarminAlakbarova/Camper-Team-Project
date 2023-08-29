@@ -12,7 +12,7 @@ const Card2 = ({ tour }) => {
       </div>
       <div className="tour-card2-content">
         <div className="tour-card2-content-left">
-          <Link className="tour-title" to={""}>
+          <Link className="tour-title" to={`/tourDetails/${tour.id}`}>
             {tour?.tourTitle}
           </Link>
           <p className="tour-text">
@@ -57,7 +57,7 @@ const Card2 = ({ tour }) => {
             </span>
             <p className="tour-text">({tour?.tourReview} Review)</p>
             <div>
-              <Link>VIEW DETAILS</Link>
+              <Link to={`/tourDetails/${tour.id}`}>VIEW DETAILS</Link>
             </div>
           </div>
         </div>
