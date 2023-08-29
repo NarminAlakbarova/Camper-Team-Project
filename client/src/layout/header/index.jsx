@@ -7,6 +7,7 @@ import SelectCurrency from "../../components/SelectCurrency";
 import { AiOutlineClose } from "react-icons/ai";
 import { BiSolidDownArrow, BiSolidUpArrow } from "react-icons/bi";
 import "./index.scss";
+import ModalLogin from "../../components/modal/Modal";
 
 const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -34,15 +35,18 @@ const Header = () => {
       setTogglePages(false);
     }
   };
-
   // window.onscroll = () => {
   //   document.documentElement.scrollTop >= 110
   //     ? headerRef.current.style.backgroundColor = "#2a2f2f"
   //     : headerRef.current.style.backgroundColor="#000";
   // };
-
+  const [showModal, setShowModal] = useState(false);
+  const handleModalClick = () => {
+    showModal ? setShowModal(false) : setShowModal(true);
+  };
   return (
     <>
+      {showModal && <ModalLogin handleModalClick={handleModalClick} />}
       <header ref={headerRef}>
         <div className="container">
           <nav>
@@ -60,7 +64,7 @@ const Header = () => {
                 <NavLink to={"allTours"}>All Tours</NavLink>
               </li>
               <li>
-                <DropdownComponent dropdownSpace={"pages"} />
+                <DropdownComponent dropdownSpace={"pages"} handleModalClick={handleModalClick} />
               </li>
               <li>
                 <NavLink to={"contact"}>Contact</NavLink>
@@ -68,7 +72,7 @@ const Header = () => {
             </ul>
             <div className="header-right">
               <SelectCurrency />
-              <DropdownComponent dropdownSpace={"join-us"} />
+              <DropdownComponent dropdownSpace={"join-us"} handleModalClick={handleModalClick} />
               <button className="menu-btn" onClick={showMenu}>
                 <RiMenuFill />
               </button>

@@ -11,7 +11,7 @@ const HeroBanner = () => {
           </div>
         </div>
       </div>
-      <div className="img">
+      <div className="details-img">
         <div className="container d-flex justify-content-center">
           <img src={bg} alt="" />
         </div>
