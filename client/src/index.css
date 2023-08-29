@@ -10,6 +10,10 @@
   list-style-type: none;
   box-sizing: border-box;
 }
+body{
+  font-family: "Josefin Sans", sans-serif;
+
+}
 .container {
   max-width: 1200px;
   padding: 0 15px;
