@@ -6,7 +6,7 @@ const Card1 = ({ tour }) => {
   return (
     <div className="col col-12 col-md-6 tour-card1">
       <div className="link-img">
-        <Link>
+        <Link to={`/tourDetails/${tour.id}`}>
           <img src={tour?.tourImg[0]} alt="Tour Image" />
         </Link>
       </div>

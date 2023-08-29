@@ -1,59 +1,60 @@
-import React from "react";
-import { Field, Form, Formik } from "formik";
+import React, { useState } from "react";
+import { Form, Formik } from "formik";
+import {BsSliders} from "react-icons/bs";
+import {MdKeyboardArrowUp} from "react-icons/md"
+import {MdKeyboardArrowDown} from "react-icons/md"
 import InputField from "./InputField";
-import { DatePicker, Space } from "antd";
 
 const SearchForm = () => {
-  const onChange = (date, dateString) => {
-    console.log(date, dateString);
-  };
+  const [viewActivity, setViewActivity] = useState(true)
+  const [moreActivity, setMoreActivity] = useState(false)
+
+  const handleViewActivity=()=>{
+    viewActivity ? setViewActivity(false) :setViewActivity(true)
+  }
   return (
     <Formik
       initialValues={{
         keyword: "",
-        category: true,
-        backpacking: true,
-        basecamp:true,
-        family:true,
-        glamping:true,
-        trekking:true,
-        winter:true,
+        duration:"",
+        category: false,
+        backpacking: false,
+        basecamp:false,
+        family:false,
+        glamping:false,
+        trekking:false,
+        winter:false,
         minPrice:'',
         maxPrice:'',
-        date:{}
       }}
       onSubmit={(values) => console.log(values)}
     >
-        {({handleChange})=>(
+        {({resetForm})=>(
       <Form>
-        <InputField name="keyword" type={"search"} title="Keyword" />
-        <div className="d-flex">
-          <InputField name="category" type={"checkbox"} title="Popular Tour" />
-          <label htmlFor="category">Popular Tour</label>
-        </div>
+        <InputField name="keyword" type={"search"} title="Keywords" />
+        <InputField name="category" type={"checkbox"} title="Category" label="Popular Tour" />
         <InputField name="duration" title="Duration" type="select"/>
-        <p htmlFor="">Date</p>
-        {/* <DatePicker name="date" onChange={handleChange} /> */}
-        {/* <input type="date" name="" id="" /> */}
-        <div className="d-flex">
-          <InputField name="minPrice" title="minPrice" type="number" />
-          <InputField name="maxPrice" title="maxPrice" type="number" />
+        <div className="price-search">
+          <InputField name="minPrice" title="Min Price" type="number" />
+          <InputField name="maxPrice" title="Max Price" type="number" />
         </div>
-        <button type="button">Clear Filter</button>
+        <button className="clear-btn" type="button" onClick={resetForm}>x Clear Filter</button>
         <hr />
-        <div>
-          <p className="title-type">Type Filter</p>
-          <button type="button">x</button>
+        <div className="search-type-activity">
+          <div><BsSliders/>Type Filter</div>
+          <button className="type-filter-btn" type="button" onClick={handleViewActivity}>{viewActivity ? <MdKeyboardArrowUp/> : <MdKeyboardArrowDown/>}</button>
         </div>
-        <p>Activity</p>
-        <InputField type="checkbox" name="backpacking" label="Backpacking Trips" title="Activity"/>
-        <InputField type="checkbox" name="basecamp" title="Activity" label="Basecamp Tours" />
-        <InputField type="checkbox" name="family" title="Activity" label="Family Camping" />
-        <InputField type="checkbox" name="glamping" title="Activity" label="Glamping" />
-        <InputField type="checkbox" name="trekking" title="Activity" label="Trekking" />
-        <InputField type="checkbox" name="winter" title="Activity" label="Winter Camping" />
-        <button type="button">More</button>
-        <button type="submit">Search</button>
+        <div className="activity-div" style={viewActivity ? {height:"250px"} : {height:"0px"}}>
+          <p className="search-title">Activity</p>
+          <InputField type="checkbox" name="backpacking" label="Backpacking Trips" title="Activity"/>
+          <InputField type="checkbox" name="basecamp" title="Activity" label="Basecamp Tours" />
+          <InputField type="checkbox" name="family" title="Activity" label="Family Camping" />
+          <InputField type="checkbox" name="glamping" title="Activity" label="Glamping" />
+          <InputField type="checkbox" name="trekking" title="Activity" label="Trekking" />
+          {moreActivity && <InputField type="checkbox" name="winter" title="Activity" label="Winter Camping" />}
+          {!moreActivity && <button className="more-btn" type="button" onClick={()=>setMoreActivity(true)}>More<MdKeyboardArrowDown/></button>}
+        </div>
+        <button className="search-btn" type="submit">Search</button>
       </Form>
         )}
     </Formik>

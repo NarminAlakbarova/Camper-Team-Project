@@ -3,11 +3,9 @@ import React from "react";
 
 const InputField = ({ title, label, ...props }) => {
   const [field] = useField(props);
-//   console.log(props.type);
   return (
     <div>
-      {title != "Activity" && <p>{title}</p>}
-      {/* <input id={field.name} {...props} /> */}
+      {title != "Activity" && <p className="search-title">{title}</p>}
       {field.name == "duration" ? (
         <Field as={props.type} name={field.name}>
           <option value="">Any</option>
@@ -19,7 +17,8 @@ const InputField = ({ title, label, ...props }) => {
       ) : (
         <Field id={field.name} {...props} />
       )}
-      {title == "Activity" ? <label htmlFor={field.name}>{label}</label> : null}
+      {title=="Category" ? <label className="checkbox-label" htmlFor={field.name}>{label}</label> : "" }
+      {title == "Activity" ? <label className="checkbox-label" htmlFor={field.name}>{label}</label> : ""}
     </div>
   );
 };

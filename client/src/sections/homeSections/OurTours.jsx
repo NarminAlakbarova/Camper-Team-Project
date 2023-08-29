@@ -56,7 +56,7 @@ const OurTours = ({ sectionTitle }) => {
                 ? "Our Popular Tours"
                 : "New Tours"}
             </p>
-            <Link to={""}>View All Tours</Link>
+            <Link to={"./allTours"}>View All Tours</Link>
           </div>
           {sectionTitle == "our-popular-tours" ? (
             <Slider {...settings}>

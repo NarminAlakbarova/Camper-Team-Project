@@ -43,8 +43,10 @@ const AllToursPage = () => {
       <section id="all-tours-content">
         <div className="container">
           <div className="row">
-            <div className="col col-12 col-md-4 search-tours">
-              <SearchForm />
+            <div className="col col-12 col-md-4 all-tours-left">
+              <div className="search-tour">
+                <SearchForm />
+              </div>
             </div>
             <div className="col col-12 col-md-8 all-tours-right">
               <div>
