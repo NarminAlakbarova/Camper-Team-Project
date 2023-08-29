@@ -26,6 +26,9 @@
     font-size: 83px;
     letter-spacing: 8px;
     text-transform: uppercase;
+    @media only screen and (max-width:567px){
+      font-size: 56px;
+    }
   }
   p {
     font-size: 20px;
@@ -45,22 +48,27 @@
 // search section
 
 #search-section {
+
   .search-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     margin-top: -60px;
-
     form {
-      padding: 25px 50px;
+      padding: 30px 50px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
       border-radius: 40px;
       background-color: #f3f3f3;
-
+      @media screen and (max-width: 576px) {
+        padding: 10px;
+        gap: 20px;
+      
+    
+      }
       .title {
         display: flex;
         flex-direction: column;
@@ -621,21 +629,78 @@
 }
 
 // FEEDBACK SECTION
-#customers-said {
-  padding: 100px;
-  .customer-said {
-    h2 {
-      text-align: center;
-    }
+.customer-said {
+  text-align: center;
+  padding-bottom: 70px;
+  padding: 70px 15px;
+  margin: 0 auto;
 
-    .slide {
-      opacity: 0.5;
-      transform: scale(0.7);
-      transition: all 0.3s ease;
+  h2 {
+    margin-bottom: 50px;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 34px;
+  }
+  .slider-container {
+    max-width: 100vw;
+    width: 100%;
+    overflow: hidden;
+    .slider {
+      .slide {
+        margin-right: 20px;
+        background-color: #f3f3f3;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        transform: scale(0.9);
+        &:last-child {
+          margin-right: 0;
+        }
 
-      &-active {
-        opacity: 1;
-        transform: scale(1);
+        img {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+        }
+
+        .feed-back-content {
+          display: flex;
+          column-gap: 30px;
+          margin-bottom: 30px;
+          .title {
+            font-weight: bold;
+            margin-top: 10px;
+            display: flex;
+            text-align: left;
+            width: 100%;
+            justify-content: space-between;
+            @media  only screen and (max-width:576px) {
+              flex-direction: column;
+            }
+
+            p {
+              margin-bottom: 0;
+            }
+          }
+
+          .icons {
+            font-size: 18px;
+            svg {
+              font-size: 24px;
+              color: gold;
+            }
+          }
+
+          .comment {
+            margin-top: 50px;
+            font-style: italic;
+          }
+        }
+
+        &.slide-active {
+          transform: scale(1);
+          opacity: 1;
+        }
       }
     }
   }

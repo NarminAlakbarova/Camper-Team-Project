@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useSelector } from "react-redux";
+import { AiFillStar } from "react-icons/ai";
 
-// const images = [user1, user2, user3, user1, user2, user3];
 const FeedBack = () => {
   const users = useSelector((state) => state.feedBackData.data);
   console.log(users);
@@ -19,6 +19,7 @@ const FeedBack = () => {
     pauseOnHover: true,
     beforeChange: (current, next) => setSlideIndex(next),
     centerMode: true,
+    centerPadding: "0",
     responsive: [
       {
         breakpoint: 1024,
@@ -38,87 +39,47 @@ const FeedBack = () => {
       },
     ],
   };
+const sliderStyle={
+  width:"700px"
+}
   return (
-    <Slider {...settings}>
-      {users.map((user, index) => (
-        <div
-          className={index === slideIndex ? `slide slide-active` : `slide`}
-          key={index}
-        >
-          <img src={user.userImg} alt="" />
-        </div>
-      ))}
-      {/* <FeedBackContent
-        userimg={user1}
-        username={"Jennth Norz"}
-        country={"San Francisco"}
-        content={
-          "The tours in this website are great. I had been really enjoy with my family! The team is very professional and taking care of the customers. Will surely recommend to my freind to join this company!"
-        }
-        slideIndex={slideIndex}
-        setSlideIndex={setSlideIndex}
-      />
-      <FeedBackContent
-        userimg={user2}
-        username={"Jennth Norz"}
-        country={"San Francisco"}
-        content={
-          "The tours in this website are great. I had been really enjoy with my family! The team is very professional and taking care of the customers. Will surely recommend to my freind to join this company!"
-        }
-        slideIndex={slideIndex}
-        setSlideIndex={setSlideIndex}
-      />
-      <FeedBackContent
-        userimg={user3}
-        username={"Jennth Norz"}
-        country={"San Francisco"}
-        content={
-          "The tours in this website are great. I had been really enjoy with my family! The team is very professional and taking care of the customers. Will surely recommend to my freind to join this company!"
-        }
-        slideIndex={slideIndex}
-        setSlideIndex={setSlideIndex}
-      />
-      <FeedBackContent
-        userimg={user3}
-        username={"Jennth Norz"}
-        country={"San Francisco"}
-        content={
-          "The tours in this website are great. I had been really enjoy with my family! The team is very professional and taking care of the customers. Will surely recommend to my freind to join this company!"
-        }
-        slideIndex={slideIndex}
-        setSlideIndex={setSlideIndex}
-      />
-      <FeedBackContent
-        userimg={user3}
-        username={"Jennth Norz"}
-        country={"San Francisco"}
-        content={
-          "The tours in this website are great. I had been really enjoy with my family! The team is very professional and taking care of the customers. Will surely recommend to my freind to join this company!"
-        }
-        slideIndex={slideIndex}
-        setSlideIndex={setSlideIndex}
-      />
-      <FeedBackContent
-        userimg={user3}
-        username={"Jennth Norz"}
-        country={"San Francisco"}
-        content={
-          "The tours in this website are great. I had been really enjoy with my family! The team is very professional and taking care of the customers. Will surely recommend to my freind to join this company!"
-        }
-        slideIndex={slideIndex}
-        setSlideIndex={setSlideIndex}
-      />
-      <FeedBackContent
-        userimg={user3}
-        username={"Jennth Norz"}
-        country={"San Francisco"}
-        content={
-          "The tours in this website are great. I had been really enjoy with my family! The team is very professional and taking care of the customers. Will surely recommend to my freind to join this company!"
-        }
-        slideIndex={slideIndex}
-        setSlideIndex={setSlideIndex}
-      /> */}
-    </Slider>
+    <div className="slider-container">
+      <div className="slider">
+      <Slider {...settings}>
+        {users.map((user, index) => (
+          <div
+            className={index === slideIndex ? `slide slide-active  ` : `slide `}
+            key={index}
+            style={sliderStyle}
+          >
+            <div className="feed-back-content">
+            <img src={user.userImg} alt="" />
+              <div className="title">
+                <div className="user-info">
+                  <p>{user.userName}</p>
+                  <p>{user.userStatus}</p>
+                </div>
+
+                <div className="icons">
+                  <AiFillStar />
+                  <AiFillStar />
+                  <AiFillStar />
+                  <AiFillStar />
+                  <AiFillStar />
+                </div>
+              </div>
+          
+            </div>
+            <div className="comment">
+                <p>{user.feedBack}</p>
+              </div>
+          </div>
+        ))}
+        
+      </Slider>
+      </div>
+    </div>
+  
   );
 };
 

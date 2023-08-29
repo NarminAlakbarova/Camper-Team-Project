@@ -16,10 +16,10 @@ const LastestNews = () => {
           <div className="news-content">
             <div className="row">
               {lastestNews.map((news, index) => (
-                // console.log(news.newsImg.img1),
+                console.log(news.newsImg),
                 <LastestNewsCards
                   key={index}
-                  newsimg={news.newsImg?.img1}
+                  newsimg={news.newsImg}
                   newsdate={`${news.releaseDay}•${news.author?.authorName}`}
                   newtitle={news.newsTitle}
                 />

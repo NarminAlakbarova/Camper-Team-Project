@@ -11,6 +11,7 @@ import SignInPage from "../pages/signIn"
 import SignUpPage from "../pages/signUp"
 import GalleryPage from "../pages/gallery"
 import TourDetails from "../pages/tourDetails"
+import Details from "../pages/details/Details"
 
 export const router= createBrowserRouter([
     {
@@ -64,6 +65,10 @@ export const router= createBrowserRouter([
             {
                 path:"*",
                 element:<ErrorPage/>
+            },
+            {
+                path:"details",
+                element:<Details/>
             },
         ]
     }
