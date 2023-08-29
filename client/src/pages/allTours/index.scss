@@ -1,0 +1,304 @@
+#hero-banner-all-tours {
+  height: 90vh;
+  background: url(../../assets/img/homePage/hero-campger-bg.jpg) no-repeat
+    center;
+  background-size: cover;
+  filter: brightness(90%);
+  display: flex;
+  align-items: center;
+  font-family: "Josefin Sans", sans-serif;
+  .hero-banner-all-tours {
+    color: #fff;
+    p {
+      font-size: 48px;
+    }
+    span {
+      font-size: 20px;
+    }
+  }
+}
+#all-tours-content {
+  padding: 50px 0;
+  font-family: "Josefin Sans", sans-serif;
+  .all-tours-left {
+    padding: 0 30px;
+    margin-bottom: 30px;
+    .search-tour {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 30px;
+      button {
+        border: none;
+        background-color: transparent;
+        outline: none;
+      }
+      hr {
+        color: #989898;
+      }
+      .search-title {
+        font-weight: 700;
+        margin-top: 10px;
+      }
+      input,
+      select {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 7px;
+        outline: none;
+        width: 100%;
+        color: #7d7d7d;
+      }
+      input[type="checkbox"] {
+        margin: 0 7px 15px 0;
+        width: 15px;
+        accent-color: #ffaf19;
+      }
+      select {
+        padding: 10px;
+      }
+      .checkbox-label {
+        color: #7d7d7d;
+        font-size: 17px;
+      }
+      .price-search {
+        display: flex;
+        input {
+          width: 90%;
+        }
+      }
+      .activity-div {
+        overflow: hidden;
+        transition: all 0.4s ease-in-out;
+      }
+      .search-type-activity {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        div {
+          font-weight: 700;
+          display: flex;
+          svg {
+            color: #ffaf19;
+            margin-right: 5px;
+            font-size: 20px;
+          }
+        }
+        .type-filter-btn {
+          svg {
+            color: #ffaf19;
+            font-size: 26px;
+          }
+        }
+      }
+      .clear-btn,
+      .more-btn {
+        color: #ffaf19;
+        display: flex;
+        align-items: center;
+      }
+      .clear-btn {
+        margin: 15px 0;
+      }
+      .search-btn {
+        width: 100%;
+        background-color: #ffaf19;
+        color: #fff;
+        font-size: 18px;
+        padding: 7px;
+      }
+    }
+  }
+  .all-tours-right {
+    .tour-count {
+      font-weight: 700;
+      font-size: 19px;
+    }
+    .tour-filter {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 30px;
+      .tour-filter-left {
+        display: flex;
+        column-gap: 20px;
+        align-items: center;
+        p {
+          font-weight: 700;
+          margin: 0;
+          text-align: left;
+          width: 100%;
+        }
+        select {
+          border: none;
+          outline: none;
+          color: #7d7d7d;
+          padding: 0 10px;
+        }
+      }
+      .tour-filter-right {
+        button {
+          font-size: 25px;
+          background-color: transparent;
+          outline: none;
+          border: none;
+          &:first-child {
+            font-size: 28px;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+    .tour-card1 {
+      min-height: 450px;
+      .link-img {
+        max-height: 230px;
+        overflow: hidden;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        img {
+          transition: all 0.6s ease-in-out;
+          width: 100%;
+          height: 100%;
+        }
+        &:hover {
+          img {
+            transform: scale(1.2);
+          }
+        }
+      }
+      .tour-review {
+        margin-bottom: 10px;
+      }
+    }
+    .tour-text {
+      color: #7d7d7d;
+      margin: 10px 0 0 0;
+    }
+    .tour-title {
+      color: #000;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .tour-prev-price {
+      text-decoration: line-through !important;
+    }
+    .tour-price {
+      font-size: 19px;
+      font-weight: 700;
+      color: #ffaf19;
+      margin: 0;
+    }
+    .tour-card2 {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      .tour-card2-img {
+        height: 250px;
+        overflow: hidden;
+        img {
+          border-radius: 20px;
+          max-width: 100%;
+          height: 100%;
+        }
+      }
+      .tour-card2-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        row-gap: 10px;
+        padding: 15px;
+        .tour-card2-content-left {
+          width: 80%;
+          padding: 10px;
+          span {
+            color: #ffaf19;
+            font-size: 18px;
+            margin-right: 5px;
+          }
+        }
+        .tour-card2-content-right {
+          text-align: center;
+          position: relative;
+          padding-left: 20px;
+          width: 30%;
+          .price-div {
+            display: flex;
+            justify-content: center;
+            column-gap: 5px;
+          }
+          .tour-price {
+            font-size: 24px;
+          }
+          .tour-review {
+            font-size: 12px;
+            div {
+              width: 100%;
+              background-color: #ffaf19;
+              padding: 7px 5px 3px 5px;
+              margin-top: 10px;
+              a {
+                color: #fff;
+              }
+            }
+          }
+          &::after {
+            content: "";
+            width: 1px;
+            height: 100%;
+            background-color: #ddd;
+            left: 0;
+            top: 7%;
+            position: absolute;
+          }
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 992px) {
+    .all-tours-right {
+      .tour-card2 {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+  @media only screen and (max-width: 576px) {
+    .all-tours-right {
+      .tour-filter {
+        .tour-filter-left {
+          flex-direction: column;
+          row-gap: 10px;
+        }
+      }
+      .tour-card2 {
+        .tour-card2-content {
+          flex-direction: column;
+          .tour-card2-content-left {
+            width: 100%;
+          }
+          .tour-card2-content-right {
+            width: 100%;
+            &::after {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 992px) {
+    .all-tours-left {
+      .search-tour {
+        padding: 20px;
+        .checkbox-label {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}

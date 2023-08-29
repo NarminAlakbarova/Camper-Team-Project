@@ -493,15 +493,13 @@
               width: 12px;
               color: #000;
             }
-            span {
-              &:first-child {
-                text-decoration: line-through !important;
-              }
-              &:nth-child(2) {
-                color: #ffaf19;
-                font-size: 18px;
-                font-weight: 700;
-              }
+            .tour-prev-price {
+              text-decoration: line-through !important;
+            }
+            .tour-price {
+              color: #ffaf19;
+              font-size: 18px;
+              font-weight: 700;
             }
           }
         }
