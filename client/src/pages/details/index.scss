@@ -12,12 +12,14 @@
     row-gap: 15px;
   }
 }
-.img {
+.details-img {
   padding: 50px 0;
 
   img {
+    height: 600px;
     width: 90%;
     border-radius: 50px;
+    object-fit: cover;
   }
 }
 
@@ -169,13 +171,15 @@
     form {
       .name-email {
         display: flex;
-        column-gap: 10px;
+        column-gap: 20px;
       }
       textarea {
         width: 100%;
         border: none;
         border-bottom: 1px solid #717171;
         outline: none;
+        margin-bottom: 20px;
+
       }
       .form-group {
         p {
@@ -183,7 +187,7 @@
         }
         input:not(input[type="checkbox"]) {
           width: 100%;
-          margin-bottom: 15px;
+          margin-bottom: 20px;
           padding: 10px;
           border: none;
           border-bottom: 1px solid #717171;
