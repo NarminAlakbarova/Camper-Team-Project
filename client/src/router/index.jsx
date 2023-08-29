@@ -10,6 +10,7 @@ import TourFullPage from "../pages/tourFull"
 import SignInPage from "../pages/signIn"
 import SignUpPage from "../pages/signUp"
 import GalleryPage from "../pages/gallery"
+import TourDetails from "../pages/tourDetails"
 
 export const router= createBrowserRouter([
     {
@@ -21,12 +22,20 @@ export const router= createBrowserRouter([
                 element:<HomePage/>
             },
             {
+                path:"/:id",
+                element:<TourDetails/>
+            },
+            {
                 path:"about",
                 element:<AboutPage/>
             },
             {
                 path:"allTours",
                 element:<AllToursPage/>
+            },
+            {
+                path:"tourDetails/:id",
+                element:<TourDetails/>
             },
             {
                 path:"blog",
