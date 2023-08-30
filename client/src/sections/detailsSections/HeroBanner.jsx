@@ -1,37 +1,28 @@
 import React from "react";
-import bg from "../../assets/img/newsAndBlog/news1.jpg";
-const HeroBanner = () => {
+const HeroBanner = ({ detailsItem }) => {
+  console.log(detailsItem);
   return (
     <>
       <div id="hero-banner-details">
         <div className="container">
           <div className="hero-banner-details">
-            <h1 className="text-center">A Tour of the Best High Altitude Campsites</h1>
-            <p>March 10, 2023 / Jane Smith / Blog, News</p>
+            <h1 className="text-center">{detailsItem?.newsTitle}</h1>
+            <p>
+              {`${detailsItem?.releaseDay} / ${detailsItem?.author?.authorName} /Blog, News `}
+            </p>
           </div>
         </div>
       </div>
       <div className="details-img">
         <div className="container d-flex justify-content-center">
-          <img src={bg} alt="" />
+          <img src={detailsItem?.newsImg} alt="" />
         </div>
       </div>
       <div id="news-info">
         <div className="container news-container">
           <div className="news-info">
             <h4>Essential gear for camping tours</h4>
-            <p>
-              When planning your camping tour, it’s important to make sure you
-              have all the necessary gear. This includes a tent, sleeping bag,
-              and camping stove, as well as a flashlight or headlamp, a camping
-              chair, and a cooler to keep your food and drinks cold. You should
-              also bring plenty of warm clothes and waterproof gear, as well as
-              a first aid kit in case of emergencies. Additionally, it’s
-              important to have proper footwear and a backpack to carry your
-              gear. When it comes to camping, safety should always be a top
-              priority. Before you set out on your camping tour, make sure you
-              are familiar with the area and the weather conditions.
-            </p>
+            <p>{detailsItem?.newsContent}</p>
             <div className="important-info">
               <p>
                 Camping is an opportunity to escape the hustle and bustle of

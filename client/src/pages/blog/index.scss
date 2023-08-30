@@ -58,6 +58,19 @@
       }
     }
 
+    .pagination{
+      .ant-pagination-item{
+        border-radius: 50%;
+        background-color: #ffb156;
+        border: none;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        width: 50px;
+      }
+    }
     #latest-tours {
       h5 {
         font-size: 22px;
@@ -83,7 +96,10 @@
           column-gap: 10px;
           color: #717171;
           align-items: center;
-          .new-price {
+          .tour-prev-price{
+            text-decoration:line-through !important ;
+          }
+          .tour-price {
             color: black;
             font-size: 16px;
             font-weight: 500;
@@ -130,21 +146,21 @@
         column-gap: 20px;
         border: none;
         margin-top: 20px;
-        .articles-content{
-           .date-author{
+        .articles-content {
+          .date-author {
             display: flex;
-          column-gap: 10px;
-            .date, .author{
-                display: flex;
-                align-items: center;
-                column-gap: 5px;
-            p{
+            column-gap: 10px;
+            .date,
+            .author {
+              display: flex;
+              align-items: center;
+              column-gap: 5px;
+              p {
                 margin-bottom: 0;
                 font-size: 11px;
+              }
             }
-            }
-            
-           }
+          }
         }
         .img {
           img {
@@ -155,6 +171,4 @@
       }
     }
   }
-
-  
 }
