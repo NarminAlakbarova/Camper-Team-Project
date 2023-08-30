@@ -6,7 +6,7 @@ import { GrLinkPrevious } from "react-icons/gr";
 import { GrLinkNext } from "react-icons/gr";
 import authorImg from "../../assets/img/newsAndBlog/author/author1.jpeg";
 import { Link } from "react-router-dom";
-const Author = () => {
+const Author = ({ detailsItem }) => {
   return (
     <div id="author">
       <div className="container">
@@ -28,17 +28,13 @@ const Author = () => {
             </div>
             <div className="author-info">
               <p className="title">About the author</p>
-              <h3>Jane Smith</h3>
-              <p className="info">
-                There is no better way to learn about the Napa Valley and all it
-                has to offer than on a guided tour. There is something for
-                everyone – whether you are looking to drink.
-              </p>
+              <h3>{detailsItem?.author.authorName}</h3>
+              <p className="info">{detailsItem?.author.aboutAuthor}</p>
             </div>
           </div>
           <div id="prev-next">
-            <Link >
-              <GrLinkPrevious  />
+            <Link>
+              <GrLinkPrevious />
               Prev
             </Link>
             <Link>
