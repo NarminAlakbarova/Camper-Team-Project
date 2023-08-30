@@ -1,22 +1,35 @@
 import React, { useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import logo from "../../assets/header/logo.png";
 import { RiMenuFill } from "react-icons/ri";
-import DropdownComponent from "../../components/DropdownComponent";
-import SelectCurrency from "../../components/SelectCurrency";
+import { FaArrowUp } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { BiSolidDownArrow, BiSolidUpArrow } from "react-icons/bi";
+import DropdownComponent from "../../components/DropdownComponent";
+import SelectCurrency from "../../components/SelectCurrency";
+import logo from "../../assets/header/logo.png";
 import "./index.scss";
 import ModalLogin from "../../components/modal/Modal";
 
 const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [togglePages, setTogglePages] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const menuRef = useRef();
   const pagesRef = useRef();
   const headerRef = useRef();
+  const arrowUpRef = useRef();
 
+  const scrollFunc = () => {
+    document.documentElement.scrollTop >= 110
+      ? ((arrowUpRef.current.style.display = "flex"),
+        (headerRef.current.style.position = "fixed"))
+      : ((arrowUpRef.current.style.display = "none"),
+        (headerRef.current.style.position = "relative"));
+  };arrowUpRef
+  const handleScrollTop = () => {
+    document.documentElement.scrollTop = 0;
+  };
   const showMenu = () => {
     if (!toggleMenu) {
       menuRef.current.style.width = "80%";
@@ -35,14 +48,11 @@ const Header = () => {
       setTogglePages(false);
     }
   };
-  // window.onscroll = () => {
-  //   document.documentElement.scrollTop >= 110
-  //     ? headerRef.current.style.backgroundColor = "#2a2f2f"
-  //     : headerRef.current.style.backgroundColor="#000";
-  // };
-  const [showModal, setShowModal] = useState(false);
   const handleModalClick = () => {
     showModal ? setShowModal(false) : setShowModal(true);
+  };
+  window.onscroll = () => {
+    scrollFunc();
   };
   return (
     <>
@@ -122,6 +132,9 @@ const Header = () => {
             </ul>
           </div>
         </div>
+      </div>
+      <div className="arrow-up" ref={arrowUpRef} onClick={handleScrollTop}>
+        <FaArrowUp />
       </div>
     </>
   );
