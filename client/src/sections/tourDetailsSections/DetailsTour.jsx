@@ -262,8 +262,8 @@ const DetailsTour = ({tour}) => {
                     </div>
                     <div className="contact-details">
                         <h4>Need Help?</h4>
-                        <p><BsTelephone/><a href="tel:+1.8445.3356.33">1.8445.3356.33</a></p>
-                        <p><FiMail/><a href="mailto:Help@goodlayers.com ">Help@camper.com </a></p>
+                        <p><BsTelephone/><Link to={"tel:1-634-567-34"}>T: 1-634-567-34</Link></p>
+                        <p><FiMail/><Link to={"mailto:Help@goodlayers.com "}>Help@camper.com </Link></p>
                     </div>
                 </div>
             </div>
