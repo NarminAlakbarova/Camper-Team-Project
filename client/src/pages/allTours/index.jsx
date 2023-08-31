@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { AiFillStar } from "react-icons/ai";
 import { CgMenuGridO } from "react-icons/cg";
 import { TfiMenuAlt } from "react-icons/tfi";
-import { HiOutlineClock } from "react-icons/hi";
-import { FaRegCalendarDays } from "react-icons/fa6";
+import {GrPrevious,GrNext} from "react-icons/gr"
 import { v4 as uuid } from "uuid";
 import SearchForm from "./searchForm";
 import "./index.scss";
 import { getToursData, sortData, sortDataPrice } from "../../redux/toursDataSlice";
-import { Link } from "react-router-dom";
 import Card1 from "./cards/Card1";
 import Card2 from "./cards/Card2";
 
 const AllToursPage = () => {
   const [card, setCard] = useState(true);
+  const [pageNum, setPageNum] = useState(1)
   const tours = useSelector((state) => state.toursData.data);
-  console.log(tours);
+  const startNum=(pageNum-1)*6
+  const totalPage=Math.ceil(tours.length/6)
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getToursData());
@@ -30,6 +30,9 @@ const AllToursPage = () => {
   const handleSortPrice = (value) => {
     dispatch(sortDataPrice(value))
   };
+  const handleSetPage=(btn)=>{
+    btn=="prev" ? pageNum!=1 && setPageNum(+pageNum-1) : pageNum!=totalPage && setPageNum(+pageNum+1)
+  }
   return (
     <>
       <div id="hero-banner-all-tours">
@@ -88,13 +91,20 @@ const AllToursPage = () => {
                 </div>
               </div>
               <div className="row">
-                {tours.map((tour) => {
+                {tours.slice(startNum,startNum+6).map((tour) => {
                   return card ? (
                     <Card1 key={uuid()} tour={tour} />
                   ) : (
                     <Card2 key={uuid()} tour={tour} />
                   );
                 })}
+              </div>
+              <div className="pagination">
+                <button className="direction-btn" onClick={()=>handleSetPage("prev")}><GrPrevious/></button>
+                {[...Array(totalPage).keys()].map((item,index)=>(
+                  <button className="pagination-btn" key={index} onClick={()=>setPageNum(item+1)}>{+item+1}</button>
+                ))}
+                <button className="direction-btn" onClick={()=>handleSetPage("next")}><GrNext/></button>
               </div>
             </div>
           </div>

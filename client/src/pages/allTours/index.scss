@@ -1,3 +1,5 @@
+// HERO BANNER ALL TOURS
+
 #hero-banner-all-tours {
   height: 90vh;
   background: url(../../assets/img/homePage/hero-campger-bg.jpg) no-repeat
@@ -17,6 +19,9 @@
     }
   }
 }
+
+// TOURS CONTENT
+
 #all-tours-content {
   padding: 50px 0;
   font-family: "Josefin Sans", sans-serif;
@@ -299,6 +304,27 @@
           font-size: 15px;
         }
       }
+    }
+  }
+}
+
+// PAGINATION BUTTONS
+
+.pagination {
+  display: flex;
+  justify-content: end;
+  column-gap: 10px;
+  .pagination-btn {
+    border: none;
+    background-color: #ffaf19;
+    padding: 5px 9px;
+    color: #fff;
+  }
+  .direction-btn {
+    border: none;
+    background-color: transparent;
+    polyline {
+      stroke: #ffaf19;
     }
   }
 }

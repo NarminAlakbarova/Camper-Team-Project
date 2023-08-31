@@ -1,0 +1,79 @@
+//HERO BANNER SIGN UP
+
+#hero-banner-sign-up {
+  background: url(../../assets/img/homePage/hero-campger-bg.jpg) no-repeat
+    center;
+  background-size: cover;
+  .hero-banner-sign-up {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    .hero-text {
+      margin: 0;
+      font-size: 64px;
+      color: #fff;
+    }
+  }
+}
+
+// SIGN UP FORM
+
+#sign-up-form {
+  padding: 50px 0;
+  background: url(../../assets/img/about/faqBg.jpg) no-repeat center;
+  background-size: cover;
+  .info-text {
+    color: #717171;
+    font-size: 15px;
+  }
+  h5 {
+    text-align: center;
+    margin: 30px 0 20px 0;
+  }
+  .submit-btn {
+    width: 100%;
+    margin: 30px 0;
+    border: none;
+    font-size: 18px;
+    background-color: #ffaf19;
+    border-radius: 5px;
+    color: #fff;
+    padding: 12px;
+  }
+  .login-btn {
+    border: none;
+    background-color: transparent;
+    color: #ffaf19;
+    display: flex;
+    margin: 0 auto;
+  }
+  .sign-up-form-content {
+    padding: 20px 0;
+    border-radius: 30px;
+    .form-left,
+    .form-right {
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      row-gap: 20px;
+      font-size: 18px;
+      input,
+      select {
+        background-color: rgba($color: #ddd, $alpha: 0.5);
+        padding: 8px;
+        outline: none;
+        border: none;
+        border-radius: 7px;
+      }
+      select {
+        padding: 11px;
+      }
+    }
+  }
+  input[type="checkbox"] {
+    accent-color: #ffaf19;
+    margin-top: 30px;
+    margin-right: 10px;
+  }
+}
