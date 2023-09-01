@@ -1,11 +1,11 @@
 import React from 'react'
 
-const index = () => {
+const FeedBack = () => {
   return (
     <div>
-      
+      <h1>hello feedBack</h1>
     </div>
   )
 }
 
-export default index
+export default FeedBack
