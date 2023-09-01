@@ -32,7 +32,7 @@
   }
   .submit-btn {
     width: 100%;
-    margin: 30px 0;
+    margin: 10px 0 30px 0;
     border: none;
     font-size: 18px;
     background-color: #ffaf19;
@@ -47,17 +47,16 @@
     display: flex;
     margin: 0 auto;
   }
+  .sign-up-field {
+    height: 70px;
+    margin-bottom: 5px;
+  }
   .sign-up-form-content {
     padding: 20px 0;
     border-radius: 30px;
     .form-left,
     .form-right {
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      row-gap: 20px;
-      font-size: 18px;
+      padding: 20px 20px 0 20px;
       input,
       select {
         background-color: rgba($color: #ddd, $alpha: 0.5);
@@ -69,11 +68,20 @@
       select {
         padding: 11px;
       }
+      .sign-up-field {
+        display: flex;
+        flex-direction: column;
+        height: 90px;
+        margin-bottom: 20px;
+      }
+      label,
+      .title-text-country {
+        margin-bottom: 20px;
+      }
     }
   }
   input[type="checkbox"] {
     accent-color: #ffaf19;
-    margin-top: 30px;
     margin-right: 10px;
   }
 }
