@@ -25,9 +25,9 @@ const Form = () => {
     <div id="form">
       <div className="container">
         <div className="title">
-            <h3>Leave us your info</h3>
-            <p>and we will get back to you</p>
-            <div className="line"></div>
+          <h3>Leave us your info</h3>
+          <p>and we will get back to you</p>
+          <div className="line"></div>
         </div>
         <div className="row">
           <div className="col-lg-2 col-md-1"></div>
