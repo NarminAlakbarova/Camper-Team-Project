@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AllToursAdmin = () => {
+const Home = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const AllToursAdmin = () => {
   )
 }
 
-export default AllToursAdmin
+export default Home
