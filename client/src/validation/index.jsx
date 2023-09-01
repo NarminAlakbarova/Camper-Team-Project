@@ -1,4 +1,5 @@
 import * as Yup from "yup";
+const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
 export const validate = Yup.object().shape({
   userName: Yup.string()
@@ -14,20 +15,18 @@ export const validate = Yup.object().shape({
     .max(10, "Last Name must be 10 or less!")
     .required("Last Name must be required!"),
   email: Yup.string()
-    .min(2, "Email must be 2 or more characters!")
-    .max(15, "Email must be 15 or less characters!"),
-  phone: Yup.string()
-    .min(7, "Phone must be 7 or more characters!")
-    .max(10, "Phone must be 10 or less characters!"),
+    .email("Invalid email")
+    .required("Email must be required!"),
+  phone:Yup.string().matches(phoneRegExp ,'Phone number is not valid').required("Phone Number is required"),
   password: Yup.string()
     .min(6, "Password must be 6 or more characters!")
     .max(10, "Password must be 10 or less characters!")
     .required("Password must be required!"),
   confirmPassword: Yup.string()
+    .oneOf([Yup.ref("password"), null], "Confirm Password must match password!")
     .min(6, "Password must be 6 or more characters!")
     .max(10, "Password must be 10 or less characters!")
     .required("Password must be required!"),
-  country: Yup.string()
-    .min(2, "Country must be 2 or more characters!")
-    .max(15, "Country must be 15 or less characters!"),
+  country: Yup.string().required("Country must be required!"),
+  accept: Yup.boolean().oneOf([true], "Please check the agreement"),
 });
