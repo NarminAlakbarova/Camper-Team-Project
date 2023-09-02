@@ -17,6 +17,7 @@ import News from "../admin/pages/news";
 import FeedBack from "../admin/pages/feedback";
 import AllToursAdmin from "../admin/pages/allTours";
 import AdminRoot from "../admin/root";
+import Orders from "../admin/pages/orders";
 
 export const router = createBrowserRouter([
   {
@@ -94,6 +95,10 @@ export const router = createBrowserRouter([
       {
         path: "allTours",
         element: <AllToursAdmin />,
+      },
+      {
+        path: "orders",
+        element: <Orders />,
       },
     ],
   },
