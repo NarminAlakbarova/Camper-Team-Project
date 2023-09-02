@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import SignIn from "../pages/signIn";
 
 const AdminRoot = () => {
-  const [checkAdmin, setCheckAdmin] = useState(false);
+  const [checkAdmin, setCheckAdmin] = useState(true);
   return (
     <>
       {!checkAdmin ? (
