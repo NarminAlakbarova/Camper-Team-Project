@@ -47,7 +47,7 @@ const Aside = () => {
   };
   return (
     <>
-      <div className="admin-header" >
+      <div className="admin-header">
         <div className="logo">
           <img src={logo} alt="Logo" />
         </div>
@@ -141,5 +141,4 @@ const Aside = () => {
     </>
   );
 };
-
 export default Aside;
