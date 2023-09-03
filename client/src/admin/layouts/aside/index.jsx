@@ -9,7 +9,7 @@ import { AiFillHome } from "react-icons/ai";
 
 const Aside = () => {
   return (
-    <>
+    <div>
       <div
         className="header"
         style={{
@@ -54,7 +54,7 @@ const Aside = () => {
           </li>
         </ul>
       </nav>
-    </>
+    </div>
   );
 };
 
