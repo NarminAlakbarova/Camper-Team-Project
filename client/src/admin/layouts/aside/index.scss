@@ -12,6 +12,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-left: 50px;
     width: 100%;
     .navbar-right {
       display: flex;
@@ -53,11 +54,13 @@ a {
 }
 .todo-side-bar {
   transition: all 0.3s ease-in-out;
+  background-color: #fff;
   position: fixed;
   width: 350px;
   right: -350px;
   border: 1px solid #ced4da;
   padding: 20px;
+  z-index: 90;
   .todo-title {
     display: flex;
     justify-content: space-between;
@@ -110,7 +113,7 @@ a {
     }
   }
 }
-.sidebar-nav{
+.sidebar-nav {
   padding: 80px 0;
   background-color: white;
   position: absolute;
