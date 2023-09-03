@@ -1,4 +1,116 @@
-nav {
+.admin-header {
+  background-color: #fff;
+  padding: 15px 30px;
+  display: flex;
+  .logo {
+    width: 300px;
+    img {
+      width: 170px;
+    }
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    .navbar-right {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    img {
+      width: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    button {
+      svg {
+        width: 50px;
+        font-size: 24px;
+      }
+    }
+    input {
+      border: none;
+      padding: 13px 0;
+      width: 300px;
+      outline: none;
+    }
+    .search-btn {
+      svg {
+        width: 30px;
+        font-size: 26px;
+        color: #5b5b5b;
+      }
+    }
+  }
+}
+a {
+  svg {
+    color: #5898f9;
+    font-size: 20px;
+    margin-right: 7px;
+  }
+}
+.todo-side-bar {
+  transition: all 0.3s ease-in-out;
+  position: fixed;
+  width: 350px;
+  right: -350px;
+  border: 1px solid #ced4da;
+  padding: 20px;
+  .todo-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #284775;
+    margin-bottom: 20px;
+    button {
+      svg {
+        font-size: 18px;
+        color: #5b5b5b;
+      }
+    }
+  }
+  .add-todo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    input {
+      background-color: transparent;
+      border: none;
+      outline: none;
+    }
+    button {
+      background-color: #403e92;
+      padding: 10px;
+      border-radius: 10px;
+      color: #fff;
+    }
+  }
+  ul {
+    padding: 0;
+    li {
+      border: 1px solid #ced4da;
+      border-radius: 7px;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      input {
+        width: 50px;
+        accent-color: #403e92;
+        transform: scale(1.5);
+      }
+      button {
+        svg {
+          color: #0d6efd;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+.sidebar-nav{
   padding: 80px 0;
   background-color: white;
   //   position: absolute;

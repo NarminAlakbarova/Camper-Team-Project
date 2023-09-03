@@ -10,6 +10,11 @@
   list-style-type: none;
   box-sizing: border-box;
 }
+button{
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
 body{
   font-family: "Josefin Sans", sans-serif;
 
