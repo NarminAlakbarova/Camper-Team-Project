@@ -3,10 +3,15 @@ import logo from "../../../assets/img/adminPage/logo.svg";
 import adminImg from "../../../assets/img/homePage/user2.jpg";
 import { VscBellDot, VscBell, VscChromeClose } from "react-icons/vsc";
 import { CiLogout, CiSettings } from "react-icons/ci";
-import { BsThreeDots } from "react-icons/bs";
+import { BsThreeDots, BsNewspaper } from "react-icons/bs";
 import { BiSearch } from "react-icons/bi";
 import { Dropdown } from "antd";
 import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { GiCampingTent } from "react-icons/gi";
+import { FaWpforms } from "react-icons/fa";
+import { GiWallet } from "react-icons/gi";
+import { AiFillHome } from "react-icons/ai";
 import "./index.scss";
 
 const Aside = () => {
@@ -99,6 +104,40 @@ const Aside = () => {
             </li>
           </ul>
       </div>
+      <nav className="sidebar-nav">
+        <ul>
+          <li>
+            <NavLink to={"/admin/home"}>
+              <AiFillHome />
+              <p>Home</p>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={"/admin/allTours"}>
+              <GiCampingTent />
+              <p>All Tours</p>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={"/admin/feedback"}>
+              <FaWpforms />
+              <p>FeedBack</p>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={"/admin/news"}>
+              <BsNewspaper />
+              <p>News</p>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={"/admin/orders"}>
+              <GiWallet />
+              <p>Orders</p>
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
     </>
   );
 };
