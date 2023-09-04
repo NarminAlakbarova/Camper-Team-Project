@@ -1,4 +1,4 @@
-import { Button, Image, Table } from "antd";
+import { Button, Image, Modal, Table } from "antd";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getToursData } from "../../../redux/toursDataSlice";
@@ -8,22 +8,19 @@ import "./index.scss";
 import Search from "antd/es/input/Search";
 const AllToursAdmin = () => {
   const allToursData = useSelector((state) => state.toursData.data);
-  // console.log(allToursData);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getToursData());
   }, [dispatch]);
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
-  // console.log(selectedRowKeys);
-  // const onSelectChange = (selectedKeys) => {
-  //   console.log(selectedKeys);
-  //   setSelectedRowKeys(selectedKeys);
-  // };
-  // const rowSelection = {
-  //   selectedRowKeys,
-  //   onChange: onSelectChange,
-  // };
+  const onSelectChange = (selectedKeys) => {
+    setSelectedRowKeys(selectedKeys);
+  };
+  const rowSelection = {
+    selectedRowKeys,
+    onChange: onSelectChange,
+  };
 
   const columns = [
     {
@@ -62,7 +59,10 @@ const AllToursAdmin = () => {
       title: "Action",
       render: (obj) => (
         <div style={{ display: "flex", columnGap: "10px" }}>
-          <Button type="primary" style={{ backgroundColor: "#4B49AC" }}>
+          <Button
+            type="primary"
+            style={{ backgroundColor: "#4B49AC" }}
+          >
             <AiFillEye />
           </Button>
 
@@ -74,33 +74,16 @@ const AllToursAdmin = () => {
     },
   ];
   return (
-    <div
-      style={{
-        backgroundColor: "#F4F6FE ",
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        paddingTop: "100px",
-        flexDirection: "column",
-        rowGap: "20px",
-      }}
-      className="table-container"
-    >
-      <div
-        className="heading"
-        style={{
-          display: "flex",
-          width: "90%",
-          justifyContent: "space-between",
-        }}
-      >
+    <div className="admin-data-table ">
+
+      <div className="remove-search ">
         <div
           className="remove-item d-flex "
           style={{ alignItems: "center", columnGap: "10px" }}
         >
-          <Button danger>Remove</Button>
+          <div className="remove-search-left">
+            <button>Remove</button>
+          </div>
           <p className="m-0">Item:{selectedRowKeys.length}</p>
         </div>
         <Search style={{ width: "30%" }} placeholder="Searh here..." />
@@ -110,10 +93,7 @@ const AllToursAdmin = () => {
         columns={columns}
         rowKey={"id"}
         dataSource={allToursData}
-        rowSelection={{
-          selectedRowKeys,
-          onChange: (selectedRowKeys) => setSelectedRowKeys(selectedRowKeys),
-        }}
+        rowSelection={rowSelection}
       />
     </div>
   );

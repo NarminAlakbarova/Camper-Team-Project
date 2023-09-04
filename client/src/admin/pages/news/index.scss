@@ -1,0 +1,116 @@
+.admin-data-table {
+  background-color: #f1f3fc;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 120px;
+  flex-direction: column;
+  row-gap: 20px;
+  .remove-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    .ant-input-search {
+      width: 300px;
+    }
+    .remove-search-left {
+      button {
+        color: #ff4747;
+        border: 1px solid #ff4747;
+        padding: 5px 10px;
+        border-radius: 20px;
+        margin-right: 10px;
+      }
+    }
+  }
+  .ant-table-thead {
+    tr {
+      th {
+        background-color: #4b49ac;
+        color: #fff;
+      }
+    }
+  }
+  .ant-table-tbody {
+    tr {
+      td {
+        font-family: "Josefin Sans", sans-serif;
+        img {
+          width: 70px;
+        }
+        .actions {
+          button {
+            background-color: #4b49ac;
+            padding: 10px 15px;
+            border-radius: 7px;
+            svg {
+              font-size: 20px;
+              color: #fff;
+            }
+            &:nth-child(2) {
+              margin-left: 15px;
+              background-color: yellowgreen;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.admin-modal {
+  margin-top: 100px;
+  .ant-modal-content {
+    .ant-modal-header,
+    .ant-modal-footer {
+      display: none;
+    }
+    .ant-modal-body {
+      font-family: "Josefin Sans", sans-serif;
+      background-color: #f1f3fc;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      font-size: 17px;
+      .modal-body-left {
+        margin-right: 20px;
+        color: #2d2d2d;
+        span {
+          font-style: oblique;
+        }
+        .release-day-title {
+          font-weight: 700;
+        }
+        .content-news {
+          font-size: 18px;
+        }
+        .author-title {
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+          p {
+            font-weight: 700;
+            margin: 0;
+            font-size: 18px;
+            color: #000;
+          }
+          img {
+            width: 70px;
+            border-radius: 50%;
+            margin-right: 15px;
+          }
+        }
+      }
+      img {
+        width: 500px;
+        border-radius: 7px;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}

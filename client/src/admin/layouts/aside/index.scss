@@ -2,6 +2,10 @@
   background-color: #fff;
   padding: 15px 30px;
   display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999999;
   .logo {
     width: 300px;
     img {
@@ -12,6 +16,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-left: 50px;
     width: 100%;
     .navbar-right {
       display: flex;
@@ -53,11 +58,14 @@ a {
 }
 .todo-side-bar {
   transition: all 0.3s ease-in-out;
+  background-color: #fff;
   position: fixed;
   width: 350px;
+  top: 90px;
   right: -350px;
   border: 1px solid #ced4da;
   padding: 20px;
+  z-index: 90;
   .todo-title {
     display: flex;
     justify-content: space-between;
@@ -115,7 +123,7 @@ a {
   background-color: white;
   //   position: absolute;
   //   z-index: 8888;
-  width: 200px;
+  width: 300px;
   //   height: 100%;
 
   ul {
@@ -136,16 +144,15 @@ a {
           background-color: #4b49ac;
           border-radius: 10px;
           color: white;
-          svg{
+          svg {
             color: white;
           }
         }
         p {
           margin-bottom: 0;
         }
-        svg{
-        color: #717171;
-
+        svg {
+          color: #717171;
         }
       }
     }
