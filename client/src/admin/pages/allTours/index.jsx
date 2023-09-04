@@ -8,21 +8,23 @@ import "./index.scss";
 import Search from "antd/es/input/Search";
 const AllToursAdmin = () => {
   const allToursData = useSelector((state) => state.toursData.data);
-  console.log(allToursData);
+  // console.log(allToursData);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getToursData());
   }, [dispatch]);
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
-  const onSelectChange = (selectedKeys) => {
-    setSelectedRowKeys(selectedKeys);
-  };
-  const rowSelection = {
-    selectedRowKeys,
-    onChange: onSelectChange,
-  };
-    
+  // console.log(selectedRowKeys);
+  // const onSelectChange = (selectedKeys) => {
+  //   console.log(selectedKeys);
+  //   setSelectedRowKeys(selectedKeys);
+  // };
+  // const rowSelection = {
+  //   selectedRowKeys,
+  //   onChange: onSelectChange,
+  // };
+
   const columns = [
     {
       title: "Img",
@@ -63,7 +65,7 @@ const AllToursAdmin = () => {
           <Button type="primary" style={{ backgroundColor: "#4B49AC" }}>
             <AiFillEye />
           </Button>
-         
+
           <Button style={{ backgroundColor: "#4CBB17", color: "white" }}>
             <AiFillEdit />
           </Button>
@@ -82,26 +84,36 @@ const AllToursAdmin = () => {
         alignItems: "center",
         paddingTop: "100px",
         flexDirection: "column",
-        rowGap:'20px'
+        rowGap: "20px",
       }}
       className="table-container"
     >
       <div
         className="heading"
-        style={{ display: "flex",width:'90%', justifyContent: "space-between" }}
+        style={{
+          display: "flex",
+          width: "90%",
+          justifyContent: "space-between",
+        }}
       >
-   <div className="remove-item d-flex " style={{alignItems:'center',columnGap:'10px'}} >
-   <Button danger>Remove</Button>
-   <p className="m-0">Item:{selectedRowKeys.length}</p>
-   </div>
-        <Search style={{width:'30%'}} placeholder="Searh here..."/>
+        <div
+          className="remove-item d-flex "
+          style={{ alignItems: "center", columnGap: "10px" }}
+        >
+          <Button danger>Remove</Button>
+          <p className="m-0">Item:{selectedRowKeys.length}</p>
+        </div>
+        <Search style={{ width: "30%" }} placeholder="Searh here..." />
       </div>
       <Table
         style={{ width: "90%" }}
         columns={columns}
         rowKey={"id"}
         dataSource={allToursData}
-        rowSelection={rowSelection}
+        rowSelection={{
+          selectedRowKeys,
+          onChange: (selectedRowKeys) => setSelectedRowKeys(selectedRowKeys),
+        }}
       />
     </div>
   );

@@ -20,7 +20,7 @@ const Aside = () => {
           zIndex: "99999",
         }}
       ></div>
-      <nav>
+      <nav className="sidebar-nav">
         <ul>
           <li>
             <NavLink to={"/admin/home"}>

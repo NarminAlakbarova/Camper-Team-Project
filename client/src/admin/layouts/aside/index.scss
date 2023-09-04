@@ -110,7 +110,7 @@ a {
     }
   }
 }
-.sidebar-nav{
+.sidebar-nav {
   padding: 80px 0;
   background-color: white;
   //   position: absolute;
@@ -136,9 +136,16 @@ a {
           background-color: #4b49ac;
           border-radius: 10px;
           color: white;
+          svg{
+            color: white;
+          }
         }
         p {
           margin-bottom: 0;
+        }
+        svg{
+        color: #717171;
+
         }
       }
     }
