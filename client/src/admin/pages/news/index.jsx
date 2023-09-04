@@ -51,7 +51,7 @@ const News = () => {
     },
   ];
   const showModal = (newsObj) => {
-    detailsNews && setIsModalOpen(true);
+     setIsModalOpen(true);
     setDetailsNews(newsObj)
   };
   const handleCancel = () => {
@@ -72,7 +72,7 @@ const News = () => {
       <Modal className="admin-modal" title="Basic Modal" open={isModalOpen}  onCancel={handleCancel}>
           <div className="modal-body-left">
             <div className="author-title">
-              <img src={detailsNews?.newsImg[0]} alt="Author Image" />
+              <img src={detailsNews?.author.authorImg} alt="Author Image" />
               <p>{detailsNews?.author.authorName}</p>
             </div>
             <p className="release-day-title"><span>{detailsNews?.releaseDay}</span>, {detailsNews?.newsTitle}</p>
