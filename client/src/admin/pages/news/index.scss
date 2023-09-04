@@ -75,13 +75,26 @@
       width: 90%;
       margin: 0 auto;
       display: flex;
-      align-items: center;
+      column-gap: 30px;
       font-size: 17px;
+      overflow-y: auto;
+      &::-webkit-scrollbar {
+        width: 7px;
+      }
+      &::-webkit-scrollbar-track {
+        background-color:#f1f3fc;
+      }
+      
+      &::-webkit-scrollbar-thumb {
+        background-color: #4b49ac;
+      }
+      border: none;
       .modal-body-left {
         margin-right: 20px;
         color: #2d2d2d;
         span {
           font-style: oblique;
+          color: #4b49ac;
         }
         .release-day-title {
           font-weight: 700;
