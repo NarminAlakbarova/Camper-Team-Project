@@ -1,7 +1,7 @@
 import { Image, Modal, Table } from "antd";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getToursData } from "../../../redux/toursDataSlice";
+import { getToursData, searchTours } from "../../../redux/toursDataSlice";
 import { AiOutlineEye, AiOutlineEdit } from "react-icons/ai";
 import "./index.scss";
 import Search from "antd/es/input/Search";
@@ -66,6 +66,11 @@ const AllToursAdmin = () => {
       dataIndex: "tourDuringDay",
     },
     {
+      title: "Distance",
+      dataIndex: "details",
+      render:(el)=>el.distance
+    },
+    {
       title: "Action",
       render: (obj) => (
         <div className="actions">
@@ -79,6 +84,10 @@ const AllToursAdmin = () => {
       ),
     },
   ];
+  const onSearch = (value) => {
+    // console.log(value);
+    dispatch(searchTours(value));
+  };
   // console.log(selectedRowKeys);
   return (
     <div className="admin-data-table ">
@@ -123,7 +132,11 @@ const AllToursAdmin = () => {
           </div>
           <p className="m-0">Item:{selectedRowKeys.length}</p>
         </div>
-        <Search style={{ width: "30%" }} placeholder="Searh here..." />
+        <Search
+          style={{ width: "30%" }}
+          onSearch={onSearch}
+          placeholder="Searh here..."
+        />
       </div>
       <Table
         style={{ width: "90%" }}

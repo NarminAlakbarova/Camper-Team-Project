@@ -4,6 +4,7 @@ import axios from "axios";
 const BASE_URL = "http://localhost:8080";
 const initialState = {
   data: [],
+  filteredData: [],
   loading: false,
   error: "",
 };
@@ -25,6 +26,10 @@ export const sortDataPrice = createAsyncThunk(
   }
 );
 
+export const searchTours = createAsyncThunk("searchTours", async (value) => {
+  return value.toLocaleLowerCase();
+});
+
 export const toursDataSlice = createSlice({
   name: "toursData",
   initialState,
@@ -36,6 +41,7 @@ export const toursDataSlice = createSlice({
       builder.addCase(getToursData.fulfilled, (state, action) => {
         state.loading = false;
         state.data = action.payload;
+        state.filteredData = action.payload;
       });
     builder.addCase(getToursData.rejected, (state, action) => {
       state.error = "Data not Found";
@@ -61,6 +67,16 @@ export const toursDataSlice = createSlice({
           (a, b) => a.tourDuringDay - b.tourDuringDay
         );
       }
+    });
+    builder.addCase(searchTours.fulfilled, (state, action) => {
+      const keys = ["tourTitle", "tourLocation", "details.distance"];
+      state.data = state.filteredData.filter((item) =>
+        keys.some((key) =>
+          (key === "details.distance" ? item.details.distance : item[key])
+            .toLocaleLowerCase()
+            .includes(action.payload)
+        )
+      );
     });
   },
 });
