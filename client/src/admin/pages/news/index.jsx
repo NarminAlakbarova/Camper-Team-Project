@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {AiOutlineEye, AiOutlineEdit} from "react-icons/ai"
 import { Modal, Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { getNewsData } from "../../../redux/newsDataSlice";
+import { getNewsData, searchNews } from "../../../redux/newsDataSlice";
 import Search from "antd/es/input/Search";
 import "./index.scss";
 
@@ -65,7 +65,7 @@ const News = () => {
     onChange: onSelectChange,
   };
   const onSearch = (value) => {
-    console.log(value);
+    dispatch(searchNews(value))
   };
   return (
     <>
