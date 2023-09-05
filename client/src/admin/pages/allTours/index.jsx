@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getToursData } from "../../../redux/toursDataSlice";
 import { AiOutlineEye, AiOutlineEdit } from "react-icons/ai";
-
 import "./index.scss";
 import Search from "antd/es/input/Search";
 const AllToursAdmin = () => {
@@ -32,6 +31,7 @@ const AllToursAdmin = () => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+
   const columns = [
     {
       title: "Img",
@@ -79,7 +79,7 @@ const AllToursAdmin = () => {
       ),
     },
   ];
-
+  // console.log(selectedRowKeys);
   return (
     <div className="admin-data-table ">
       <Modal
