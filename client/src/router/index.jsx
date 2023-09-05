@@ -11,13 +11,13 @@ import SignUpPage from "../pages/signUp";
 import GalleryPage from "../pages/gallery";
 import TourDetails from "../pages/tourDetails";
 import Details from "../pages/details/Details";
-import SignIn from "../admin/pages/signIn";
 import Home from "../admin/pages/home";
 import News from "../admin/pages/news";
 import FeedBack from "../admin/pages/feedback";
 import AllToursAdmin from "../admin/pages/allTours";
 import AdminRoot from "../admin/root";
 import Orders from "../admin/pages/orders";
+import SignInAdmin from "../admin/pages/signInAdmin";
 
 export const router = createBrowserRouter([
   {
@@ -99,6 +99,10 @@ export const router = createBrowserRouter([
       {
         path: "orders",
         element: <Orders />,
+      },
+      {
+        path: "signInAdmin",
+        element: <SignInAdmin />,
       },
     ],
   },
