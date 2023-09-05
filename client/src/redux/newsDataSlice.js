@@ -34,16 +34,17 @@ export const getNewsDataSlice = createSlice({
       state.error = "Data not Found";
     });
     builder.addCase(searchNews.fulfilled, (state, action) => {
-      const keys = ["newsTitle", "releaseDay"];
+      const keys = ["newsTitle", "releaseDay", "author"];
       state.data = state.filteredData.filter(
         (item) =>
           keys.some((key) =>
-            item[key].toLocaleLowerCase().includes(action.payload)
-          ) ||
-          item.author.authorName.toLocaleLowerCase().includes(action.payload)
+            (key == "author" ? item.author.authorName : item[key])
+              .toLocaleLowerCase()
+              .includes(action.payload)
+          )
       );
     });
   },
 });
 
-export default getNewsDataSlice.reducer
+export default getNewsDataSlice.reducer;

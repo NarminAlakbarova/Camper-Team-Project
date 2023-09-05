@@ -3,7 +3,7 @@ import {AiOutlineEye, AiOutlineEdit} from "react-icons/ai"
 import { Modal, Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import Search from "antd/es/input/Search";
-import { feedBackData } from "../../../redux/feedBackDataSlice";
+import { feedBackData, searchFeedBack } from "../../../redux/feedBackDataSlice";
 
 const FeedBack = () => {
   const [detailsFeedback, setDetailsFeedback] = useState(null)
@@ -25,18 +25,23 @@ const FeedBack = () => {
     {
       title: "User Name",
       dataIndex: "userName",
-      key: "title",
+      key: "userName",
     },
     {
       title: "User Status",
       dataIndex: "userStatus",
-      key: "author",
+      key: "userStatus",
     },
     {
       title: "Feedback",
       dataIndex: "feedBack",
       render: (element) => <span>{element.slice(0,25)}...</span>,
       key: "releaseDay",
+    },
+    {
+      title: "Raiting",
+      dataIndex: "raiting",
+      key: "raiting",
     },
     {
       title: "Actions",
@@ -64,7 +69,7 @@ const FeedBack = () => {
     onChange: onSelectChange,
   };
   const onSearch = (value) => {
-    console.log(value);
+    dispatch(searchFeedBack(value))
   };
   return (
     <>
