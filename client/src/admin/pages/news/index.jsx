@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {AiOutlineEye, AiOutlineEdit} from "react-icons/ai"
 import { Modal, Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { getNewsData } from "../../../redux/newsDataSlice";
+import { getNewsData, searchNews } from "../../../redux/newsDataSlice";
 import Search from "antd/es/input/Search";
 import "./index.scss";
 
@@ -51,7 +51,7 @@ const News = () => {
     },
   ];
   const showModal = (newsObj) => {
-    detailsNews && setIsModalOpen(true);
+     setIsModalOpen(true);
     setDetailsNews(newsObj)
   };
   const handleCancel = () => {
@@ -65,14 +65,14 @@ const News = () => {
     onChange: onSelectChange,
   };
   const onSearch = (value) => {
-    console.log(value);
+    dispatch(searchNews(value))
   };
   return (
     <>
       <Modal className="admin-modal" title="Basic Modal" open={isModalOpen}  onCancel={handleCancel}>
           <div className="modal-body-left">
             <div className="author-title">
-              <img src={detailsNews?.newsImg[0]} alt="Author Image" />
+              <img src={detailsNews?.author.authorImg} alt="Author Image" />
               <p>{detailsNews?.author.authorName}</p>
             </div>
             <p className="release-day-title"><span>{detailsNews?.releaseDay}</span>, {detailsNews?.newsTitle}</p>
