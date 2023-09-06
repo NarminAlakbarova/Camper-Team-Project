@@ -92,6 +92,7 @@ const FeedBack = () => {
             <Search placeholder="Search now..." onSearch={onSearch} />
         </div>
         <Table
+        style={{width:'90%'}}
         rowSelection={rowSelection} 
         rowKey={"id"}
         dataSource={feedbackData} columns={columns} />
