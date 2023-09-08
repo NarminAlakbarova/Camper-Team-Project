@@ -31,10 +31,10 @@ const Home = () => {
           <span> 3 unread alerts!</span>
         </p>
       </div>
-      <div className="admin-home">
+      <div className="admin-home-weather">
         <WeatherBooking weatherData={weatherData} />
-        <DetailsReports />
       </div>
+        <DetailsReports />
     </div>
   );
 };
