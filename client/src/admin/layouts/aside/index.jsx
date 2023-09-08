@@ -6,17 +6,24 @@ import { CiLogout, CiSettings } from "react-icons/ci";
 import { BsThreeDots, BsNewspaper } from "react-icons/bs";
 import { BiSearch } from "react-icons/bi";
 import { Dropdown } from "antd";
-import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
-import { GiCampingTent } from "react-icons/gi";
+import { Link, NavLink } from "react-router-dom";
+import { GiCampingTent, GiWallet } from "react-icons/gi";
 import { FaWpforms } from "react-icons/fa";
-import { GiWallet } from "react-icons/gi";
 import { AiFillHome } from "react-icons/ai";
+import { v4 as uuidv4 } from "uuid";
 import "./index.scss";
 
 const Aside = () => {
   const [not, setNot] = useState(true);
   const [toggleTodo, setToggleTodo] = useState(false);
+  const [allToDoItem, setAllToDoItem] = useState([]);
+  const [toDoInputValue, setToDoInputValue] = useState({
+    toDo: "",
+    id: "",
+  });
+  const [selectedItems, setSelectedItems] = useState([]);
+  console.log(allToDoItem);
+  console.log(toDoInputValue);
   const todoRef = useRef();
   const items = [
     {
@@ -40,11 +47,31 @@ const Aside = () => {
   ];
   const handleShowTodo = () => {
     toggleTodo
-      ? ((todoRef.current.style.right = "-350px"),
-       setToggleTodo(false))
-      : ((todoRef.current.style.right = "0"), 
-      setToggleTodo(true))
+      ? ((todoRef.current.style.right = "-350px"), setToggleTodo(false))
+      : ((todoRef.current.style.right = "0"), setToggleTodo(true));
   };
+  const handleToDoChanges = (e) => {
+    setToDoInputValue({ ...toDoInputValue, [e.target.name]: e.target.value });
+  };
+  const handleToDoSubmit = () => {
+    const newTodoItem = {
+      toDo: toDoInputValue.toDo,
+      id: uuidv4(),
+    };
+    setAllToDoItem([...allToDoItem, newTodoItem]);
+    setToDoInputValue({ toDo: "", id: "" });
+  };
+  const handleToDoDelete = (id) => {
+    setAllToDoItem(allToDoItem.filter((item) => item.id !== id));
+  };
+
+  const handleToDoClick = (id) => {
+    const isSelected = selectedItems.includes(id);
+    isSelected
+      ? setSelectedItems(selectedItems.filter((itemId) => itemId !== id))
+      : setSelectedItems([...selectedItems, id]);
+  };
+
   return (
     <>
       <div className="admin-header">
@@ -54,7 +81,7 @@ const Aside = () => {
         <nav>
           <div>
             <button className="search-btn">
-              <BiSearch />{" "}
+              <BiSearch />
             </button>
             <input type="text" placeholder="Search now" />
           </div>
@@ -82,27 +109,52 @@ const Aside = () => {
         </nav>
       </div>
       <div ref={todoRef} className="todo-side-bar">
-          <div className="todo-title">
-            <span>TO DO LIST</span>
-            <button onClick={handleShowTodo}>
-              <VscChromeClose />
-            </button>
-          </div>
-          <div className="add-todo">
-            <input type="text" placeholder="Add To-Do" />
-            <button>Add</button>
-          </div>
-          <ul>
-            <li>
+        <div className="todo-title">
+          <span>TO DO LIST</span>
+          <button onClick={handleShowTodo}>
+            <VscChromeClose />
+          </button>
+        </div>
+        <div className="add-todo">
+          <input
+            name="toDo"
+            value={toDoInputValue.toDo}
+            type="text"
+            placeholder="Add To-Do"
+            onChange={(e) => handleToDoChanges(e)}
+          />
+          <button
+            onClick={() => handleToDoSubmit()}
+            disabled={!toDoInputValue.toDo}
+          >
+            Add
+          </button>
+        </div>
+        <ul>
+          {allToDoItem.map((item) => (
+            <li key={item.id}>
               <div>
-                <input type="checkbox" name="" id="" />
-                <span>hello</span>
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  onClick={() => handleToDoClick(item.id)}
+                />
+                <span
+                  className={
+                    selectedItems.includes(item.id) ? "to-do-span" : ""
+                  }
+                >
+                  {item.toDo}
+                </span>
               </div>
-              <button>
+
+              <button onClick={() => handleToDoDelete(item.id)}>
                 <VscChromeClose />
               </button>
             </li>
-          </ul>
+          ))}
+        </ul>
       </div>
       <nav className="sidebar-nav">
         <ul>
