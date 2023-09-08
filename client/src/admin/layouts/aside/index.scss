@@ -103,11 +103,15 @@ a {
       border-radius: 7px;
       padding: 15px;
       display: flex;
+      margin-bottom: 10px;
       justify-content: space-between;
       input {
         width: 50px;
         accent-color: #403e92;
         transform: scale(1.5);
+      }
+      .to-do-span {
+        text-decoration: line-through !important;
       }
       button {
         svg {
