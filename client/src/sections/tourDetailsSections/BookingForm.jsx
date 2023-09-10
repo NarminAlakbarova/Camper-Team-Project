@@ -12,11 +12,8 @@ const BookingForm = () => {
   const tour = tours.find((tour) => tour.id == id);
   const [currentMonth, setCurrentMonth] = useState("");
   const [currentYear, setCurrentYear] = useState("");
-  const [selectedBtn, setSelectedBtn] = useState(false)
-  const [bookingValue, setBookingValue] = useState({
-      date:"",
-      numberPeople:"",
-    })
+  const [selectedDate, setSelectedDate] = useState(false)
+  const [numberPeople, setNumberPeople] = useState("")
   const requiredTextRef=useRef()
   const dispatch=useDispatch()
   const currentDate = new Date();
@@ -60,15 +57,16 @@ const BookingForm = () => {
     }
   };
   const selectDate = (item) => {
-    setBookingValue({...bookingValue,date:item})
-    setSelectedBtn(item)
+    setSelectedDate(item)
     requiredTextRef.current.style.visibility="hidden"
   };
   const handleSubmitBooking=(e)=>{
     e.preventDefault()
-    if(selectedBtn){
+    if(selectedDate){
         for (let day = 0; day < tour.tourDuringDay; day++) {
-            allSelectedDays.push(`${currentYear}-${currentMonth}-${day + +selectedBtn.split("-")[2]}`)
+          let newSelectedDate=new Date(selectedDate)
+          newSelectedDate.setDate(+selectedDate.split("-")[2]+day)
+          allSelectedDays.push(`${newSelectedDate.getFullYear()}-${months[newSelectedDate.getMonth()]}-${newSelectedDate.getDate()}`)
         }
         let bookedValue
         if (existBookedValue) {
@@ -77,18 +75,18 @@ const BookingForm = () => {
                 id:existBookedValue.id,
                 tourTitle:tour.tourTitle,
                 allSelectedDays:allSelectedDays,
-                numberPeople:+bookingValue.numberPeople+existBookedValue.numberPeople
+                numberPeople:+numberPeople + +existBookedValue.numberPeople
             }
         }else{
             bookedValue={
                 id: uuid(),
                 tourTitle:tour.tourTitle,
                 allSelectedDays:allSelectedDays,
-                numberPeople:bookingValue.numberPeople
+                numberPeople: +numberPeople
             }
         }
-        setSelectedBtn(false)
-        setBookingValue({date:"",numberPeople:""})
+        setSelectedDate(false)
+        setNumberPeople("")
         dispatch(addBookingValue(bookedValue))
     }else{
         requiredTextRef.current.style.visibility="visible"
@@ -110,19 +108,23 @@ const BookingForm = () => {
       <div className="month-days">
         {emptyDate.map((item,index)=><button key={index} className="disabled">{item}</button>)}
         {monthDays.map((item,index) => {
-               if(currentDate.getMonth()==currentMonth){ 
-                  return item.split("-")[2]<currentDate.getDate() ?
-                     <button className="disabled" key={index}>{item.split("-")[2]}</button>
-                     :
-                    <button className={` ${tour?.tourAvailability.some(item=>item==months[currentMonth]) ? (selectedBtn==item && "selected") : "disabled"}`} key={index} onClick={() => selectDate(item)}>{item.split("-")[2]}</button>
-                }else{
-                   return <button className={` ${tour?.tourAvailability.some(item=>item==months[currentMonth]) ? (selectedBtn==item && "selected") : "disabled"}`} key={index} onClick={() => selectDate(item)}>{item.split("-")[2]}</button>
-                }
+          if (existBookedValue?.allSelectedDays.includes(item)) {
+           return <button className="disabled" key={index}>{item.split("-")[2]}</button>
+          }else{
+            if(currentDate.getMonth()==currentMonth){ 
+               return item.split("-")[2]<currentDate.getDate() ?
+                  <button className="disabled" key={index}>{item.split("-")[2]}</button>
+                  :
+                 <button className={` ${tour?.tourAvailability.some(item=>item==months[currentMonth]) ? (selectedDate==item && "selected") : "disabled"}`} key={index} onClick={() => selectDate(item)}>{item.split("-")[2]}</button>
+             }else{
+                return <button className={` ${tour?.tourAvailability.some(item=>item==months[currentMonth]) ? (selectedDate==item && "selected") : "disabled"}`} key={index} onClick={() => selectDate(item)}>{item.split("-")[2]}</button>
+             }
+          }
         })}
       </div>
       <p ref={requiredTextRef} className="required-text">Please select a date...</p>
       <form onSubmit={handleSubmitBooking}>
-        <select value={bookingValue.numberPeople} onChange={(e) => setBookingValue({ ...bookingValue, numberPeople: e.target.value })} required>
+        <select value={numberPeople} onChange={(e) => setNumberPeople(e.target.value)} required>
           <option value="" hidden>
             Number Of People
           </option>
