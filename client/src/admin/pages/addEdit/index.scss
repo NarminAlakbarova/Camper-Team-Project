@@ -1,0 +1,111 @@
+#tours-form {
+  background-color: #f1f3fc;
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  #prev-icon {
+    position: absolute;
+    left: 5%;
+    top: 15%;
+    svg {
+      font-size: 24px;
+    }
+  }
+  form {
+    margin-top: 100px;
+    .title {
+      h3 {
+        color: #5b5b5b;
+      }
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      input {
+        border: none;
+        outline: none;
+        padding: 5px 10px;
+        background-color: #c797eb60;
+        color: #5b5b5b;
+      }
+      label {
+        color: #5b5b5b;
+      }
+    }
+    textarea {
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 5px 10px;
+      background-color: #c797eb60;
+    }
+    .submit-btn {
+      background-color: #f0ecfc;
+      background-image: linear-gradient(315deg, #f0ecfc 0%, #c797eb 74%);
+      line-height: 42px;
+      padding: 0;
+      border: none;
+      width: 200px;
+      padding: 2px;
+      span {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: #5b5b5b;
+        font-size: 18px;
+        letter-spacing: 1px;
+        &:hover {
+          &::after {
+            width: 100%;
+          }
+          &::before {
+            height: 100%;
+          }
+        }
+        &::before,
+        &::after {
+          position: absolute;
+          content: "";
+          left: 0;
+          top: 0;
+          background: #c797eb;
+          transition: all 0.3s ease;
+        }
+        &::before {
+          width: 2px;
+          height: 0%;
+        }
+        &::after {
+          height: 2px;
+          width: 0%;
+        }
+      }
+      &::before,
+      &::after {
+        position: absolute;
+        content: "";
+        right: 0;
+        bottom: 0;
+        background: #c797eb;
+        transition: all 0.3s ease;
+      }
+      &::before {
+        height: 0%;
+        width: 2px;
+      }
+      &::after {
+        width: 0%;
+        height: 2px;
+      }
+      &:hover {
+        color: #c797eb;
+        background: transparent;
+      }
+    }
+  }
+}
