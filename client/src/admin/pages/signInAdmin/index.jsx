@@ -5,8 +5,9 @@ import img from "../../../assets/img/contact/locationImg1.jpg";
 import { FiUser } from "react-icons/fi";
 import { AiOutlineLock } from "react-icons/ai";
 import { Form, Formik } from "formik";
-import { validate } from "../../../validation";
 import InputFeilds from "../../../components/form/InputFeilds";
+import { AdminSignInValidation } from "../../../validation/AdminSignInValidation";
+
 const SignInAdmin = ({ setCheckAdmin, checkAdmin }) => {
   console.log(checkAdmin);
   return (
@@ -23,7 +24,7 @@ const SignInAdmin = ({ setCheckAdmin, checkAdmin }) => {
               adminName: "",
               password: "",
             }}
-            validationSchema={validate}
+            validationSchema={AdminSignInValidation}
           >
             {({ errors, touched }) => (
               <Form>

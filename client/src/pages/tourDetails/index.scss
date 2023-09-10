@@ -267,6 +267,54 @@
               font-size: 15px;
               margin: 15px 0;
             }
+            .booking-form {
+              select {
+                outline: none;
+              }
+              .required-text {
+                color: #ffaf19;
+                visibility: hidden;
+                margin-bottom: 0;
+              }
+              .month-year {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 10px 0;
+                .prev-next-btn {
+                  background-color: transparent;
+                  width: 20%;
+                }
+                h3 {
+                  margin: 0;
+                }
+              }
+              .week-days {
+                display: flex;
+                justify-content: space-between;
+              }
+              .month-days {
+                display: flex;
+                flex-wrap: wrap;
+                column-gap: 10px;
+                button {
+                  width: 37px;
+                  background-color: #fff;
+                  border: 1px solid #ddd;
+                  color: #000;
+                  margin: 10px 0;
+                  &.disabled {
+                    color: #7d7d7d;
+                    cursor: default;
+                  }
+                  &.selected {
+                    background-color: #ffaf19;
+                    border: none;
+                    color: #f8f8f8;
+                  }
+                }
+              }
+            }
           }
         }
       }

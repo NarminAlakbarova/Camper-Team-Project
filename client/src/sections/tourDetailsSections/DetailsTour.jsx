@@ -16,6 +16,7 @@ import {AiFillStar, AiOutlineCheck} from "react-icons/ai";
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
 import {BsHandThumbsUp,BsTelephone,BsFilterCircle} from "react-icons/bs"
 import { Link } from 'react-router-dom';
+import BookingForm from './BookingForm';
 
 
 const DetailsTour = ({tour}) => {
@@ -222,27 +223,16 @@ const DetailsTour = ({tour}) => {
                                 </div>
                                 <div className="form-content">
                                     {formType=="booking" ? 
-                                    ( <form>
-                                            <input type="date" />
-                                            <select name="" id="">
-                                                <option value="" hidden>Number Of People</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                            </select>
-                                            <button type="submit">PROCEED BOOKING</button>
-                                        </form>) 
+                                    <BookingForm/>
                                     :
                                     (<form onSubmit={handleSubmit}>
                                         <label htmlFor="full-name">Full Name*</label>
-                                        <input type="text" value={inpValue.fullName} id="full-name" onChange={(e)=>setInpValue({...inpValue,fullName:e.target.value})} />
+                                        <input type="text" value={inpValue.fullName} id="full-name" onChange={(e)=>setInpValue({...inpValue,fullName:e.target.value})} required />
                                         <label htmlFor="email">Email Address*</label>
-                                        <input type="email" value={inpValue.email} id="email" onChange={(e)=>setInpValue({...inpValue,email:e.target.value})} />
+                                        <input type="email" value={inpValue.email} id="email" onChange={(e)=>setInpValue({...inpValue,email:e.target.value})} required />
                                         <label htmlFor="">Your Enquiry*</label>
-                                        <textarea value={inpValue.enquiry} id="" rows="5" onChange={(e)=>setInpValue({...inpValue,enquiry:e.target.value})} ></textarea>
-                                        <input type="checkbox" checked={inpValue.checkbox} onChange={(e)=>setInpValue({...inpValue,checkbox:e.target.checked})} />
+                                        <textarea value={inpValue.enquiry} id="" rows="5" onChange={(e)=>setInpValue({...inpValue,enquiry:e.target.value})} required ></textarea>
+                                        <input type="checkbox" checked={inpValue.checkbox} onChange={(e)=>setInpValue({...inpValue,checkbox:e.target.checked})} required />
                                         <span className='checkbox-text'>* I agree with <Link to={""}>Terms of Service</Link> and <Link to={""}>Privacy Statement</Link>.</span>
                                         <button type="submit">SUBMIT ENQUIRY</button>
                                     </form>)

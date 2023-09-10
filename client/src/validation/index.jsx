@@ -32,8 +32,4 @@ export const validate = Yup.object().shape({
     .required("Password must be required!"),
   country: Yup.string().required("Country must be required!"),
   accept: Yup.boolean().oneOf([true], "Please check the agreement"),
-  adminName: Yup.string()
-    .min(2, "Admin Name must be 2 or more characters!")
-    .max(10, "Admin Name must be 10 or less!")
-    .required("Admin Name must be required!"),
 });
