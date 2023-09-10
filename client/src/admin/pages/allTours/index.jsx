@@ -5,6 +5,8 @@ import { getToursData, searchTours } from "../../../redux/toursDataSlice";
 import { AiOutlineEye, AiOutlineEdit } from "react-icons/ai";
 import "./index.scss";
 import Search from "antd/es/input/Search";
+import { BsPlusSquareDotted } from "react-icons/bs";
+import { Link } from "react-router-dom";
 const AllToursAdmin = () => {
   const allToursData = useSelector((state) => state.toursData.data);
   const dispatch = useDispatch();
@@ -68,7 +70,7 @@ const AllToursAdmin = () => {
     {
       title: "Distance",
       dataIndex: "details",
-      render:(el)=>el.distance
+      render: (el) => el.distance,
     },
     {
       title: "Action",
@@ -132,11 +134,15 @@ const AllToursAdmin = () => {
           </div>
           <p className="m-0">Item:{selectedRowKeys.length}</p>
         </div>
-        <Search
-          style={{ width: "30%" }}
-          onSearch={onSearch}
-          placeholder="Searh here..."
-        />
+        <div className="searcd-add">
+          <Search
+            onSearch={onSearch}
+            placeholder="Searh here..."
+          />
+          <Link to={"/admin/tours"}>
+            <BsPlusSquareDotted className="add-icon" />
+          </Link>
+        </div>
       </div>
       <Table
         style={{ width: "90%" }}
