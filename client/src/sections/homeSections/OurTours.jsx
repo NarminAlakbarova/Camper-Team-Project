@@ -9,7 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const OurTours = ({ sectionTitle }) => {
   const tours = useSelector((state) => state.toursData.data);
-  const ourPopularTours = tours.filter((item) => item.tourRating > 7 && item);
+  const ourPopularTours = tours.filter((item) => item.tourRating > 7);
   const newTours = tours.slice(-9);
 
   const settings = {
@@ -122,9 +122,10 @@ const OurTours = ({ sectionTitle }) => {
                       <Link to={`/tourDetails/${item.id}`}>
                         <img src={item.tourImg[0]} alt="popular tour image" />
                       </Link>
+                      {item.tourRating>7 && 
                       <Link to={`/tourDetails/${item.id}`} className="img-text">
                         Popular Tour
-                      </Link>
+                      </Link>}
                     </div>
                     <div className="popular-card-info">
                       <p>

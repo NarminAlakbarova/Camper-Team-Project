@@ -13,12 +13,15 @@ export const getBookingData = createAsyncThunk("getBookingData", async () => {
   return res.data;
 });
 
-export const addBookingValue = createAsyncThunk( "addBookingValue",async (obj) => {
+export const addBookingValue = createAsyncThunk(
+  "addBookingValue",
+  async (obj) => {
     const res = await axios(`${BASE_URL}/bookedTours`);
     let check = res.data.find((tour) => tour.tourTitle == obj.tourTitle);
     check
       ? await axios.patch(`${BASE_URL}/bookedTours/${obj.id}`, obj)
       : await axios.post(`${BASE_URL}/bookedTours`, obj);
+    return [obj, check];
   }
 );
 
@@ -37,7 +40,16 @@ export const bookingDataSlice = createSlice({
       state.error = "Data not Found";
     });
     builder.addCase(addBookingValue.fulfilled, (state, action) => {
-        // console.log(action.payload);
+      const value = action.payload[0];
+      const check = action.payload[1];
+      if (check) {
+        return (state.data = state.data.map((item) =>
+          item.id == value.id ? value : item
+        ));
+      } else {
+        console.log(value);
+        // state.data=[...state.data,value]
+      }
     });
   },
 });
