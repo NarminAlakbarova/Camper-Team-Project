@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { MdOutlineClose } from "react-icons/md";
 import InputFeilds from "../form/InputFeilds";
 import { Form, Formik } from "formik";
-import { validate } from "../../validation";
+import { SignInValidation } from "../../validation/SignInValidation";
+
 const ModalLogin = ({ handleModalClick }) => {
   return (
     <div id="login-modal">
@@ -25,7 +26,8 @@ const ModalLogin = ({ handleModalClick }) => {
                 userName: "",
                 password: "",
               }}
-              validationSchema={validate}
+              validationSchema={SignInValidation}
+              onSubmit={(values) => console.log(values)}
             >
               {({ errors, touched }) => (
                 <Form>

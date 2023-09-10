@@ -1,9 +1,13 @@
 import React from 'react'
 import { Form, Formik } from 'formik'
 import InputFeilds from './InputField'
+import {v4 as uuid} from "uuid"
 import { validate } from '../../../validation'
+import { useDispatch} from 'react-redux'
+import { addUser } from '../../../redux/usersDataSlice'
 
 const SignUpForm = () => {
+  const dispatch=useDispatch()
   return (
     <Formik
       initialValues={{
@@ -18,7 +22,11 @@ const SignUpForm = () => {
         accept: false,
       }}
       validationSchema={validate}
-      onSubmit={(values) => console.log(values)}
+      onSubmit={(values,actions) => (
+        console.log(values),
+        dispatch(addUser({ ...values, id: uuid(), isAdmin: false })),
+        actions.resetForm()
+      )}
     >
         <Form>
             <div className="sign-up-form-content row">
