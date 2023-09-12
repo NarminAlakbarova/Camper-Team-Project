@@ -19,6 +19,7 @@ import AdminRoot from "../admin/root";
 import Orders from "../admin/pages/orders";
 import SignInAdmin from "../admin/pages/signInAdmin";
 import AllToursForm from "../admin/pages/addEdit/tours";
+import FeedbackForm from "../admin/pages/addEdit/feedback";
 
 export const router = createBrowserRouter([
   {
@@ -105,6 +106,14 @@ export const router = createBrowserRouter([
         path: "tours",
         element: <AllToursForm />,
       },
+      {
+        path: "feedbackForm",
+        element:<FeedbackForm />
+      },
+      {
+        path: "feedbackForm/:id",
+        element:<FeedbackForm />
+      }
     ],
   },
 ]);
