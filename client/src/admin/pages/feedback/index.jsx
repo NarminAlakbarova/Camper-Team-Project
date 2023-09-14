@@ -4,12 +4,15 @@ import { Modal, Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import Search from "antd/es/input/Search";
 import { feedBackData, searchFeedBack } from "../../../redux/feedBackDataSlice";
+import { Link, useNavigate } from "react-router-dom";
+import { BsPlusSquareDotted } from "react-icons/bs";
 
 const FeedBack = () => {
   const [detailsFeedback, setDetailsFeedback] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const feedbackData = useSelector((state) => state.feedBackData.data);
+  const navigate=useNavigate()
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(feedBackData());
@@ -48,7 +51,7 @@ const FeedBack = () => {
       render: (_, record) => (
         <div className="actions">
           <button onClick={()=>showModal(record)}><AiOutlineEye/></button>
-          <button><AiOutlineEdit/></button>
+          <button onClick={()=>{navigate(`/admin/feedbackForm/${record.id}`)}} ><AiOutlineEdit/></button>
         </div>
       ),
       key: "actions",
@@ -89,7 +92,12 @@ const FeedBack = () => {
               <button>Remove</button>
               <span>Item: {selectedRowKeys.length}</span>
             </div>
-            <Search placeholder="Search now..." onSearch={onSearch} />
+            <div className="search-add">
+              <Search placeholder="Search now..." onSearch={onSearch} />
+              <Link to={"/admin/feedbackForm"}>
+                <BsPlusSquareDotted className="add-icon" />
+              </Link>
+            </div>
         </div>
         <Table
         style={{width:'90%'}}

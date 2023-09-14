@@ -13,11 +13,9 @@ const FeedbackForm = () => {
   useEffect(() => {
     dispatch(feedBackData());
   }, [dispatch]);
-  console.log(feedbackData);
   const {id} = useParams()
   const navigate=useNavigate()
   const updateData=feedbackData.find(item=>item.id==id)
-  console.log(updateData);
   const handleSubmitForm=(values)=>{
     id ? dispatch(updateFeedback({...values,id: id})) : dispatch(addFeedback({...values,id:uuid() }))
     navigate("/admin/feedback")
@@ -30,7 +28,7 @@ const FeedbackForm = () => {
         </Link>
       </div>
       <h1>{id ? "Edit Feedback" : "Add Feedback" }</h1>
-      <div className="add-edit-form-feedback">
+      <div className="add-edit-form-admin">
         <Formik
             initialValues={
               id ? {

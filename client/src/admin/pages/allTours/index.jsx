@@ -134,7 +134,7 @@ const AllToursAdmin = () => {
           </div>
           <p className="m-0">Item:{selectedRowKeys.length}</p>
         </div>
-        <div className="searcd-add">
+        <div className="search-add">
           <Search
             onSearch={onSearch}
             placeholder="Searh here..."

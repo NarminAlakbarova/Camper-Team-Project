@@ -4,13 +4,16 @@ import { Modal, Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { getNewsData, searchNews } from "../../../redux/newsDataSlice";
 import Search from "antd/es/input/Search";
+import { Link, useNavigate } from "react-router-dom";
 import "./index.scss";
+import { BsPlusSquareDotted } from "react-icons/bs";
 
 const News = () => {
   const [detailsNews, setDetailsNews] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const newsData = useSelector((state) => state.newsData.data);
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getNewsData());
@@ -44,7 +47,7 @@ const News = () => {
       render: (_, record) => (
         <div className="actions">
           <button onClick={()=>showModal(record)}><AiOutlineEye/></button>
-          <button><AiOutlineEdit/></button>
+          <button onClick={()=>navigate(`/admin/newsForm/${record.id}`)}><AiOutlineEdit/></button>
         </div>
       ),
       key: "actions",
@@ -87,7 +90,12 @@ const News = () => {
               <button>Remove</button>
               <span>Item: {selectedRowKeys.length}</span>
             </div>
-            <Search placeholder="Search now..." onSearch={onSearch} />
+            <div className="search-add">
+              <Search placeholder="Search now..." onSearch={onSearch} />
+              <Link to={"/admin/newsForm"}>
+                <BsPlusSquareDotted className="add-icon" />
+              </Link>
+            </div>
         </div>
         <Table
         rowSelection={rowSelection} 
