@@ -33,6 +33,22 @@
         background-color: #c797eb60;
         color: #5b5b5b;
       }
+
+      label {
+        color: #5b5b5b;
+      }
+    }
+    .select-container {
+
+      select {
+        width: 100%;
+        border: none;
+        outline: none;
+        background-color: #c797eb60;
+        padding: 8px 10px;
+        color: #5b5b5b;
+     
+      }
       label {
         color: #5b5b5b;
       }
@@ -42,7 +58,7 @@
       border: none;
       outline: none;
       padding: 5px 10px;
-      background-color: #4b49ac82;
+      background-color: #c797eb60;
     }
     .submit-btn {
       background-color: #f0ecfc;

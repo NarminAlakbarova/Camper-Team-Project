@@ -78,7 +78,6 @@ export const router = createBrowserRouter([
     path: "/admin",
     element: <AdminRoot />,
     children: [
-   
       {
         path: "home",
         element: <Home />,
@@ -109,20 +108,24 @@ export const router = createBrowserRouter([
       },
       {
         path: "feedbackForm",
-        element:<FeedbackForm />
+        element: <FeedbackForm />,
       },
       {
         path: "feedbackForm/:id",
-        element:<FeedbackForm />
+        element: <FeedbackForm />,
       },
       {
         path: "newsForm",
-        element:<NewsForm />
+        element: <NewsForm />,
       },
       {
         path: "newsForm/:id",
-        element:<NewsForm />
-      }
+        element: <NewsForm />,
+      },
+      {
+        path: "tours/:id",
+        element: <AllToursForm />,
+      },
     ],
   },
 ]);
