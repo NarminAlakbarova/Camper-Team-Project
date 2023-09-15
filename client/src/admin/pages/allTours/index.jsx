@@ -79,9 +79,9 @@ const AllToursAdmin = () => {
           <button onClick={() => handleShowModal(obj)}>
             <AiOutlineEye />
           </button>
-          <button>
+          <Link to={`/admin/tours/${obj.id}`}>
             <AiOutlineEdit />
-          </button>
+          </Link>
         </div>
       ),
     },
@@ -135,10 +135,7 @@ const AllToursAdmin = () => {
           <p className="m-0">Item:{selectedRowKeys.length}</p>
         </div>
         <div className="searcd-add">
-          <Search
-            onSearch={onSearch}
-            placeholder="Searh here..."
-          />
+          <Search onSearch={onSearch} placeholder="Searh here..." />
           <Link to={"/admin/tours"}>
             <BsPlusSquareDotted className="add-icon" />
           </Link>

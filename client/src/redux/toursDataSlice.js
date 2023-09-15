@@ -19,6 +19,12 @@ export const sortData = createAsyncThunk("sortData", async (sortType) => {
   return sortType;
 });
 
+export const addTours = createAsyncThunk("addUser", async (toursInfo) => {
+  await axios.post(`${BASE_URL}/toursCamper`, toursInfo);
+});
+export const editTours=createAsyncThunk("editTours",async({id,toursInfo})=>{
+  await axios.patch(`${BASE_URL}/toursCamper/${id}`,toursInfo)
+})
 export const sortDataPrice = createAsyncThunk(
   "sortDataPrice",
   async (sortType) => {
