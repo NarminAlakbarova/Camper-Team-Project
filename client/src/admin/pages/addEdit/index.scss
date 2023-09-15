@@ -7,16 +7,17 @@
   align-items: center;
   flex-direction: column;
   position: relative;
+  margin-top: 80px;
+  padding: 50px 0;
   #prev-icon {
     position: absolute;
     left: 5%;
-    top: 15%;
+    top: 9%;
     svg {
       font-size: 24px;
     }
   }
   form {
-    margin-top: 100px;
     .title {
       h3 {
         color: #5b5b5b;
@@ -41,7 +42,7 @@
       border: none;
       outline: none;
       padding: 5px 10px;
-      background-color: #c797eb60;
+      background-color: #4b49ac82;
     }
     .submit-btn {
       background-color: #f0ecfc;
@@ -106,6 +107,37 @@
         color: #c797eb;
         background: transparent;
       }
+    }
+  }
+}
+
+.add-edit-form-admin{
+  width: 50%;
+  form{
+    display: flex;
+    flex-direction: column;
+    input, textarea{
+      border-radius: 7px;
+      outline: none;
+      padding: 10px;
+      background-color: #4b49ac82;
+      border: none;
+      margin-bottom: 20px;
+    }
+    textarea{
+      height: 120px;
+    }
+    label{
+      font-size: 18px;
+    }
+    button{
+      width: 40%;
+      margin: 0 auto;
+      font-size: 24px;
+      background-color: #4B49AC;
+      padding: 10px 0;
+      border-radius: 10px;
+      color: #f1f3fc;
     }
   }
 }
