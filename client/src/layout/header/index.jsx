@@ -56,7 +56,7 @@ const Header = () => {
   };
   return (
     <>
-      {showModal && <ModalLogin handleModalClick={handleModalClick} />}
+      {showModal && <ModalLogin handleModalClick={handleModalClick} setShowModal={setShowModal} />}
       <header ref={headerRef}>
         <div className="container">
           <nav>
@@ -74,7 +74,7 @@ const Header = () => {
                 <NavLink to={"allTours"}>All Tours</NavLink>
               </li>
               <li>
-                <DropdownComponent dropdownSpace={"pages"} handleModalClick={handleModalClick} />
+                <DropdownComponent dropdownSpace={"pages"} handleModalClick={handleModalClick}/>
               </li>
               <li>
                 <NavLink to={"contact"}>Contact</NavLink>

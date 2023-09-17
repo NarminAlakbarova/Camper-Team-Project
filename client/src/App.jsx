@@ -1,16 +1,20 @@
 import { Outlet } from "react-router-dom";
 import Header from "./layout/header";
 import Footer from "./layout/footer";
-import { Provider } from "react-redux";
+import { Provider, useDispatch } from "react-redux";
 import { store } from "./redux/store.js";
+import UserProvider from "./context/UserProvider";
 function App() {
+
   return (
     <>
-      <Provider store={store}>
-        <Header />
-        <Outlet />
-        <Footer />
-      </Provider>
+      <UserProvider>
+        <Provider store={store}>
+          <Header />
+          <Outlet />
+          <Footer />
+        </Provider>
+      </UserProvider>
     </>
   );
 }

@@ -14,6 +14,7 @@ import { useDispatch } from "react-redux";
 import { getNewsData } from "../../redux/newsDataSlice";
 import { feedBackData } from "../../redux/feedBackDataSlice";
 import { getToursData } from "../../redux/toursDataSlice";
+import { getUsersData } from "../../redux/usersDataSlice";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,8 @@ const HomePage = () => {
     dispatch(getNewsData());
     dispatch(feedBackData());
     dispatch(getToursData());
+    dispatch(getUsersData());
+
   }, [dispatch]);
   return (
     <>

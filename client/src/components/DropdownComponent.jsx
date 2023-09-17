@@ -1,9 +1,13 @@
 import { Dropdown, Space } from "antd";
-import React from "react";
+import React, { useContext } from "react";
 import {  NavLink } from "react-router-dom";
+import { UserContext } from "../context/UserProvider";
 
 const DropdownComponent = ({ dropdownSpace,handleModalClick}) => {
-
+const {checkUser ,setCheckUsers}=useContext(UserContext)
+const handleUSersLogOut=()=>{
+  setCheckUsers()
+}
   let items = "";
   dropdownSpace == "pages"
     ? (items = [
@@ -29,7 +33,7 @@ const DropdownComponent = ({ dropdownSpace,handleModalClick}) => {
           key: "1",
         },
         {
-          label: <NavLink to={"signUp"}>Sign Up</NavLink>,
+          label: <NavLink  onClick={()=>handleUSersLogOut()}>Log out</NavLink>,
           key: "2",
         },
       ]);
@@ -57,6 +61,8 @@ const DropdownComponent = ({ dropdownSpace,handleModalClick}) => {
               />
             </svg>
           )}
+          <p className="m-0">{checkUser?checkUser.userName:''}</p>
+
         </Space>
       </div>
     </Dropdown>

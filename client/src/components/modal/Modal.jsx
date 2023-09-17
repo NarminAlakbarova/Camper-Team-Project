@@ -1,14 +1,56 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import "./modal.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdOutlineClose } from "react-icons/md";
 import InputFeilds from "../form/InputFeilds";
 import { Form, Formik } from "formik";
 import { SignInValidation } from "../../validation/SignInValidation";
+import { UserContext } from "../../context/UserProvider";
+import { useSelector } from "react-redux";
+import Alert from "@mui/material/Alert";
+import Stack from "@mui/material/Stack";
 
-const ModalLogin = ({ handleModalClick }) => {
+
+const ModalLogin = ({ handleModalClick, setShowModal }) => {
+
+  const { checkUser, setCheckUser } = useContext(UserContext);
+  const usersData = useSelector((state) => state.usersData.data);
+  const [error, setError] = useState(null);
+
+
+  const handleSubmit = (value) => {
+    console.log(value);
+    const checkAllUser = usersData.find(
+      (item) =>
+        (item.userName == value.userName || item.email == value.userName) &&
+        item.password === value.password
+    );
+
+    if (checkAllUser) {
+      setCheckUser(checkAllUser);
+      setShowModal(false);
+    } else {
+      setError("Invalid username, email, or password.");
+      setTimeout(() => {
+        setError(null);
+      }, 2000);
+    }
+  };
   return (
     <div id="login-modal">
+      {error && (
+        <Stack
+          spacing={2}
+          style={{
+            width: "65%",
+            position: "absolute",
+            left: "17%",
+            margin: "20px 0",
+          }}
+        >
+          <Alert severity="error">{error}</Alert>
+        </Stack>
+      )}
       <div className="container">
         <div className="login-modal">
           <div className="login-modal-content">
@@ -27,7 +69,7 @@ const ModalLogin = ({ handleModalClick }) => {
                 password: "",
               }}
               validationSchema={SignInValidation}
-              onSubmit={(values) => console.log(values)}
+              onSubmit={(values) => handleSubmit(values)}
             >
               {({ errors, touched }) => (
                 <Form>
@@ -51,7 +93,13 @@ const ModalLogin = ({ handleModalClick }) => {
 
             <div className="login-footer">
               <h6>DO NOT HAVE AN ACCOUNT?</h6>
-              <Link className="create-account">CREATE AN ACCOUNT</Link>
+              <Link
+                className="create-account"
+                onClick={() => setShowModal(false)}
+                to={"signUp"}
+              >
+                CREATE AN ACCOUNT
+              </Link>
             </div>
           </div>
         </div>
