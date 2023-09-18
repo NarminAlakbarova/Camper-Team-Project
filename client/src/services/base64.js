@@ -5,7 +5,6 @@ export const convertBase64 = async (file) => {
     fileReader.readAsDataURL(file);
     fileReader.onload = () => {
      return resolve(fileReader.result);
-      console.log(fileReader.result);
     };
     fileReader.onerror = (error) => {
       reject(error);
