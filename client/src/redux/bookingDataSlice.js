@@ -21,7 +21,7 @@ export const addBookingValue = createAsyncThunk(
     check
       ? await axios.patch(`${BASE_URL}/bookedTours/${obj.id}`, obj)
       : await axios.post(`${BASE_URL}/bookedTours`, obj);
-    return [obj, check];
+    return obj
   }
 );
 
@@ -40,16 +40,10 @@ export const bookingDataSlice = createSlice({
       state.error = "Data not Found";
     });
     builder.addCase(addBookingValue.fulfilled, (state, action) => {
-      const value = action.payload[0];
-      const check = action.payload[1];
-      if (check) {
-        return (state.data = state.data.map((item) =>
-          item.id == value.id ? value : item
-        ));
-      } else {
-        console.log(value);
-        // state.data=[...state.data,value]
-      }
+      let check= state.data.find(item=>item.id==action.payload.id)
+      check ?  (state.data = state.data.map((item) =>
+          item.id == action.payload.id ? action.payload : item
+        )) :state.data=[...state.data,action.payload]
     });
   },
 });

@@ -106,12 +106,12 @@ const TitleGallery = ({ tour }) => {
                     showModal(), handleImageData(tourImages[0], 0);
                   }}
                 >
-                  <img src={tourImages[0]} alt="" />
+                  <img src={tourImages && tourImages[0]} alt="" />
                 </button>
               </div>
               <div className="col col-12 col-md-4 details-img-right">
                 <div className="img-div">
-                  {tourImages.slice(1, 3).map((image, i) => (
+                  {tourImages?.slice(1, 3).map((image, i) => (
                     <button
                       key={i}
                       onClick={() => {
@@ -123,7 +123,7 @@ const TitleGallery = ({ tour }) => {
                   ))}
                 </div>
                 <div className="img-div">
-                  {tourImages.slice(3, 5).map((image, i) => (
+                  {tourImages?.slice(3, 5).map((image, i) => (
                     <button
                       key={i}
                       onClick={() => {

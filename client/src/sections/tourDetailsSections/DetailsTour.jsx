@@ -100,7 +100,7 @@ const DetailsTour = ({tour}) => {
                 <div className="col col-12 col-md-8">
                     <div className="detail-content">
                         <h2>Detail</h2>
-                        <p>{tour.detailContent}</p>
+                        <p>{tour?.detailContent}</p>
                     </div>
                     <div className="detail-content">
                         <h2>Activities</h2>
