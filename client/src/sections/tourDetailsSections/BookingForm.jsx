@@ -3,7 +3,7 @@ import { GrNext, GrPrevious } from "react-icons/gr";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { v4 as uuid } from "uuid";
-import { addBookingValue } from "../../redux/bookingDataSlice";
+import { addBookingValue, getBookingData } from "../../redux/bookingDataSlice";
 
 const BookingForm = () => {
   const { id } = useParams();
@@ -18,13 +18,14 @@ const BookingForm = () => {
   const dispatch=useDispatch()
   const currentDate = new Date();
   useEffect(() => {
+    dispatch(getBookingData())
     setCurrentMonth(currentDate.getMonth());
     setCurrentYear(currentDate.getFullYear());
-  }, []);
+  }, [dispatch]);
 
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",];
   const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  let existBookedValue=bookingData.find(item=> item.tourTitle==tour.tourTitle )
+  let existBookedValue=bookingData?.find(item=> item.tourTitle==tour?.tourTitle )
   const firstDay = new Date(currentYear, currentMonth, 1);
   const pastLastDay = new Date(currentYear, currentMonth, 0);
   const lastDay = new Date(currentYear, currentMonth +1, 0);
