@@ -1,0 +1,265 @@
+#booking-header {
+  padding-top: 50px;
+  .booking-header {
+    ul {
+      display: flex;
+      justify-content: space-between;
+      justify-content: space-between;
+      padding-left: 0;
+      position: relative;
+      overflow: hidden;
+      .line {
+        height: 1px;
+        background-color: #7777;
+        width: 94%;
+        position: absolute;
+        top: 85%;
+        left: 3%;
+      }
+      li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        button {
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          border: 2px solid black;
+          background-color: white;
+          position: relative;
+          z-index: 99;
+          top: -2%;
+          
+        }
+      }
+    }
+  }
+}
+
+#booking-content {
+  padding-top: 50px;
+  p {
+    color: #5c5c5c;
+  }
+  .booking-content {
+    #payment-methods {
+      margin: 20px 0;
+      .payment-methods-card {
+        h4{
+          font-weight: 800;
+        }
+        .card-logo {
+          display: flex;
+          column-gap: 10px;
+          img {
+            width: 50px;
+            height: 30px;
+            opacity: 0.5;
+          }
+        }
+        .check-agree {
+          margin: 20px 0;
+          display: flex;
+          align-items: center;
+          column-gap: 20px;
+        }
+        select {
+          width: 100%;
+          padding: 15px;
+          -webkit-box-shadow: 0px 0px 9px 0px rgba(180, 180, 180, 0.356);
+          border: none;
+          outline: none;
+        }
+        .btns {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin: 50px 0;
+          row-gap: 20px;
+          p {
+            margin: 0;
+          }
+          button {
+            width: 100%;
+            padding: 15px;
+            color: white;
+            text-transform: uppercase;
+            border-radius: 10px;
+            letter-spacing: 1px;
+            &:first-child {
+              background-color: #0754af;
+            }
+            &:last-child {
+              background-color: #101010;
+            }
+          }
+        }
+      }
+    }
+    .user-details {
+      .traveller-details {
+        padding-bottom: 50px;
+        h3 {
+          margin-bottom: 40px;
+        }
+        form {
+          display: flex;
+          flex-direction: column;
+          row-gap: 20px;
+          .form-group {
+            display: flex;
+            // column-gap: 10px;
+            align-items: center;
+            column-gap: 35px;
+            p {
+              margin: 0;
+            }
+            // justify-content: space-between;
+            input,
+            select {
+              padding: 10px 20px;
+              // margin: 0 10px;
+              border: 1px solid #7777;
+              outline: none;
+            }
+            input {
+              background-color: #fff9f9;
+            }
+          }
+        }
+      }
+
+      #contact-details {
+        padding-bottom: 50px;
+        h4 {
+          padding: 50px 0 50px 0;
+        }
+        form {
+          .form-group {
+            display: flex;
+            align-items: center;
+            column-gap: 50px;
+            margin-bottom: 20px;
+            label {
+              width: 130px;
+            }
+            input,
+            select,
+            textarea {
+              padding: 10px 15px;
+              width: 68%;
+              border: 1px solid #7777;
+              outline: none;
+            }
+          }
+        }
+      }
+      .line {
+        height: 1px;
+        width: 90%;
+        background-color: #7777;
+      }
+
+      #notes {
+        .title {
+          display: flex;
+          align-items: center;
+          column-gap: 10px;
+          padding: 50px 0 50px 0;
+          h4 {
+            margin: 0;
+          }
+        }
+        .form-group {
+          display: flex;
+          align-items: center;
+          column-gap: 50px;
+          label {
+            width: 130px;
+          }
+          textarea {
+            width: 50%;
+            padding: 10px 15px;
+            border: 1px solid #7777;
+            outline: none;
+          }
+        }
+        button {
+          margin: 50px 0;
+          border-radius: 10px;
+          color: white;
+          padding: 15px 40px;
+          background-color: #ffaf19;
+        }
+      }
+    }
+
+    #payment-details {
+      margin-bottom: 50px;
+      .details-container {
+        border-radius: 20px;
+        -webkit-box-shadow: 0px 0px 9px 0px rgba(180, 180, 180, 0.356);
+        
+        padding: 50px;
+        .contact-traveller {
+          display: flex;
+          justify-content: space-between;
+          .contact-details {
+            h4 {
+              padding-bottom: 20px;
+              font-weight: 800;
+            }
+            .contact-group {
+              display: flex;
+              column-gap: 30px;
+              p {
+                &:first-child {
+                  width: 90px;
+                }
+              }
+            }
+          }
+          .traveller-details {
+            h4 {
+              padding-bottom: 20px;
+              font-weight: 800;
+            }
+            .traveller-group {
+              display: flex;
+              column-gap: 30px;
+              p {
+                &:first-child {
+                  width: 90px;
+                }
+              }
+            }
+          }
+        }
+        .notes {
+          .title {
+            display: flex;
+            align-items: center;
+            padding: 30px 0;
+            column-gap: 30px;
+            h4 {
+              font-weight: 800;
+              margin: 0;
+            }
+            svg {
+              font-size: 18px;
+            }
+          }
+          .notes-group {
+            display: flex;
+            column-gap: 40px;
+            p {
+              &:first-child {
+                width: 150px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

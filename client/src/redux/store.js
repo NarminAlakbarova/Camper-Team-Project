@@ -4,6 +4,7 @@ import feedBackDataReducer from "./feedBackDataSlice";
 import toursDataReducer from "./toursDataSlice";
 import usersDataReducer from "./usersDataSlice";
 import bookingDataReducer from "./bookingDataSlice";
+import userBookingDataReducer from "./userBookingSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
     toursData: toursDataReducer,
     usersData: usersDataReducer,
     bookingData: bookingDataReducer,
+    userBooking:userBookingDataReducer,
   },
 });
