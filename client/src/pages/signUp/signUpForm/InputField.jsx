@@ -4,7 +4,6 @@ import { countriesList } from "../../../data/countries";
 
 const InputFeilds = ({ label, ...props }) => {
   const [field] = useField(props);
-//   console.log(field);
   const style = {
     fontSize: "14px",
     color: "red",

@@ -21,6 +21,7 @@ import SignInAdmin from "../admin/pages/signInAdmin";
 import AllToursForm from "../admin/pages/addEdit/tours";
 import FeedbackForm from "../admin/pages/addEdit/feedback";
 import NewsForm from "../admin/pages/addEdit/news";
+import UserProfile from "../pages/userProfile";
 
 export const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ export const router = createBrowserRouter([
       {
         path: "details/:id",
         element: <Details />,
+      },
+      {
+        path: "userProfile/:type",
+        element: <UserProfile />,
       },
       {
         path: "*",
