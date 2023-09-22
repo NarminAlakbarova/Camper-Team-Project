@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Form, Formik } from 'formik'
 import InputFeilds from './InputField'
 import {v4 as uuid} from "uuid"
 import { validate } from '../../../validation'
 import { useDispatch} from 'react-redux'
 import { addUser } from '../../../redux/usersDataSlice'
+import { UserContext } from '../../../context/UserProvider'
 
 const SignUpForm = () => {
   const dispatch=useDispatch()
+  const {setCheckUser}=useContext(UserContext)
   return (
     <Formik
       initialValues={{
@@ -23,7 +25,7 @@ const SignUpForm = () => {
       }}
       validationSchema={validate}
       onSubmit={(values,actions) => (
-        console.log(values),
+        setCheckUser(values),
         dispatch(addUser({ ...values, id: uuid(), isAdmin: false })),
         actions.resetForm()
       )}

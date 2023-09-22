@@ -1,22 +1,12 @@
 import * as Yup from "yup";
-import axios from "axios";
 
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
-export const validate = Yup.object().shape({
+export const UserUpdateValidation = Yup.object().shape({
   userName: Yup.string()
     .min(2, "User Name must be 2 or more characters!")
     .max(10, "User Name must be 10 or less!")
-    .test(
-      "username",
-      "This username has already been taken",
-      async function (username) {
-        const res = await axios(`http://localhost:8080/users`);
-        const check = res.data.find((item) => item.userName == username);
-        return !check;
-      }
-    )
     .required("User Name must be required!"),
   firstName: Yup.string()
     .min(2, "First Name must be 2 or more characters!")
@@ -32,15 +22,5 @@ export const validate = Yup.object().shape({
   phone: Yup.string()
     .matches(phoneRegExp, "Phone number is not valid")
     .required("Phone Number is required"),
-  password: Yup.string()
-    .min(6, "Password must be 6 or more characters!")
-    .max(10, "Password must be 10 or less characters!")
-    .required("Password must be required!"),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password"), null], "Confirm Password must match password!")
-    .min(6, "Password must be 6 or more characters!")
-    .max(10, "Password must be 10 or less characters!")
-    .required("Password must be required!"),
   country: Yup.string().required("Country must be required!"),
-  accept: Yup.boolean().oneOf([true], "Please check the agreement"),
 });
