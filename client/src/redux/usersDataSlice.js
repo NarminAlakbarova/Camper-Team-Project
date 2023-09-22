@@ -17,6 +17,10 @@ export const addUser = createAsyncThunk("addUser", async (userInfo) => {
   await axios.post(`${BASE_URL}/users`,userInfo);
 });
 
+export const updateUser=createAsyncThunk("updateUser",async(values)=>{
+  await axios.patch(`${BASE_URL}/users/${values.id}`,values)
+})
+
 export const usersDataSlice = createSlice({
   name: "usersData",
   initialState,
