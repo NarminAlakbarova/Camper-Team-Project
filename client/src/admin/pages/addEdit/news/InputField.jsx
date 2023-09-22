@@ -2,15 +2,15 @@ import { Field, useField } from "formik";
 import React from "react";
 
 const InputField = ({ label, ...props }) => {
-  const [field] = useField(props);
   return (
     <>
       <label htmlFor="">{label}</label>
       {label == "News Content" ? (
-        <Field as="textarea" {...props} {...field} />
+        <Field as="textarea" {...props} />
       ) : (
-        <Field {...props} {...field} />
+        <Field {...props} />
       )}
+      {/* {label=="News Image" ? <input {...props}  /> : ""} */}
     </>
   );
 };

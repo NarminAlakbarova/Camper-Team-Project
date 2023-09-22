@@ -1,4 +1,6 @@
 import * as Yup from "yup";
+import axios from "axios";
+
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
@@ -6,6 +8,15 @@ export const validate = Yup.object().shape({
   userName: Yup.string()
     .min(2, "User Name must be 2 or more characters!")
     .max(10, "User Name must be 10 or less!")
+    .test(
+      "username",
+      "This username has already been taken",
+      async function (username) {
+        const res = await axios(`http://localhost:8080/users`);
+        const check = res.data.find((item) => item.userName == username);
+        return !check;
+      }
+    )
     .required("User Name must be required!"),
   firstName: Yup.string()
     .min(2, "First Name must be 2 or more characters!")

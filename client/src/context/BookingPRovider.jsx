@@ -17,7 +17,7 @@ const BookingPRovider = ({ children }) => {
     },
 
     notes: "",
-    userName: checkUser.userName,
+    userName: checkUser?.userName,
   });
   const providerValue = {
     bookinginfo,
