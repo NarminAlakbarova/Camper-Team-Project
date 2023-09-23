@@ -3,6 +3,7 @@ import DetailsReports from "./DetailsReports";
 import WeatherBooking from "./WeatherBooking";
 import "./index.scss";
 import axios from "axios";
+import ToursDetails from "./ToursDetails";
 const Home = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [city, setCity] = useState("Baku");
@@ -35,6 +36,7 @@ const Home = () => {
         <WeatherBooking weatherData={weatherData} />
       </div>
         <DetailsReports />
+        <ToursDetails/>
     </div>
   );
 };
