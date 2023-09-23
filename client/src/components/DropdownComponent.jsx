@@ -5,9 +5,11 @@ import { UserContext } from "../context/UserProvider";
 
 const DropdownComponent = ({ dropdownSpace, handleModalClick }) => {
   const { checkUser, setCheckUsers } = useContext(UserContext);
-  const navigate = useNavigate();
-  const handleUserLogOut = () => {
-    setCheckUsers();
+  const navigate=useNavigate()
+  const handleUSersLogOut = () => {
+    localStorage.removeItem("checkUser");
+
+    setCheckUsers(null);
   };
   let items = "";
   dropdownSpace == "pages"
@@ -31,11 +33,7 @@ const DropdownComponent = ({ dropdownSpace, handleModalClick }) => {
           key: "1",
         },
         {
-          label: checkUser ? (
-            <NavLink onClick={() => handleUserLogOut()}>Log out</NavLink>
-          ) : (
-            <NavLink to={"/signUp"}>Sign Up</NavLink>
-          ),
+          label: <NavLink onClick={() => handleUSersLogOut()}>Log out</NavLink>,
           key: "2",
         },
       ]);

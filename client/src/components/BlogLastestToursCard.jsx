@@ -1,9 +1,9 @@
 import React from "react";
-import lastestImg1 from "../assets/img/newsAndBlog/news1.jpg";
 import { useSelector } from "react-redux";
 
 const BlogLastestToursCard = () => {
   const lastestTours = useSelector((state) => state.toursData.data);
+  console.log(lastestTours);
   console.log(lastestTours.slice(0, 4));
   return (
     <div id="latest-tours">

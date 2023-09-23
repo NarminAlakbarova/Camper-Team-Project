@@ -4,16 +4,18 @@ import Footer from "./layout/footer";
 import { Provider, useDispatch } from "react-redux";
 import { store } from "./redux/store.js";
 import UserProvider from "./context/UserProvider";
+import BookingPRovider from "./context/BookingPRovider";
 function App() {
-
   return (
     <>
       <UserProvider>
-        <Provider store={store}>
-          <Header />
-          <Outlet />
-          <Footer />
-        </Provider>
+        <BookingPRovider>
+          <Provider store={store}>
+            <Header />
+            <Outlet />
+            <Footer />
+          </Provider>
+        </BookingPRovider>
       </UserProvider>
     </>
   );
