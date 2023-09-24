@@ -1,15 +1,21 @@
 import React, { useContext } from 'react'
-import { Form, Formik } from 'formik'
-import InputFeilds from './InputField'
 import {v4 as uuid} from "uuid"
-import { validate } from '../../../validation'
+import { Form, Formik } from 'formik'
 import { useDispatch} from 'react-redux'
+import { validate } from '../../../validation'
+import { useNavigate } from "react-router-dom";
 import { addUser } from '../../../redux/usersDataSlice'
 import { UserContext } from '../../../context/UserProvider'
+import InputFeilds from './InputField'
 
 const SignUpForm = () => {
   const dispatch=useDispatch()
   const {setCheckUser}=useContext(UserContext)
+  const navigate=useNavigate()
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const currentYear=new Date().getFullYear()
+  const currentMonth=months[new Date().getMonth()]
+  const currentDay=new Date().getDate()
   return (
     <Formik
       initialValues={{
@@ -26,8 +32,9 @@ const SignUpForm = () => {
       validationSchema={validate}
       onSubmit={(values,actions) => (
         setCheckUser(values),
-        dispatch(addUser({ ...values, id: uuid(), isAdmin: false })),
-        actions.resetForm()
+        dispatch(addUser({ ...values, id: uuid(), isAdmin: false, date:`${currentYear}-${currentMonth}-${currentDay}` })),
+        actions.resetForm(),
+        navigate("/")
       )}
     >
         <Form>
