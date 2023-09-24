@@ -7,7 +7,6 @@ const BookingPRovider = ({ children }) => {
   const [bookinginfo, setBookingInfo] = useState({
     traveller: [{}],
     contactDetails: {
-      userName: "",
       firstName: "",
       lastName: "",
       email: "",
