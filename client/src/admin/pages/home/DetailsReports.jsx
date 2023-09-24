@@ -1,7 +1,8 @@
 import React from "react";
-import { Doughnut } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Pie } from "react-chartjs-2";
 import Slider from "react-slick";
-
+ChartJS.register(ArcElement, Tooltip, Legend);
 const DetailsReports = () => {
   const colorData = [
     {
@@ -44,7 +45,7 @@ const DetailsReports = () => {
 
   const leftChartData = () => {
     return colorData.map((item, index) => (
-      <div className="details-group">
+      <div className="details-group" key={index}>
         <p className="country">{item.name}</p>
         <div className="bg-color">
           <div
@@ -85,18 +86,7 @@ const DetailsReports = () => {
     borderWidth: 0,
     cutout: 58,
   };
-  const options2 = {
-    responsive: true,
-    maintainAspectRatio: false,
-    id: "chart-2",
-    plugins: {
-      legend: {
-        display: false,
-      },
-    },
-    borderWidth: 0,
-    cutout: 58,
-  };
+
   return (
     <div style={{ width: "90%", paddingLeft: "30px" }}>
       <Slider {...settings}>
@@ -116,8 +106,7 @@ const DetailsReports = () => {
           </div>
           <div className="details-report-right">
             <div className="doughnt-chart">
-              {/* <Doughnut data={chartData} options={options1} /> */}
-              {/* <ChartComponent chartData={chartData} options={options} /> */}
+              <Pie data={chartData} options={options1} />
               <div className="doughnut-center">
                 <p className="center-text">90</p>
               </div>
@@ -160,7 +149,7 @@ const DetailsReports = () => {
           <div className="details-report-left">
             <div className="details-info">
               <h5>Detailed Reports</h5>
-              <p className="count">$34040</p>
+              <p className="count">$28040</p>
               <p className="country">North America</p>
               <p className="info">
                 The total number of sessions within the date range. It is the
@@ -172,10 +161,9 @@ const DetailsReports = () => {
           </div>
           <div className="details-report-right">
             <div className="doughnt-chart">
-              {/* <Doughnut data={chartData} options={options1} /> */}
-              {/* <ChartComponent chartData={chartData} options={options} /> */}
+              <Pie data={chartData} options={options1}/>
               <div className="doughnut-center">
-                <p className="center-text">90</p>
+                <p className="center-text">76</p>
               </div>
             </div>
             <div className="chart-content">
