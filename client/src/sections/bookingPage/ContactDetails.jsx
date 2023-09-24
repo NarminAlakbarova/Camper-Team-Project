@@ -52,7 +52,7 @@ const ContactDetails = ({ pageChanges, setPageChanges }) => {
             "text",
             "Porter",
             bookinginfo.contactDetails.lastName,
-            "lastName"z
+            "lastName"
           )}
           {handleFormGroup(
             "Email*",

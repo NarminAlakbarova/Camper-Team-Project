@@ -29,7 +29,6 @@
           position: relative;
           z-index: 99;
           top: -2%;
-          
         }
       }
     }
@@ -45,7 +44,7 @@
     #payment-methods {
       margin: 20px 0;
       .payment-methods-card {
-        h4{
+        h4 {
           font-weight: 800;
         }
         .card-logo {
@@ -150,7 +149,7 @@
               width: 68%;
               border: 1px solid #7777;
               outline: none;
-            }z
+            }
           }
         }
       }
@@ -199,7 +198,7 @@
       .details-container {
         border-radius: 20px;
         -webkit-box-shadow: 0px 0px 9px 0px rgba(180, 180, 180, 0.356);
-        
+
         padding: 50px;
         .contact-traveller {
           display: flex;
