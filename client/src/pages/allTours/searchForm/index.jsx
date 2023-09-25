@@ -3,14 +3,33 @@ import { Form, Formik } from "formik";
 import {BsSliders} from "react-icons/bs";
 import {MdKeyboardArrowUp} from "react-icons/md"
 import {MdKeyboardArrowDown} from "react-icons/md"
+import { useDispatch } from "react-redux";
+import { searchAllTours } from "../../../redux/toursDataSlice";
+import { ToursSearchValidation } from "../../../validation/ToursSearchValidation";
 import InputField from "./InputField";
 
 const SearchForm = () => {
   const [viewActivity, setViewActivity] = useState(true)
   const [moreActivity, setMoreActivity] = useState(false)
-
+  const dispatch=useDispatch()
   const handleViewActivity=()=>{
-    viewActivity ? setViewActivity(false) :setViewActivity(true)
+    viewActivity ? setViewActivity(false) : setViewActivity(true)
+  }
+  const handleSearchAllTours=({category,keyword,duration,minPrice,maxPrice,...values})=>{
+    let obj={
+      keyword:keyword.toLocaleLowerCase(),
+      popularTour:category,
+      activity:[],
+      duration:duration,
+      minPrice:minPrice,
+      maxPrice:maxPrice
+    }
+    for (const key in values) {
+      if (values[key]==true) {
+        obj.activity.push(key)
+      }
+    }
+    dispatch(searchAllTours(obj))
   }
   return (
     <Formik
@@ -27,11 +46,12 @@ const SearchForm = () => {
         minPrice:'',
         maxPrice:'',
       }}
-      onSubmit={(values) => console.log(values)}
+      validationSchema={ToursSearchValidation}
+      onSubmit={(values,actions) => (handleSearchAllTours(values),actions.resetForm())}
     >
         {({resetForm})=>(
       <Form>
-        <InputField name="keyword" type={"search"} title="Keywords" />
+        <InputField name="keyword" type={"search"} title="Keywords" placeholder="Tour name..." />
         <InputField name="category" type={"checkbox"} title="Category" label="Popular Tour" />
         <InputField name="duration" title="Duration" type="select"/>
         <div className="price-search">

@@ -7,6 +7,7 @@ const initialState = {
   filteredData: [],
   loading: false,
   error: "",
+  searchData: false,
 };
 
 export const getToursData = createAsyncThunk("getToursData", async () => {
@@ -38,6 +39,13 @@ export const sortDataPrice = createAsyncThunk(
 export const searchTours = createAsyncThunk("searchTours", async (value) => {
   return value.toLocaleLowerCase();
 });
+
+export const searchAllTours = createAsyncThunk(
+  "searchAllTours",
+  async (values) => {
+    return values;
+  }
+);
 
 export const toursDataSlice = createSlice({
   name: "toursData",
@@ -85,6 +93,28 @@ export const toursDataSlice = createSlice({
             .toLocaleLowerCase()
             .includes(action.payload)
         )
+      );
+    });
+    builder.addCase(searchAllTours.fulfilled, (state, action) => {
+      let values = action.payload;
+      let durationDay = action.payload.duration.split(",");
+      const activities = action.payload.activity.length != 0 ? action.payload.activity : [""];
+
+      state.data = state.filteredData.filter(
+        (tour) =>
+          tour.tourTitle.toLocaleLowerCase().includes(values?.keyword) &&
+          (values?.popularTour ? tour.tourRating >= 8 : tour.tourRating < 8) &&
+          (durationDay?.length == 1
+            ? tour?.tourDuringDay == durationDay[0] ||
+              tour?.tourDuringDay >= durationDay[0]
+            : +durationDay[0] <= +tour?.tourDuringDay &&
+              +durationDay[1] >= +tour?.tourDuringDay) &&
+          values?.minPrice <= tour.tourPriceUSD <= values?.maxPrice &&
+          activities?.some((activity) =>
+            tour.tourActivities.map((item) =>
+              item.toLocaleLowerCase().includes(activity)
+            )
+          )
       );
     });
   },

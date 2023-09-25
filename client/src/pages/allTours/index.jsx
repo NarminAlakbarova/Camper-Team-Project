@@ -4,11 +4,11 @@ import { CgMenuGridO } from "react-icons/cg";
 import { TfiMenuAlt } from "react-icons/tfi";
 import {GrPrevious,GrNext} from "react-icons/gr"
 import { v4 as uuid } from "uuid";
-import SearchForm from "./searchForm";
-import "./index.scss";
 import { getToursData, sortData, sortDataPrice } from "../../redux/toursDataSlice";
+import SearchForm from "./searchForm";
 import Card1 from "./cards/Card1";
 import Card2 from "./cards/Card2";
+import "./index.scss";
 
 const AllToursPage = () => {
   const [card, setCard] = useState(true);
@@ -58,8 +58,6 @@ const AllToursPage = () => {
                   <div className="tour-filter-left">
                     <p>Sort by :</p>
                     <select onChange={(e)=>handleSortData(e.target.value)}>
-                      <option value="release">Release Date</option>
-                      <option value="date">Tour Date</option>
                       <option value="title">Title</option>
                       <option value="rating">Rating</option>
                       <option value="duration">Duration</option>

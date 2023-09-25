@@ -1,8 +1,12 @@
-import { Field, useField } from "formik";
+import { ErrorMessage, Field, useField } from "formik";
 import React from "react";
 
 const InputField = ({ title, label, ...props }) => {
   const [field] = useField(props);
+  const style = {
+    fontSize: "14px",
+    color: "red",
+  };
   return (
     <div>
       {title != "Activity" && <p className="search-title">{title}</p>}
@@ -15,10 +19,11 @@ const InputField = ({ title, label, ...props }) => {
           <option value="7">7+ Days Tour</option>
         </Field>
       ) : (
-        <Field id={field.name} {...props} />
+        <Field id={field.name} {...props}/>
       )}
       {title=="Category" ? <label className="checkbox-label" htmlFor={field.name}>{label}</label> : "" }
       {title == "Activity" ? <label className="checkbox-label" htmlFor={field.name}>{label}</label> : ""}
+      <ErrorMessage style={style} component="div" name={field.name} />
     </div>
   );
 };
