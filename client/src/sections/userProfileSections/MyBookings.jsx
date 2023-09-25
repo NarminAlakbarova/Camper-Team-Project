@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../context/UserProvider";
 import { IoIosArrowForward } from "react-icons/io";
-import img from "../../assets/img/homePage/newTour1.jpg"
 
 const MyBookings = () => {
-  const { checkUser } = useContext(UserContext);
+  const bookingData = JSON.parse(localStorage.getItem("bookingData"));
+  console.log(bookingData);
   return (
     <div className="user-dashboard-right">
       <p className="page-path">
@@ -13,41 +12,41 @@ const MyBookings = () => {
           Dashboard
           <IoIosArrowForward />
         </Link>
-       My Bookings
+        My Bookings
       </p>
       <div className="user-info">
         <div className="user-info-header">
-          <h3>Tour Name</h3>
+          <h3>{bookingData?.tourTitle}</h3>
         </div>
         <div className="user-img-info">
           <div className="tour-img">
-            <img src={img} alt="Tour Image" />
+            <img src={bookingData?.tourImg} alt="Tour Image" />
           </div>
           <div className="user-info-content">
             <div className="user-info-content-left">
               <div>
-                <p>Tour Location</p>
-                <p>Tour Price</p>
-                <p>Tour Availability</p>
-                <p>Tour Rating</p>
-                <p>Number People</p>
-              </div>
-              <div className="user-infomations">
-                <p>{checkUser?.userName}</p>
-                <p>{checkUser?.firstName}</p>
-                <p>{checkUser?.lastName}</p>
-                <p>{checkUser?.email}</p>
-                <p>{checkUser?.email}</p>
-              </div>
-            </div>
-            <div className="user-info-content-right">
-              <div>
-                <p>All Selected Days</p>
-                <p>allSelectedDays</p>
-              </div>
-              <div className="user-infomations">
-                <p>{checkUser?.country}</p>
-                <p>{checkUser?.phone}</p>
+                <p>
+                  Tour Location <span>{bookingData?.tourLocation}</span>
+                </p>
+                <p>
+                  Tour Price <span>$ {bookingData?.tourPrice}</span>
+                </p>
+                <p>
+                  Tour Availability{" "}
+                  <span>{bookingData?.tourAvailability.join(", ")}</span>
+                </p>
+                <p>
+                  Tour Rating <span>{bookingData?.tourRating}</span>
+                </p>
+                <p>
+                  Number People <span>{bookingData?.numberPeople}</span>
+                </p>
+                <p>
+                  Tour During Days <span>{bookingData?.tourDuringDay}</span>
+                </p>
+                <p>
+                  First Day <span>{bookingData?.bookingSelectedDate}</span>
+                </p>
               </div>
             </div>
           </div>

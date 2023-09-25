@@ -127,8 +127,12 @@ const BookingForm = () => {
           tourTitle: tour.tourTitle,
           numberPeople: +numberPeople,
           bookingSelectedDate:selectedDate,
-          tourPrice:tour.tourPriceUSD
-
+          tourPrice:tour.tourPriceUSD,
+          tourLocation:tour.tourLocation,
+          tourAvailability:tour.tourAvailability,
+          tourRating:tour.tourRating,
+          tourImg:tour.tourImg[0],
+          tourDuringDay:tour.tourDuringDay
         };
         localStorage.setItem("bookingData", JSON.stringify(selectedBooking));
         navigate("bookingPage");

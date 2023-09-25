@@ -65,12 +65,16 @@
             margin-bottom: 30px;
             font-size: 18px;
           }
+          span {
+            color: #5c5c5c;
+            margin-left: 20px;
+            font-size: 16px;
+          }
           .user-infomations {
             display: flex;
             flex-direction: column;
             p {
-              font-size: 16px;
-              color: #464646;
+              color: #5c5c5c;
               margin-left: 40px;
             }
           }
