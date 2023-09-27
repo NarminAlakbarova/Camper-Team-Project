@@ -6,7 +6,6 @@ import AllToursPage from "../pages/allTours";
 import BlogPage from "../pages/blog";
 import ContactPage from "../pages/contact";
 import ErrorPage from "../pages/error";
-import TourFullPage from "../pages/tourFull";
 import SignUpPage from "../pages/signUp";
 import GalleryPage from "../pages/gallery";
 import TourDetails from "../pages/tourDetails";
@@ -60,11 +59,6 @@ export const router = createBrowserRouter([
       {
         path: "signUp",
         element: <SignUpPage />,
-      },
-
-      {
-        path: "tourFull",
-        element: <TourFullPage />,
       },
       {
         path: "details/:id",

@@ -48,12 +48,14 @@ header {
       display: flex;
       align-items: center;
       column-gap: 20px;
-      .ant-space-item {
-        color: #ffaf19;
+      .user-log-out {
         svg {
-          width: 24px;
-          height: 24px;
+          color: #ffaf19;
+          font-size: 24px;
         }
+      }
+      .sign-in-btn {
+        color: #ffaf19;
       }
       .ant-select {
         letter-spacing: 2px;
@@ -85,13 +87,11 @@ header {
         display: none;
         svg {
           color: #ffaf19;
+          font-size: 24px;
         }
       }
     }
   }
-}
-.username-btn{
-  color: #ffaf19;
 }
 
 // ANTD DROPDOWN
