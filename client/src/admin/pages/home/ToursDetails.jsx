@@ -28,8 +28,9 @@ const ToursDetails = () => {
     dispatch(getUsersData());
   }, [dispatch]);
   const currentYear=new Date().getFullYear();
-//   const dates=[]
-//   users?.map(item=>item.date.split("-")[0]==currentYear && dates.push(item.date.split('-')[1]))
+  const dates=[]
+  bookedTours.map(item=>item.allSelectedDays.map(item2=>item2.split("-")[0]==currentYear && dates.push(item2.split("-")[1])));
+  console.log(dates);
 
   const labels = [
     "Jan",
@@ -45,34 +46,36 @@ const ToursDetails = () => {
     "Nov",
     "Dec",
   ];
-//   const test={
-//     Jan:0,
-//     "Feb":0,
-//     "Mar":0,
-//     "Apr":0,
-//     "May":0,
-//     "Jun":0,
-//     "Jul":0,
-//     "Aug":0,
-//     "Sep":0,
-//     "Oct":0,
-//     "Nov":0,
-//     "Dec":0,
-//   }
+  const test={
+    Jan:0,
+    "Feb":0,
+    "Mar":0,
+    "Apr":0,
+    "May":0,
+    "Jun":0,
+    "Jul":0,
+    "Aug":0,
+    "Sep":0,
+    "Oct":0,
+    "Nov":0,
+    "Dec":0,
+  }
+  dates.map(item=>test[item]+=1)
+  console.log(Object.values(test));
   const data2 = {
     labels: labels,
     datasets: [
       {
-        label: "My First Dataset",
-        data: [65, 59, 80, 81, 56, 55, 40],
+        label: "Booking Dates",
+        data: Object.values(test),
         backgroundColor: [
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(255, 159, 64, 0.2)",
-          "rgba(255, 205, 86, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(153, 102, 255, 0.2)",
-          "rgba(201, 203, 207, 0.2)",
+          "rgba(255, 99, 132, 0.5)",
+          "rgba(255, 159, 64, 0.5)",
+          "rgba(255, 205, 86, 0.5)",
+          "rgba(75, 192, 192, 0.5)",
+          "rgba(54, 162, 235, 0.5)",
+          "rgba(153, 102, 255, 0.5)",
+          "rgba(201, 203, 207, 0.5)",
         ],
         borderColor: [
           "rgb(255, 99, 132)",
@@ -93,7 +96,7 @@ const ToursDetails = () => {
     datasets: [
       {
         label: "My First Dataset",
-        data: [65, 59, 80, 81, 56, 55, 40],
+        data: [65, 59, 87, 81, 76, 75, 73,90,67,65],
         fill: false,
         borderColor: "#3E3E8A",
         tension: 0.5,

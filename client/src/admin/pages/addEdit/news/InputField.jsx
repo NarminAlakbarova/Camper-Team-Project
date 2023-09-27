@@ -6,11 +6,10 @@ const InputField = ({ label, ...props }) => {
     <>
       <label htmlFor="">{label}</label>
       {label == "News Content" ? (
-        <Field as="textarea" {...props} />
+        <Field as="textarea" {...props} required/>
       ) : (
-        <Field {...props} />
+        <Field {...props} required/>
       )}
-      {/* {label=="News Image" ? <input {...props}  /> : ""} */}
     </>
   );
 };
