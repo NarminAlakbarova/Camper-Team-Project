@@ -9,6 +9,7 @@ import {
   editTours,
   getToursData,
 } from "../../../../redux/toursDataSlice";
+import { convertBase64 } from "../../../../services/base64";
 const AllToursForm = () => {
   const allToursData = useSelector((state) => state.toursData.data);
   const dispatch = useDispatch();
@@ -55,7 +56,7 @@ const AllToursForm = () => {
         },
     detailContent: editedTours ? editedTours.detailContent : "",
   });
-  // console.log(inputsValue);
+  console.log(inputsValue);
   console.log(startTime);
   console.log(endTime);
 
@@ -104,6 +105,12 @@ const AllToursForm = () => {
     } else {
       setInputsValue({ ...inputsValue, [name]: updatedValue });
     }
+  };
+  const handleFileChange = async (e) => {
+    const file = e.target.files[0];
+    file
+      ? setInputsValue({ ...inputsValue, tourImg: [await convertBase64(file)] })
+      : console.error("Error converting to base64:", error);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -281,12 +288,11 @@ const AllToursForm = () => {
               </div>
             </div>
             <div className="col-6">
-              <ToursInputFeilds
-                label={"Tour Img"}
-                type={"file"}
-                onChange={handleInputsChanges}
-                value={inputsValue.tourImg}
-                name={"tourImg"}
+              <input
+                type="file"
+                id="tourImg"
+                onChange={handleFileChange}
+                name="tourImg"
               />
             </div>
           </div>
