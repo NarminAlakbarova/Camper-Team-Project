@@ -8,9 +8,7 @@ import {
   BarElement,
 } from "chart.js";
 import { Bar, Line } from "react-chartjs-2";
-import { useDispatch, useSelector } from "react-redux";
-import { getBookingData } from "../../../redux/bookingDataSlice";
-import { getUsersData } from "../../../redux/usersDataSlice";
+import {  useSelector } from "react-redux";
 ChartJS.register(
   LineElement,
   CategoryScale,
@@ -22,11 +20,6 @@ ChartJS.register(
 const ToursDetails = () => {
   const bookedTours = useSelector((state) => state.bookingData.data);
   const users = useSelector((state) => state.usersData.data);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getBookingData());
-    dispatch(getUsersData());
-  }, [dispatch]);
   const currentYear=new Date().getFullYear();
   const dates=[]
   bookedTours.map(item=>item.allSelectedDays.map(item2=>item2.split("-")[0]==currentYear && dates.push(item2.split("-")[1])));

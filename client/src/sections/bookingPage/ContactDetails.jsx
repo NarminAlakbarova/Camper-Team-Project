@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { GrNotes } from "react-icons/gr";
-import { BookingContext } from "../../context/BookingProvider";
 import { countriesList } from "../../data/countries";
+import { BookingContext } from "../../context/BookingPRovider";
 const ContactDetails = ({ pageChanges, setPageChanges }) => {
   const { bookinginfo, setBookingInfo } = useContext(BookingContext);
   console.log(bookinginfo);

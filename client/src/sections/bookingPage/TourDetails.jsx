@@ -4,6 +4,7 @@ import PaymentMethods from "./PaymentMethods";
 
 const TourDetails = ({ pageChanges, setPageChanges }) => {
  let bookingData= JSON.parse(localStorage.getItem("bookingData"))
+console.log(bookingData);
   return (
     <>
       <div id="tour-details">

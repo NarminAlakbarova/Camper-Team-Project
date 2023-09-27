@@ -2,8 +2,12 @@ import React from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import Slider from "react-slick";
+import { useSelector } from "react-redux";
 ChartJS.register(ArcElement, Tooltip, Legend);
 const DetailsReports = () => {
+  const toursData = useSelector((state) => state.toursData.data);
+  const bookedToursData = useSelector((state) => state.userBooking.data);
+  const newsData = useSelector((state) => state.newsData.data);
   const colorData = [
     {
       backgroundColor: "#0D6EFD",
@@ -42,7 +46,7 @@ const DetailsReports = () => {
       count: "793",
     },
   ];
-
+  console.log(newsData);
   const leftChartData = () => {
     return colorData.map((item, index) => (
       <div className="details-group" key={index}>
@@ -65,10 +69,10 @@ const DetailsReports = () => {
     slidesToScroll: 1,
   };
   const chartData = {
-    labels: ["Mar", "Feb", "Jan"],
+    labels: ["tours", "news", "bookedTours"],
     datasets: [
       {
-        data: [150, 75, 75],
+        data: [toursData.length, newsData.length, bookedToursData.length],
         backgroundColor: ["#057AFF", "#4B49AC", "#FFC100"],
         hoverOffset: 4,
       },
@@ -93,9 +97,15 @@ const DetailsReports = () => {
         <div className="details-slider">
           <div className="details-report-left">
             <div className="details-info">
-              <h5>Detailed Reports</h5>
-              <p className="count">$34040</p>
-              <p className="country">North America</p>
+              <h5>Detailed Booking</h5>
+              <p className="count">
+                $
+                {bookedToursData.reduce(
+                  (acc, curr) => acc + (curr?.tourPrice || 0),
+                  0
+                )}
+              </p>
+              <p className="country">Total booking price</p>
               <p className="info">
                 The total number of sessions within the date range. It is the
                 period time a user is actively engaged with your website, page
@@ -108,7 +118,9 @@ const DetailsReports = () => {
             <div className="doughnt-chart">
               <Pie data={chartData} options={options1} />
               <div className="doughnut-center">
-                <p className="center-text">90</p>
+                <p className="center-text">
+                  {toursData.length + newsData.length + bookedToursData.length}
+                </p>
               </div>
             </div>
             <div className="chart-content">
@@ -116,11 +128,21 @@ const DetailsReports = () => {
                 <div className="chart-group-left">
                   <div
                     className="color"
-                    style={{ backgroundColor: "#4B49AC" }}
+                    style={{ backgroundColor: "#057AFF" }}
                   ></div>
-                  <p>Offline sales</p>
+                  <p>All Tours</p>
                 </div>
-                <p>88333</p>
+                <p>{toursData.length}</p>
+              </div>
+              <div className="chart-group">
+                <div className="chart-group-left">
+                  <div
+                    className="color"
+                    style={{ backgroundColor: "#2E2CAF" }}
+                  ></div>
+                  <p>News</p>
+                </div>
+                <p>{newsData.length}</p>
               </div>
               <div className="chart-group">
                 <div className="chart-group-left">
@@ -128,19 +150,9 @@ const DetailsReports = () => {
                     className="color"
                     style={{ backgroundColor: "#E6AC00" }}
                   ></div>
-                  <p>Online sales</p>
+                  <p>BookedTours</p>
                 </div>
-                <p>78333</p>
-              </div>
-              <div className="chart-group">
-                <div className="chart-group-left">
-                  <div
-                    className="color"
-                    style={{ backgroundColor: "#057AFF" }}
-                  ></div>
-                  <p>Returns</p>
-                </div>
-                <p>58333</p>
+                <p>{bookedToursData.length}</p>
               </div>
             </div>
           </div>
@@ -161,7 +173,7 @@ const DetailsReports = () => {
           </div>
           <div className="details-report-right">
             <div className="doughnt-chart">
-              <Pie data={chartData} options={options1}/>
+              <Pie data={chartData} options={options1} />
               <div className="doughnut-center">
                 <p className="center-text">76</p>
               </div>
@@ -171,11 +183,21 @@ const DetailsReports = () => {
                 <div className="chart-group-left">
                   <div
                     className="color"
-                    style={{ backgroundColor: "#4B49AC" }}
+                    style={{ backgroundColor: "#057AFF" }}
                   ></div>
-                  <p>Offline sales</p>
+                  <p>All Tours</p>
                 </div>
-                <p>88333</p>
+                <p>{toursData.length}</p>
+              </div>
+              <div className="chart-group">
+                <div className="chart-group-left">
+                  <div
+                    className="color"
+                    style={{ backgroundColor: "#2E2CAF" }}
+                  ></div>
+                  <p>News</p>
+                </div>
+                <p>{newsData.length}</p>
               </div>
               <div className="chart-group">
                 <div className="chart-group-left">
@@ -183,19 +205,9 @@ const DetailsReports = () => {
                     className="color"
                     style={{ backgroundColor: "#E6AC00" }}
                   ></div>
-                  <p>Online sales</p>
+                  <p>BookedTours</p>
                 </div>
-                <p>78333</p>
-              </div>
-              <div className="chart-group">
-                <div className="chart-group-left">
-                  <div
-                    className="color"
-                    style={{ backgroundColor: "#057AFF" }}
-                  ></div>
-                  <p>Returns</p>
-                </div>
-                <p>58333</p>
+                <p>{bookedToursData.length}</p>
               </div>
             </div>
           </div>

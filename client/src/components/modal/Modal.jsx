@@ -44,8 +44,9 @@ const ModalLogin = ({ handleModalClick, setShowModal }) => {
           style={{
             width: "65%",
             position: "absolute",
-            left: "17%",
+            left: "17.3%",
             margin: "20px 0",
+            zIndex:'5555'
           }}
         >
           <Alert severity="error">{error}</Alert>

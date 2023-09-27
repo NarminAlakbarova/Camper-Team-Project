@@ -4,8 +4,13 @@ import WeatherBooking from "./WeatherBooking";
 import "./index.scss";
 import axios from "axios";
 import ToursDetails from "./ToursDetails";
+import { useDispatch } from "react-redux";
+import { getNewsData } from "../../../redux/newsDataSlice";
+import { getUserBookingData } from "../../../redux/userBookingSlice";
+import { getToursData } from "../../../redux/toursDataSlice";
 const Home = () => {
   const [weatherData, setWeatherData] = useState(null);
+  const dispatch = useDispatch();
   const [city, setCity] = useState("Baku");
   const apiKey = "cf1fc6778d5129d8569abad05b05bf2e";
   const fetchData = async () => {
@@ -22,7 +27,10 @@ const Home = () => {
 
   useEffect(() => {
     fetchData();
-  }, [city, apiKey]);
+    dispatch(getNewsData());
+    dispatch(getUserBookingData());
+    dispatch(getToursData());
+  }, [city, apiKey, dispatch]);
   return (
     <div id="admin-home">
       <div className="heading">
@@ -35,8 +43,8 @@ const Home = () => {
       <div className="admin-home-weather">
         <WeatherBooking weatherData={weatherData} />
       </div>
-        <DetailsReports />
-        <ToursDetails/>
+      <DetailsReports />
+      <ToursDetails />
     </div>
   );
 };
