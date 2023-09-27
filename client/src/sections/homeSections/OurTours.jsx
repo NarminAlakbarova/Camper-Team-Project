@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { v4 as uuid } from "uuid";
 import { AiFillStar } from "react-icons/ai";
+import { CurrencyContext } from "../../context/CurrencyProvider";
+import { FaEuroSign } from "react-icons/fa";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const OurTours = ({ sectionTitle }) => {
+  const {currency}=useContext(CurrencyContext)
   const tours = useSelector((state) => state.toursData.data);
   const ourPopularTours = tours.filter((item) => item.tourRating > 7);
   const newTours = tours.slice(-9);
@@ -98,14 +101,14 @@ const OurTours = ({ sectionTitle }) => {
                       <p>{item.tourLocation}</p>
                       <p>
                         From{" "}
-                        {item.tourPrevPrice && (
+                        {(item.tourPrevPrice || item.tourPrevPrice!=0)  && (
                           <span className="tour-prev-price">
-                            ${item.tourPrevPrice}
+                           {currency=="EUR" ? <FaEuroSign /> : currency}{item?.tourPrevPrice}
                           </span>
                         )}
                         <span className="tour-price">
                           {" "}
-                          ${item?.tourPriceUSD}
+                          {currency=="EUR" ? <FaEuroSign /> : currency}{item?.tourPriceUSD}
                         </span>
                       </p>
                     </div>
@@ -154,14 +157,14 @@ const OurTours = ({ sectionTitle }) => {
                       <p>{item?.tourLocation}</p>
                       <p>
                         From{" "}
-                        {item.tourPrevPrice && (
+                        {(item.tourPrevPrice || item.tourPrevPrice!=0)  && (
                           <span className="tour-prev-price">
-                            ${item.tourPrevPrice}
+                            {currency=="EUR" ? <FaEuroSign /> : currency}{item.tourPrevPrice}
                           </span>
                         )}
                         <span className="tour-price">
                           {" "}
-                          ${item?.tourPriceUSD}
+                          {currency=="EUR" ? <FaEuroSign /> : currency}{item?.tourPriceUSD}
                         </span>
                       </p>
                     </div>

@@ -1,4 +1,5 @@
 // HERO-BANNER
+
 .home-hero-banner {
   height: 100vh;
   background-image: url("../../../src/assets/img/homePage/hero-campger-bg.jpg");
@@ -26,7 +27,7 @@
     font-size: 83px;
     letter-spacing: 8px;
     text-transform: uppercase;
-    @media only screen and (max-width:567px){
+    @media only screen and (max-width: 567px) {
       font-size: 56px;
     }
   }
@@ -45,10 +46,9 @@
   }
 }
 
-// search section
+// SEARCH SECTION
 
 #search-section {
-
   .search-section {
     display: flex;
     flex-direction: column;
@@ -66,8 +66,6 @@
       @media screen and (max-width: 576px) {
         padding: 10px;
         gap: 20px;
-      
-    
       }
       .title {
         display: flex;
@@ -111,6 +109,7 @@
 }
 
 //INFORMATION-CARDS
+
 #information-cards {
   padding: 170px 0;
   background-image: url("../../../src/assets/img/homePage/top-bg.jpg");
@@ -197,6 +196,7 @@
     }
   }
 }
+
 // ACTIVITIES
 
 .activities {
@@ -296,6 +296,7 @@
 }
 
 //LASTEST NEWS
+
 #lastest-news {
   margin-bottom: 150px;
   padding-top: 30px;
@@ -495,11 +496,21 @@
             }
             .tour-prev-price {
               text-decoration: line-through !important;
+              svg {
+                color: #717171;
+                margin-bottom: 3px;
+                font-size: 15px;
+              }
             }
             .tour-price {
               color: #ffaf19;
               font-size: 18px;
               font-weight: 700;
+              svg {
+                color: #ffaf19;
+                font-size: 15px;
+                margin-bottom: 4px;
+              }
             }
           }
         }
@@ -615,20 +626,8 @@
   }
 }
 
-@media only screen and (max-width: 576px) {
-  #discover-tours {
-    .discover-tours {
-      h2 {
-        font-size: 24px;
-      }
-      p {
-        font-size: 16px;
-      }
-    }
-  }
-}
-
 // FEEDBACK SECTION
+
 .customer-said {
   text-align: center;
   padding-bottom: 70px;
@@ -674,7 +673,7 @@
             text-align: left;
             width: 100%;
             justify-content: space-between;
-            @media  only screen and (max-width:576px) {
+            @media only screen and (max-width: 576px) {
               flex-direction: column;
             }
 
@@ -701,6 +700,19 @@
           transform: scale(1);
           opacity: 1;
         }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  #discover-tours {
+    .discover-tours {
+      h2 {
+        font-size: 24px;
+      }
+      p {
+        font-size: 16px;
       }
     }
   }

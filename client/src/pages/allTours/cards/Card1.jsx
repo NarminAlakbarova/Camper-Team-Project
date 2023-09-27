@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AiFillStar } from "react-icons/ai";
+import { FaEuroSign } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { CurrencyContext } from "../../../context/CurrencyProvider";
 
 const Card1 = ({ tour }) => {
+  const {currency}=useContext(CurrencyContext)
   return (
     <div className="col col-12 col-md-6 tour-card1">
       <div className="link-img">
@@ -42,10 +45,10 @@ const Card1 = ({ tour }) => {
         </p>
         <p className="tour-text">
           From{" "}
-          {tour.tourPrevPrice && (
-            <span className="tour-prev-price">${tour.tourPrevPrice}</span>
+          {(tour.tourPrevPrice || tour.tourPrevPrice!=0) && (
+            <span className="tour-prev-price">{currency=="EUR" ? <FaEuroSign /> : currency}{tour.tourPrevPrice}</span>
           )}
-          <span className="tour-price"> ${tour?.tourPriceUSD}</span>
+          <span className="tour-price"> {currency=="EUR" ? <FaEuroSign /> : currency}{tour?.tourPriceUSD}</span>
         </p>
       </div>
     </div>

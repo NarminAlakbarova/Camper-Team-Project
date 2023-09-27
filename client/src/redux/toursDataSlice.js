@@ -5,6 +5,7 @@ const BASE_URL = "http://localhost:8080";
 const initialState = {
   data: [],
   filteredData: [],
+  currencyData: [],
   loading: false,
   error: "",
   searchData: false,
@@ -47,6 +48,13 @@ export const searchAllTours = createAsyncThunk(
   }
 );
 
+export const changeCurrency = createAsyncThunk(
+  "changeCurrency",
+  async (value) => {
+    return value;
+  }
+);
+
 export const toursDataSlice = createSlice({
   name: "toursData",
   initialState,
@@ -59,6 +67,7 @@ export const toursDataSlice = createSlice({
         state.loading = false;
         state.data = action.payload;
         state.filteredData = action.payload;
+        state.currencyData = action.payload;
       });
     builder.addCase(getToursData.rejected, (state, action) => {
       state.error = "Data not Found";
@@ -98,7 +107,8 @@ export const toursDataSlice = createSlice({
     builder.addCase(searchAllTours.fulfilled, (state, action) => {
       let values = action.payload;
       let durationDay = action.payload.duration.split(",");
-      const activities = action.payload.activity.length != 0 ? action.payload.activity : [""];
+      const activities =
+        action.payload.activity.length != 0 ? action.payload.activity : [""];
 
       state.data = state.filteredData.filter(
         (tour) =>
@@ -116,6 +126,25 @@ export const toursDataSlice = createSlice({
             )
           )
       );
+    });
+    builder.addCase(changeCurrency.fulfilled, (state, action) => {
+      if (action.payload == "EUR") {
+        state.data = state.currencyData.map((item) => {
+          item.tourPriceUSD = +item.tourPriceUSD * 0.95;
+          item.tourPrevPrice = +item.tourPrevPrice * 0.95;
+          return item;
+        });
+        state.currencyData = state.filteredData;
+      } else if (action.payload == "CHF") {
+        state.data = state.currencyData.map((item) => {
+          item.tourPriceUSD = +item.tourPriceUSD * 0.92;
+          item.tourPrevPrice = +item.tourPrevPrice * 0.92;
+          return item;
+        });
+        state.currencyData = state.filteredData;
+      } else {
+        state.data = state.filteredData;
+      }
     });
   },
 });

@@ -190,12 +190,20 @@
     }
     .tour-prev-price {
       text-decoration: line-through !important;
+      svg {
+        font-size: 15px;
+        margin-bottom: 4px;
+      }
     }
     .tour-price {
       font-size: 19px;
       font-weight: 700;
       color: #ffaf19;
       margin: 0;
+      svg {
+        font-size: 15px;
+        margin-bottom: 4px;
+      }
     }
     .tour-card2 {
       display: flex;
