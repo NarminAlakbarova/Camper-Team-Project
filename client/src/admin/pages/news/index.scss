@@ -14,7 +14,6 @@
     align-items: center;
     width: 90%;
     .search-add {
-     
       .ant-input-search {
         width: 300px;
         margin-right: 10px;
@@ -51,7 +50,8 @@
           width: 70px;
         }
         .actions {
-          button {
+          button,
+          a {
             background-color: #4b49ac;
             padding: 10px 15px;
             border-radius: 7px;
@@ -63,6 +63,9 @@
               margin-left: 15px;
               background-color: yellowgreen;
             }
+          }
+          a {
+            padding: 13px;
           }
         }
       }
