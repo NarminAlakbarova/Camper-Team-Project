@@ -4,17 +4,19 @@
   background: url(../../assets/img/homePage/hero-campger-bg.jpg) no-repeat
     center;
   background-size: cover;
+  font-family: "Josefin Sans", sans-serif;
   .hero-banner-gallery {
-    height: 70vh;
-    color: aliceblue;
+    height: 75vh;
+    color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: "Barlow Condensed", sans-serif;
     p {
-      font-size: 72px;
+      font-size: 60px;
       letter-spacing: 2px;
+      margin-bottom: 0;
+      font-weight: 700;
     }
     span {
       font-size: 24px;

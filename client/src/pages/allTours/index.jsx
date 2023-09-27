@@ -39,7 +39,7 @@ const AllToursPage = () => {
         <div className="container">
           <div className="hero-banner-all-tours">
             <p>ALL TOURS</p>
-            <span>IMPRESSIONS OF OUR TOURS</span>
+            <span>Impressions of Our Tours</span>
           </div>
         </div>
       </div>

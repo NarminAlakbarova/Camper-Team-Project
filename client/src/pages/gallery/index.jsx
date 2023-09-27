@@ -91,7 +91,7 @@ const GalleryPage = () => {
         <div className="container">
           <div className="hero-banner-gallery">
             <p>GALLERY</p>
-            <span>IMPRESSIONS OF OUR TOURS</span>
+            <span>Impressions of Our Tours</span>
           </div>
         </div>
       </div>
