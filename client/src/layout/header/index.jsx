@@ -26,7 +26,8 @@ const Header = () => {
         (headerRef.current.style.position = "fixed"))
       : ((arrowUpRef.current.style.display = "none"),
         (headerRef.current.style.position = "relative"));
-  };arrowUpRef
+  };
+  arrowUpRef;
   const handleScrollTop = () => {
     document.documentElement.scrollTop = 0;
   };
@@ -56,7 +57,12 @@ const Header = () => {
   };
   return (
     <>
-      {showModal && <ModalLogin handleModalClick={handleModalClick} setShowModal={setShowModal} />}
+      {showModal && (
+        <ModalLogin
+          handleModalClick={handleModalClick}
+          setShowModal={setShowModal}
+        />
+      )}
       <header ref={headerRef}>
         <div className="container">
           <nav>
@@ -74,7 +80,10 @@ const Header = () => {
                 <NavLink to={"allTours"}>All Tours</NavLink>
               </li>
               <li>
-                <DropdownComponent dropdownSpace={"pages"} handleModalClick={handleModalClick}/>
+                <DropdownComponent
+                  dropdownSpace={"pages"}
+                  handleModalClick={handleModalClick}
+                />
               </li>
               <li>
                 <NavLink to={"contact"}>Contact</NavLink>
@@ -82,7 +91,10 @@ const Header = () => {
             </ul>
             <div className="header-right">
               <SelectCurrency />
-              <DropdownComponent dropdownSpace={"join-us"} handleModalClick={handleModalClick} />
+              <DropdownComponent
+                dropdownSpace={"join-us"}
+                handleModalClick={handleModalClick}
+              />
               <button className="menu-btn" onClick={showMenu}>
                 <RiMenuFill />
               </button>

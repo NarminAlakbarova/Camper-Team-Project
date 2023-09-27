@@ -13,7 +13,7 @@ import { AiFillHome } from "react-icons/ai";
 import { v4 as uuidv4 } from "uuid";
 import "./index.scss";
 
-const Aside = () => {
+const Aside = ({ setAdmin }) => {
   const [not, setNot] = useState(true);
   const [toggleTodo, setToggleTodo] = useState(false);
   const [allToDoItem, setAllToDoItem] = useState([]);
@@ -25,6 +25,10 @@ const Aside = () => {
   console.log(allToDoItem);
   console.log(toDoInputValue);
   const todoRef = useRef();
+  const handleLogOutAdmin = () => {
+    localStorage.removeItem("savedAdmin");
+    setAdmin(null);
+  };
   const items = [
     {
       label: (
@@ -37,7 +41,7 @@ const Aside = () => {
     },
     {
       label: (
-        <Link to="">
+        <Link to="" onClick={handleLogOutAdmin}>
           <CiLogout />
           Logout
         </Link>

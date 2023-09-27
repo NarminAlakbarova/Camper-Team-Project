@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./index.scss";
 import logo from "../../../assets/header/logo.png";
 import img from "../../../assets/img/contact/locationImg1.jpg";
@@ -7,9 +7,22 @@ import { AiOutlineLock } from "react-icons/ai";
 import { Form, Formik } from "formik";
 import InputFeilds from "../../../components/form/InputFeilds";
 import { AdminSignInValidation } from "../../../validation/AdminSignInValidation";
+import { useDispatch, useSelector } from "react-redux";
+import { getUsersData } from "../../../redux/usersDataSlice";
+import { useNavigate } from "react-router-dom";
 
-const SignInAdmin = ({ setCheckAdmin, checkAdmin }) => {
-  console.log(checkAdmin);
+const SignInAdmin = ({ setAdmin }) => {
+  // console.log(checkAdmin);
+  const allUsers = useSelector((state) => state.usersData.data);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  //  const adminName=JSON.parse(localStorage.getItem("adminDetails"));
+
+  useEffect(() => {
+    dispatch(getUsersData());
+  }, [dispatch]);
+  const checkAllUsers = allUsers.map((user) => user.isAdmin);
+  // setCheckAdmin(checkAllUsers);
   return (
     <div id="sign-in">
       <div className="sign-in">
@@ -25,6 +38,20 @@ const SignInAdmin = ({ setCheckAdmin, checkAdmin }) => {
               password: "",
             }}
             validationSchema={AdminSignInValidation}
+            onSubmit={(values, actions) => {
+              console.log(values);
+              const checkInputs = allUsers.find(
+                (user) =>
+                  user.userName === values.adminName &&
+                  user.password === values.password &&
+                  user.isAdmin
+              );
+              console.log(checkInputs);
+
+              checkInputs
+                ? (setAdmin(checkInputs.userName), navigate("/admin/home"))
+                : alert("you are not a admin");
+            }}
           >
             {({ errors, touched }) => (
               <Form>
