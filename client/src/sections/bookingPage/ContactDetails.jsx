@@ -35,6 +35,15 @@ const ContactDetails = ({ pageChanges, setPageChanges }) => {
       </div>
     );
   };
+  const disabledBtn =
+    bookinginfo.traveller &&
+    bookinginfo.contactDetails.firstName &&
+    bookinginfo.contactDetails.lastName &&
+    bookinginfo.contactDetails.email &&
+    bookinginfo.contactDetails.phone &&
+    bookinginfo.contactDetails.country &&
+    bookinginfo.contactDetails.adress &&
+    bookinginfo.notes;
   return (
     <>
       <div id="contact-details">
@@ -112,7 +121,11 @@ const ContactDetails = ({ pageChanges, setPageChanges }) => {
             onChange={handleInputsChanges}
           ></textarea>
         </div>
-        <button type="submit" onClick={() => setPageChanges(true)}>
+        <button
+          disabled={!disabledBtn}
+          type="submit"
+          onClick={() => setPageChanges(true)}
+        >
           Next Step
         </button>
       </div>
