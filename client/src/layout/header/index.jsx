@@ -1,19 +1,29 @@
-import React, { useRef, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { RiMenuFill } from "react-icons/ri";
+import React, { useContext, useRef, useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { CiLogout } from "react-icons/ci";
 import { FaArrowUp } from "react-icons/fa";
+import { RiMenuFill } from "react-icons/ri";
 import { AiOutlineClose } from "react-icons/ai";
 import { BiSolidDownArrow, BiSolidUpArrow } from "react-icons/bi";
+import logo from "../../assets/header/logo.png";
+import ModalLogin from "../../components/modal/Modal";
+import { UserContext } from "../../context/UserProvider";
 import DropdownComponent from "../../components/DropdownComponent";
 import SelectCurrency from "../../components/SelectCurrency";
-import logo from "../../assets/header/logo.png";
 import "./index.scss";
-import ModalLogin from "../../components/modal/Modal";
 
 const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [togglePages, setTogglePages] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const { checkUser, setCheckUser } = useContext(UserContext);
+
+  const navigate = useNavigate();
+  const handleUSersLogOut = () => {
+    localStorage.removeItem("checkUser");
+    setCheckUser(null);
+    navigate("/");
+  };
 
   const menuRef = useRef();
   const pagesRef = useRef();
@@ -26,7 +36,8 @@ const Header = () => {
         (headerRef.current.style.position = "fixed"))
       : ((arrowUpRef.current.style.display = "none"),
         (headerRef.current.style.position = "relative"));
-  };arrowUpRef
+  };
+  arrowUpRef;
   const handleScrollTop = () => {
     document.documentElement.scrollTop = 0;
   };
@@ -56,7 +67,12 @@ const Header = () => {
   };
   return (
     <>
-      {showModal && <ModalLogin handleModalClick={handleModalClick} setShowModal={setShowModal} />}
+      {showModal && (
+        <ModalLogin
+          handleModalClick={handleModalClick}
+          setShowModal={setShowModal}
+        />
+      )}
       <header ref={headerRef}>
         <div className="container">
           <nav>
@@ -74,7 +90,10 @@ const Header = () => {
                 <NavLink to={"allTours"}>All Tours</NavLink>
               </li>
               <li>
-                <DropdownComponent dropdownSpace={"pages"} handleModalClick={handleModalClick}/>
+                <DropdownComponent
+                  dropdownSpace={"pages"}
+                  handleModalClick={handleModalClick}
+                />
               </li>
               <li>
                 <NavLink to={"contact"}>Contact</NavLink>
@@ -82,7 +101,24 @@ const Header = () => {
             </ul>
             <div className="header-right">
               <SelectCurrency />
-              <DropdownComponent dropdownSpace={"join-us"} handleModalClick={handleModalClick} />
+              {checkUser ? (
+                <>
+                  <DropdownComponent
+                    dropdownSpace={"join-us"}
+                    handleModalClick={handleModalClick}
+                  />
+                  <button className="user-log-out" onClick={handleUSersLogOut}>
+                    <CiLogout />
+                  </button>
+                </>
+              ) : (
+                <button
+                  className="sign-in-btn"
+                  onClick={() => handleModalClick()}
+                >
+                  Sign In
+                </button>
+              )}
               <button className="menu-btn" onClick={showMenu}>
                 <RiMenuFill />
               </button>
@@ -112,10 +148,6 @@ const Header = () => {
               <li onClick={showPages}>
                 Pages {togglePages ? <BiSolidUpArrow /> : <BiSolidDownArrow />}
                 <ul ref={pagesRef}>
-                  <li>
-                    <NavLink to={"tourFull"}>Tour Full</NavLink>
-                  </li>
-                  <hr />
                   <li>
                     <NavLink to={"blog"}>Blog</NavLink>
                   </li>

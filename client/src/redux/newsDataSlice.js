@@ -19,6 +19,7 @@ export const searchNews = createAsyncThunk("searchNews", async (value) => {
 
 export const addNews = createAsyncThunk("addNews", async (values) => {
   await axios.post("http://localhost:8080/newsCamper", values);
+  return values;
 });
 
 export const updateNews = createAsyncThunk("updateNews", async (values) => {
@@ -50,6 +51,14 @@ export const getNewsDataSlice = createSlice({
             .toLocaleLowerCase()
             .includes(action.payload)
         )
+      );
+    });
+    builder.addCase(addNews.fulfilled, (state, action) => {
+      state.data.push(action.payload);
+    });
+    builder.addCase(updateNews.fulfilled, (state, action) => {
+      state.data = state.data.map((item) =>
+        item.id == action.payload.id ? action.payload : item
       );
     });
   },

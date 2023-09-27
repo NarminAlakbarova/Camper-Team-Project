@@ -1,25 +1,25 @@
-import { Field, Form, Formik } from "formik";
+import { Form, Formik } from "formik";
 import React, { useEffect, useState } from "react";
 import { GrLinkPrevious } from "react-icons/gr";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuid } from "uuid";
-import {
-  addNews,
-  getNewsData,
-  updateNews,
-} from "../../../../redux/newsDataSlice";
-import InputField from "./InputField";
 import { convertBase64 } from "../../../../services/base64";
+import InputField from "./InputField";
+import {addNews,getNewsData,updateNews} from "../../../../redux/newsDataSlice";
 
 const NewsForm = () => {
-  const [imgValue, setImgValue] = useState('')
-  const newsData = useSelector((state) => state.newsData.data);
+  const [imgValue, setImgValue] = useState("");
+  const [authorImgValue, setAuthorImgValue] = useState("");
+  const { id } = useParams();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const newsData = useSelector((state) => state.newsData.data);
+
   useEffect(() => {
     dispatch(getNewsData());
   }, [dispatch]);
-  const { id } = useParams();
+  
   const updateValues = newsData.find((item) => item.id == id);
   const months = [
     "January",
@@ -47,36 +47,35 @@ const NewsForm = () => {
       : `${new Date(updateValues?.releaseDay).getDate()}`;
   const releaseDay = `${releaseDayYear}-${releaseDayMonth}-${releaseDayDate}`;
 
-  const handleSubmitNewsForm = ({
-    releaseDay,
-    authorName,
-    aboutAuthor,
-    ...values
-  }) => {
-    //   const updatedReleaseDay = `${months[releaseDay.split("-")[1] - 1]} ${
-    //     releaseDay.split("-")[2]
-    //   }, ${releaseDay.split("-")[0]}`;
-    //   const newValues = {
-    //     id: id ? id : uuid(),
-    //     author: {
-    //       authorName: authorName,
-    //       aboutAuthor: aboutAuthor,
-    //     },
-    //     releaseDay: updatedReleaseDay,
-    //     ...values,
-    //   };
-    //  id ? dispatch(updateNews(newValues)) : dispatch(addNews(newValues))
-    console.log(values);
-    // convertBase64(values.newsImg)
+  // const getBase64 = async (e) => {
+  //MULTIPLE FILES
+  // for (let i = 0; i < e.length; i++) {
+  //   console.log(await convertBase64(e[i]));
+  // }
+  // };
+  const handleSubmitNewsForm = ({ releaseDay, ...values }) => {
+    const updatedReleaseDay = `${months[releaseDay.split("-")[1] - 1]} ${
+      releaseDay.split("-")[2]
+    }, ${releaseDay.split("-")[0]}`;
+    const newValues = {
+      id: id ? id : uuid(),
+      author: {
+        authorImg: authorImgValue,
+        authorName: values.authorName,
+        aboutAuthor: values.aboutAuthor,
+      },
+      releaseDay: updatedReleaseDay,
+      newsImg: [imgValue],
+      newsTitle: values.newsTitle,
+      newsContent: values.newsContent,
+    };
+    id ? dispatch(updateNews(newValues)) : dispatch(addNews(newValues));
+    navigate(-1);
   };
-  const getBase64=async(e)=>{
-    setImgValue(await convertBase64(e.target.files[0]))
-  }
-  console.log(imgValue);
   return (
     <div id="tours-form">
       <div id="prev-icon">
-        <Link to={"/admin/feedback"}>
+        <Link to={"/admin/news"}>
           <GrLinkPrevious className="prev-icon" />
         </Link>
       </div>
@@ -87,10 +86,10 @@ const NewsForm = () => {
             id
               ? {
                   releaseDay: releaseDay,
-                  authorName: updateValues.author.authorName,
-                  aboutAuthor: updateValues.author.aboutAuthor,
-                  newsTitle: updateValues.newsTitle,
-                  newsContent: updateValues.newsContent,
+                  authorName: updateValues?.author.authorName,
+                  aboutAuthor: updateValues?.author.aboutAuthor,
+                  newsTitle: updateValues?.newsTitle,
+                  newsContent: updateValues?.newsContent,
                 }
               : {
                   releaseDay: "",
@@ -98,67 +97,70 @@ const NewsForm = () => {
                   aboutAuthor: "",
                   newsTitle: "",
                   newsContent: "",
-                  newsImg: imgValue,
                 }
           }
           onSubmit={(values) => handleSubmitNewsForm(values)}
         >
-          {({ handleChange ,values }) => (
-            <Form>
-              <InputField
-                name="releaseDay"
-                type="date"
-                label="ReleaseDay"
-                id="releaseDay"
-              />
-              <InputField
-                name="authorName"
-                type="text"
-                label="Author Name"
-                id="authorName"
-              />
-              <InputField
-                name="aboutAuthor"
-                type="text"
-                label="About Author"
-                id="aboutAuthor"
-              />
-              <InputField
-                name="newsTitle"
-                type="text"
-                label="News Title"
-                id="newsTitle"
-              />
-              <InputField
-                name="newsContent"
-                type="textarea"
-                label="News Content"
-                id="newsContent"
-              />
-              <InputField
-                type="file"
-                name="newsImg"
-                label="News Image"
-                id="newsImg"
-                value={imgValue}
-                onChange={e=>getBase64(e)}
-                // onChange={(e) => handleChange(convertBase64(e.target.files[0]))}
-                // onChange={e=>console.log(e.target.files[0])}
-                // onChange={console.log(this)}
-                //   multiple="multiple"
-              />
-              {/* <input
-                type="file"
-                name="newsImg"
-                label="News Image"
-                id="newsImg"
-                value={values.newsImg}
-                onChange={(e) => handleChange(convertBase64(e.target.files[0]))}
-              /> */}
-              {/* <input type="file" name="newsImg" id="newsImg" onChange={(e)=>handleChange(e.target.files[0])} /> */}
-              <button type="submit">{id ? "Edit" : "Add"}</button>
-            </Form>
-          )}
+          <Form>
+            <InputField
+              name="releaseDay"
+              type="date"
+              label="ReleaseDay"
+              id="releaseDay"
+            />
+            <InputField
+              name="authorName"
+              type="text"
+              label="Author Name"
+              id="authorName"
+            />
+            <InputField
+              name="aboutAuthor"
+              type="text"
+              label="About Author"
+              id="aboutAuthor"
+            />
+            <InputField
+              name="newsTitle"
+              type="text"
+              label="News Title"
+              id="newsTitle"
+            />
+            <InputField
+              name="newsContent"
+              type="textarea"
+              label="News Content"
+              id="newsContent"
+            />
+            <label htmlFor="newsImg">News Image</label>
+            <input
+              type="file"
+              name="newsImg"
+              id="newsImg"
+              required
+              onChange={async (e) =>
+                setImgValue(await convertBase64(e.target.files[0]))
+              }
+            />
+            <label htmlFor="authorImg">Author Image</label>
+            <input
+              type="file"
+              name="authorImg"
+              id="authorImg"
+              required
+              onChange={async (e) =>
+                setAuthorImgValue(await convertBase64(e.target.files[0]))
+              }
+            />
+            {/* <input
+              type="file"
+              name="newsImg"
+              id="newsImg"
+              multiple
+              onChange={(e) => getBase64(e.target.files)}
+            /> */}
+            <button type="submit">{id ? "Edit" : "Add"}</button>
+          </Form>
         </Formik>
       </div>
     </div>

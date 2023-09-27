@@ -7,9 +7,9 @@ const InputField = ({ label, ...props }) => {
     <>
       <label>{label}</label>
       {label == "Feedback" ? (
-        <Field as="textarea" {...props} {...field}/>
+        <Field as="textarea" {...props} {...field} required/>
       ) : (
-        <Field {...props} {...field} />
+        <Field {...props} {...field} required/>
       )}
       <ErrorMessage component="div" name={field.name} />
     </>
