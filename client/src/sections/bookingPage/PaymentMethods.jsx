@@ -7,9 +7,9 @@ import { BookingContext } from "../../context/BookingProvider";
 import { useDispatch } from "react-redux";
 import { addUserBookingData } from "../../redux/userBookingSlice";
 import { useNavigate } from "react-router-dom";
-
 const PaymentMethods = () => {
   const { bookinginfo, setBookingInfo } = useContext(BookingContext);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleBook = () => {
@@ -25,6 +25,7 @@ const PaymentMethods = () => {
         country: "",
         adress: "",
       },
+      tourPrice:"",
       tourTitle:"",
       notes: "",
     });

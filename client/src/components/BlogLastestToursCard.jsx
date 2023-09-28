@@ -8,8 +8,8 @@ const BlogLastestToursCard = () => {
   return (
     <div id="latest-tours">
       <h5>Latest Tours</h5>
-      {lastestTours.slice(0, 4).map((item) => (
-        <div className="card lastest-card">
+      {lastestTours.slice(0, 4).map((item,index) => (
+        <div className="card lastest-card" key={index} >
           <div className="img">
             <img src={item?.tourImg[0]} alt="" />
           </div>

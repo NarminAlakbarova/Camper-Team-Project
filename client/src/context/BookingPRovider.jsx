@@ -3,6 +3,7 @@ import { UserContext } from "./UserProvider";
 export const BookingContext = createContext();
 const BookingPRovider = ({ children }) => {
   const { checkUser } = useContext(UserContext);
+  let bookingData = JSON.parse(localStorage.getItem("bookingData"));
 
   const [bookinginfo, setBookingInfo] = useState({
     traveller: [{}],
@@ -15,6 +16,7 @@ const BookingPRovider = ({ children }) => {
       adress: "",
     },
     tourTitle:"",
+    tourPrice: bookingData.tourPrice,
     notes: "",
     userName: checkUser?.userName,
   });
