@@ -106,12 +106,26 @@ const AllToursForm = () => {
       setInputsValue({ ...inputsValue, [name]: updatedValue });
     }
   };
+
   const handleFileChange = async (e) => {
-    const file = e.target.files[0];
-    file
-      ? setInputsValue({ ...inputsValue, tourImg: [await convertBase64(file)] })
-      : console.error("Error converting to base64:", error);
+    const files = e.target.files;
+    const allImages = [];
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      try {
+        const base64Image = await convertBase64(file);
+        allImages.push(base64Image);
+      } catch (error) {
+        console.error("base64 converting error", error);
+      }
+    }
+
+    setInputsValue({
+      ...inputsValue,
+      tourImg: allImages,
+    });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -295,6 +309,7 @@ const AllToursForm = () => {
                   id="tourImg"
                   onChange={handleFileChange}
                   name="tourImg"
+                  multiple
                   style={{
                     padding: "2px 10px",
                   }}
