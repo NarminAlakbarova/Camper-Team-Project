@@ -39,7 +39,6 @@
       }
     }
     .select-container {
-
       select {
         width: 100%;
         border: none;
@@ -47,7 +46,6 @@
         background-color: #c797eb60;
         padding: 8px 10px;
         color: #5b5b5b;
-     
       }
       label {
         color: #5b5b5b;
@@ -127,12 +125,13 @@
   }
 }
 
-.add-edit-form-admin{
+.add-edit-form-admin {
   width: 50%;
-  form{
+  form {
     display: flex;
     flex-direction: column;
-    input, textarea{
+    input,
+    textarea {
       border-radius: 7px;
       outline: none;
       padding: 10px;
@@ -140,17 +139,17 @@
       border: none;
       margin-bottom: 20px;
     }
-    textarea{
+    textarea {
       height: 120px;
     }
-    label{
+    label {
       font-size: 18px;
     }
-    button{
+    button {
       width: 40%;
       margin: 0 auto;
       font-size: 24px;
-      background-color: #4B49AC;
+      background-color: #4b49ac;
       padding: 10px 0;
       border-radius: 10px;
       color: #f1f3fc;

@@ -287,13 +287,19 @@ const AllToursForm = () => {
                 </div>
               </div>
             </div>
-            <div className="col-6">
-              <input
-                type="file"
-                id="tourImg"
-                onChange={handleFileChange}
-                name="tourImg"
-              />
+            <div className="col-6  " style={{}}>
+              <div className="form-group">
+                <label htmlFor="">Tour img</label>
+                <input
+                  type="file"
+                  id="tourImg"
+                  onChange={handleFileChange}
+                  name="tourImg"
+                  style={{
+                    padding: "2px 10px",
+                  }}
+                />
+              </div>
             </div>
           </div>
           <div className="row my-2">
