@@ -43,7 +43,7 @@ const BookingForm = () => {
   ];
   const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let existBookedValue = bookingData.find(
-    (item) => item.tourTitle == tour.tourTitle
+    (item) => item.tourTitle == tour?.tourTitle
   );
   const firstDay = new Date(currentYear, currentMonth, 1);
   const pastLastDay = new Date(currentYear, currentMonth, 0);

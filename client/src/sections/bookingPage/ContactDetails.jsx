@@ -4,12 +4,14 @@ import { BookingContext } from "../../context/BookingProvider";
 import { countriesList } from "../../data/countries";
 const ContactDetails = ({ pageChanges, setPageChanges }) => {
   const { bookinginfo, setBookingInfo } = useContext(BookingContext);
-  console.log(bookinginfo);
+  const bookingData = JSON.parse(localStorage.getItem("bookingData"))
+  
   const handleInputsChanges = (e) => {
     const { name, value } = e.target;
     name === "notes"
       ? setBookingInfo({
           ...bookinginfo,
+          tourTitle:bookingData.tourTitle,
           notes: value,
         })
       : setBookingInfo({

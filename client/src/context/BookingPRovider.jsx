@@ -14,7 +14,7 @@ const BookingPRovider = ({ children }) => {
       country: "",
       adress: "",
     },
-
+    tourTitle:"",
     notes: "",
     userName: checkUser?.userName,
   });
