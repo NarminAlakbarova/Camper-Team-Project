@@ -7,17 +7,16 @@ import Comment from "../../sections/detailsSections/Comment";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getNewsData } from "../../redux/newsDataSlice";
+import { getUsersData } from "../../redux/usersDataSlice";
 
 const Details = () => {
   const newsAndBlogData = useSelector((state) => state.newsData.data);
-  console.log(newsAndBlogData);
   const dispatch=useDispatch()
   const { id } = useParams();
-  console.log(id);
   const detailsItem = newsAndBlogData.find((item) => item.id == id);
-  console.log(detailsItem);
   useEffect(() => {
     dispatch(getNewsData());
+    dispatch(getUsersData());
   }, [dispatch]);
   return (
     <>

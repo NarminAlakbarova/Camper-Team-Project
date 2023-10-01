@@ -14,28 +14,32 @@ export const getUsersData = createAsyncThunk("getUsersData", async () => {
 });
 
 export const addUser = createAsyncThunk("addUser", async (userInfo) => {
-  await axios.post(`${BASE_URL}/users`,userInfo);
+  await axios.post(`${BASE_URL}/users`, userInfo);
 });
 
-export const updateUser=createAsyncThunk("updateUser",async(values)=>{
-  await axios.patch(`${BASE_URL}/users/${values.id}`,values)
-})
+export const updateUser = createAsyncThunk("updateUser", async (values) => {
+  await axios.patch(`${BASE_URL}/users/${values.id}`, values);
+});
+
 
 export const usersDataSlice = createSlice({
   name: "usersData",
   initialState,
+
+ 
+
   extraReducers: (builder) => {
     builder.addCase(getUsersData.pending, (state) => {
       (state.loading = true), (state.error = "");
     }),
-    builder.addCase(getUsersData.fulfilled, (state, action) => {
+      builder.addCase(getUsersData.fulfilled, (state, action) => {
         state.loading = false;
         state.data = action.payload;
-    });
+      });
     builder.addCase(getUsersData.rejected, (state) => {
       state.error = "Data not Found";
     });
   },
 });
-
+export const { updateUserComments } = usersDataSlice.actions;
 export default usersDataSlice.reducer;

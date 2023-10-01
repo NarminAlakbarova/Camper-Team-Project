@@ -16,6 +16,14 @@ export const getToursData = createAsyncThunk("getToursData", async () => {
   return res.data;
 });
 
+export const updatedToursData = createAsyncThunk(
+  "updatedToursData",
+  async (obj) => {
+    const resp = await axios.put(`${BASE_URL}/toursCamper`, obj);
+    return resp.data;
+  }
+);
+
 export const sortData = createAsyncThunk("sortData", async (sortType) => {
   console.log(sortType);
   return sortType;
@@ -145,6 +153,9 @@ export const toursDataSlice = createSlice({
       } else {
         state.data = state.filteredData;
       }
+    });
+    builder.addCase(updatedToursData.fulfilled, (state, action) => {
+      state.data = action.payload;
     });
   },
 });
