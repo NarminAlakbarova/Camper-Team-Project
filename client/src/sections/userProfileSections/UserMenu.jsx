@@ -49,7 +49,7 @@ const UserMenu = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/"}>
+            <NavLink to={"/userProfile/wishList"}>
               <AiOutlineHeart />
               <span>Wish List</span>
             </NavLink>

@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import ModalLogin from "../../components/modal/Modal";
 import SignUpForm from "./signUpForm/SignUpForm";
 import "./index.scss";
+import { ModalContext } from "../../context/ModalProvider";
 
 const SignUpPage = () => {
-  const [showModal, setShowModal] = useState(false);
-  const handleModalClick = () => {
-    showModal ? setShowModal(false) : setShowModal(true);
-  };
+  const { showModal, setShowModal } = useContext(ModalContext);
+
   return (
     <div>
-      {showModal && <ModalLogin handleModalClick={handleModalClick} />}
+      {showModal && <ModalLogin />}
       <div id="hero-banner-sign-up">
         <div className="container">
           <div className="hero-banner-sign-up">
@@ -25,7 +24,7 @@ const SignUpPage = () => {
             <SignUpForm/>
             <hr />
             <h5>ALREADY A MEMBER?</h5>
-            <button className="login-btn" onClick={handleModalClick}>LOGIN</button>
+            <button className="login-btn" onClick={()=>setShowModal(true)}>LOGIN</button>
           </div>
         </div>
       </div>

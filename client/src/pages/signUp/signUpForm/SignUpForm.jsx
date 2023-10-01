@@ -32,7 +32,7 @@ const SignUpForm = () => {
       validationSchema={validate}
       onSubmit={(values,actions) => (
         setCheckUser(values),
-        dispatch(addUser({ ...values, id: uuid(), isAdmin: false, date:`${currentYear}-${currentMonth}-${currentDay}` })),
+        dispatch(addUser({ ...values, id: uuid(), isAdmin: false, date:`${currentYear}-${currentMonth}-${currentDay}`,wishList:[] })),
         actions.resetForm(),
         navigate("/")
       )}

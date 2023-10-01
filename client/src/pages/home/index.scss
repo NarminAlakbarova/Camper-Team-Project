@@ -466,9 +466,11 @@
         padding: 10px;
         .popular-card-img {
           position: relative;
+          overflow: hidden;
           img {
             width: 100%;
             border-radius: 7px;
+            max-height: 193px;
           }
           .img-text {
             position: absolute;
@@ -706,6 +708,51 @@
 }
 
 @media only screen and (max-width: 576px) {
+  .activities {
+    .activities-top-text {
+      font-size: 18px;
+      a {
+        font-size: 18px;
+      }
+    }
+  }
+  .our-tours {
+    .our-popular-tours {
+      .our-popular-tours-top {
+        font-size: 18px;
+        a {
+          font-size: 18px;
+        }
+      }
+      .slick-slider {
+        .slick-arrow {
+          &.slick-prev,
+          &.slick-next {
+            &::before {
+              font-size: 30px;
+            }
+          }
+          &.slick-next {
+            right: 10px;
+          }
+        }
+        .popular-tour-card {
+          padding: 10px;
+          .popular-card-img {
+            position: relative;
+            max-height: 193px;
+            overflow: hidden;
+            
+          }
+          .popular-card-info {
+            a {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
   #discover-tours {
     .discover-tours {
       h2 {

@@ -4,7 +4,6 @@ import { IoIosArrowForward } from "react-icons/io";
 
 const MyBookings = () => {
   const bookingData = JSON.parse(localStorage.getItem("bookingData"));
-  console.log(bookingData);
   return (
     <div className="user-dashboard-right">
       <p className="page-path">
