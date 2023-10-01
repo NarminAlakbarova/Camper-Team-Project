@@ -38,10 +38,10 @@ export const usersDataSlice = createSlice({
     builder.addCase(getUsersData.pending, (state) => {
       (state.loading = true), (state.error = "");
     }),
-    builder.addCase(getUsersData.fulfilled, (state, action) => {
+      builder.addCase(getUsersData.fulfilled, (state, action) => {
         state.loading = false;
         state.data = action.payload;
-    });
+      });
     builder.addCase(getUsersData.rejected, (state) => {
       state.error = "Data not Found";
     });
@@ -53,5 +53,5 @@ export const usersDataSlice = createSlice({
     });
   },
 });
-
+export const { updateUserComments } = usersDataSlice.actions;
 export default usersDataSlice.reducer;

@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { getNewsData } from "../../../redux/newsDataSlice";
 import { getUserBookingData } from "../../../redux/userBookingSlice";
 import { getToursData } from "../../../redux/toursDataSlice";
+import { getBookingData } from "../../../redux/bookingDataSlice";
 const Home = () => {
   const [weatherData, setWeatherData] = useState(null);
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ const Home = () => {
     dispatch(getNewsData());
     dispatch(getUserBookingData());
     dispatch(getToursData());
+    dispatch(getBookingData());
   }, [city, apiKey, dispatch]);
   return (
     <div id="admin-home">
