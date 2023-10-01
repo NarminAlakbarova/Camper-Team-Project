@@ -21,15 +21,16 @@ import { useDispatch } from "react-redux";
 import { addDeleteWishList } from "../../redux/usersDataSlice";
 import BookingForm from "./BookingForm";
 import ModalLogin from "../../components/modal/Modal";
+import EnquiryForm from "./EnquiryForm";
 
 const DetailsTour = ({ tour, checkWishlist, setCheckWishlist, user }) => {
   const [formType, setFormType] = useState("booking");
-  const [inpValue, setInpValue] = useState({
-    fullName: "",
-    email: "",
-    enquiry: "",
-    checkbox: false,
-  });
+  // const [inpValue, setInpValue] = useState({
+  //   fullName: "",
+  //   email: "",
+  //   enquiry: "",
+  //   checkbox: false,
+  // });
 
   const { showModal, setShowModal } = useContext(ModalContext);
   const dispatch = useDispatch();
@@ -92,16 +93,16 @@ const DetailsTour = ({ tour, checkWishlist, setCheckWishlist, user }) => {
       children: textFaq,
     },
   ];
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(inpValue);
-    setInpValue({
-      fullName: "",
-      email: "",
-      enquiry: "",
-      checkbox: false,
-    });
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log(inpValue);
+  //   setInpValue({
+  //     fullName: "",
+  //     email: "",
+  //     enquiry: "",
+  //     checkbox: false,
+  //   });
+  // };
   const handleAddWishlist = () => {
     if (user) {
       let wishList = [...user?.wishList];
@@ -324,63 +325,7 @@ const DetailsTour = ({ tour, checkWishlist, setCheckWishlist, user }) => {
                       {formType == "booking" ? (
                         <BookingForm />
                       ) : (
-                        <form onSubmit={handleSubmit}>
-                          <label htmlFor="full-name">Full Name*</label>
-                          <input
-                            type="text"
-                            value={inpValue.fullName}
-                            id="full-name"
-                            onChange={(e) =>
-                              setInpValue({
-                                ...inpValue,
-                                fullName: e.target.value,
-                              })
-                            }
-                            required
-                          />
-                          <label htmlFor="email">Email Address*</label>
-                          <input
-                            type="email"
-                            value={inpValue.email}
-                            id="email"
-                            onChange={(e) =>
-                              setInpValue({
-                                ...inpValue,
-                                email: e.target.value,
-                              })
-                            }
-                            required
-                          />
-                          <label htmlFor="">Your Enquiry*</label>
-                          <textarea
-                            value={inpValue.enquiry}
-                            id=""
-                            rows="5"
-                            onChange={(e) =>
-                              setInpValue({
-                                ...inpValue,
-                                enquiry: e.target.value,
-                              })
-                            }
-                            required
-                          ></textarea>
-                          <input
-                            type="checkbox"
-                            checked={inpValue.checkbox}
-                            onChange={(e) =>
-                              setInpValue({
-                                ...inpValue,
-                                checkbox: e.target.checked,
-                              })
-                            }
-                            required
-                          />
-                          <span className="checkbox-text">
-                            * I agree with <Link to={""}>Terms of Service</Link>{" "}
-                            and <Link to={""}>Privacy Statement</Link>.
-                          </span>
-                          <button type="submit">SUBMIT ENQUIRY</button>
-                        </form>
+                        <EnquiryForm user={user} tour={tour}/>
                       )}
                     </div>
                   </div>

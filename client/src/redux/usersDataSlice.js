@@ -31,6 +31,13 @@ export const addDeleteWishList = createAsyncThunk(
   }
 );
 
+export const addEnquiry = createAsyncThunk("addEnquiry", async (values) => {
+  await axios.patch(`${BASE_URL}/users/${values.userId}`, {
+    enquiry: values.enquiryValues,
+  });
+  return values;
+});
+
 export const usersDataSlice = createSlice({
   name: "usersData",
   initialState,
@@ -49,6 +56,12 @@ export const usersDataSlice = createSlice({
       const wishList = action.payload.wishList;
       state.data = state.data.map((item) =>
         item.id == action.payload.id ? { ...item, wishList } : item
+      );
+    });
+    builder.addCase(addEnquiry.fulfilled, (state, action) => {
+      const enquiry = action.payload.enquiryValues;
+      state.data = state.data.map((item) =>
+        item.id == action.payload.userId ? { ...item, enquiry } : item
       );
     });
   },
