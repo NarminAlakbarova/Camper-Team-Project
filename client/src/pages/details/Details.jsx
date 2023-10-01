@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getNewsData } from "../../redux/newsDataSlice";
 import { getUsersData } from "../../redux/usersDataSlice";
+import UserComments from "../../sections/detailsSections/UserComments";
 
 const Details = () => {
   const newsAndBlogData = useSelector((state) => state.newsData.data);
@@ -23,6 +24,7 @@ const Details = () => {
       <HeroBanner detailsItem={detailsItem} />
       <DetailCards  />
       <Author detailsItem={detailsItem} />
+      <UserComments  detailsItem={detailsItem}/>
       <Comment detailsItem={detailsItem} />
     </>
   );
