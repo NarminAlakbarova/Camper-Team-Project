@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import {AiOutlineEye, AiOutlineEdit} from "react-icons/ai"
 import { Modal, Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { getNewsData, searchNews } from "../../../redux/newsDataSlice";
+import { deleteNews, getNewsData, searchNews } from "../../../redux/newsDataSlice";
 import Search from "antd/es/input/Search";
 import { Link, useNavigate } from "react-router-dom";
-import "./index.scss";
 import { BsPlusSquareDotted } from "react-icons/bs";
+import "./index.scss";
 
 const News = () => {
   const [detailsNews, setDetailsNews] = useState(null)
@@ -23,7 +23,7 @@ const News = () => {
     {
       title: "Image",
       dataIndex: "newsImg",
-      render: (element) => <img src={element[0]} />,
+      render: (element) => <img src={element && element[0]} />,
       key: "image",
     },
     {
@@ -34,7 +34,7 @@ const News = () => {
     {
       title: "Author Name",
       dataIndex: "author",
-      render: (element) => <span>{element.authorName}</span>,
+      render: (element) => <span>{element?.authorName}</span>,
       key: "author",
     },
     {
@@ -70,6 +70,9 @@ const News = () => {
   const onSearch = (value) => {
     dispatch(searchNews(value))
   };
+  const handleDelete=()=>{
+    dispatch(deleteNews(selectedRowKeys))
+  }
   return (
     <>
       <Modal className="admin-modal" title="Basic Modal" open={isModalOpen}  onCancel={handleCancel}>
@@ -87,7 +90,7 @@ const News = () => {
       <div className="admin-data-table">
         <div className="remove-search">
             <div className="remove-search-left">
-              <button>Remove</button>
+              <button onClick={handleDelete}>Remove</button>
               <span>Item: {selectedRowKeys.length}</span>
             </div>
             <div className="search-add">

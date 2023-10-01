@@ -41,9 +41,9 @@ const EditProfile = () => {
         <Stack
           spacing={2}
           style={{
-            position: "absolute",
+            position: "fixed",
             left: "43%",
-            margin: "20px 0",
+            top: " 15%",
           }}
         >
           <Alert severity="warning">No fields were changed !</Alert>

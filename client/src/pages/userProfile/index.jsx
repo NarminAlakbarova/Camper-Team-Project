@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import UserMenu from "../../sections/userProfileSections/UserMenu";
 import Dashboard from "../../sections/userProfileSections/Dashboard";
 import EditProfile from "../../sections/userProfileSections/editProfile/EditProfile";
 import ChangePassword from "../../sections/userProfileSections/changePassword/ChangePassword";
 import MyBookings from "../../sections/userProfileSections/MyBookings";
+import WishList from "../../sections/userProfileSections/WishList";
+import { useDispatch } from "react-redux";
+import { getToursData } from "../../redux/toursDataSlice";
+import { getUsersData } from "../../redux/usersDataSlice";
 import "./index.scss";
 
 const UserProfile = () => {
   const { type } = useParams();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getToursData());
+    dispatch(getUsersData());
+  }, [dispatch]);
+
   return (
     <>
       <div id="user-profile-hero-section">
@@ -26,6 +37,7 @@ const UserProfile = () => {
             {type == "editProfile" && <EditProfile />}
             {type == "changePassword" && <ChangePassword />}
             {type == "myBookings" && <MyBookings />}
+            {type == "wishList" && <WishList />}
           </div>
         </div>
       </div>

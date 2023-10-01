@@ -27,6 +27,16 @@ export const updateNews = createAsyncThunk("updateNews", async (values) => {
   return values;
 });
 
+export const deleteNews = createAsyncThunk("deleteNews", async (ids) => {
+  // const resp = await axios("http://localhost:8080/newsCamper");
+  // const test2 = resp.data.filter((item) => !ids.includes(item.id));
+  // resp.data.map((item) =>
+  //   setTimeout(async()=>{
+  //     ids.includes(item.id) && await axios.delete(`http://localhost:8080/newsCamper/${item.id}`)
+  //   },5000)
+  // );
+});
+
 export const getNewsDataSlice = createSlice({
   name: "newsData",
   initialState,
@@ -60,6 +70,13 @@ export const getNewsDataSlice = createSlice({
       state.data = state.data.map((item) =>
         item.id == action.payload.id ? action.payload : item
       );
+    });
+    builder.addCase(deleteNews.fulfilled, (state, action) => {
+      // console.log(action.payload);
+      // state.data = state.data.map(
+      //   (item) => action.payload.includes(item.id) || item
+      // );
+      // state.data=action.payload
     });
   },
 });
