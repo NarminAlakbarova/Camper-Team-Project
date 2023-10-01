@@ -25,6 +25,10 @@ const DropdownComponent = ({ dropdownSpace }) => {
             label: <Link to={"/userProfile/editProfile"}>Edit Profile</Link>,
             key: "2",
           },
+          {
+            label: <Link to={"/userProfile/wishList"}>Wish List</Link>,
+            key: "3",
+          },
         ];
   return (
     <Dropdown

@@ -10,12 +10,13 @@ import ModalLogin from "../../components/modal/Modal";
 import { UserContext } from "../../context/UserProvider";
 import DropdownComponent from "../../components/DropdownComponent";
 import SelectCurrency from "../../components/SelectCurrency";
+import { ModalContext } from "../../context/ModalProvider";
 import "./index.scss";
 
 const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [togglePages, setTogglePages] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const { showModal, setShowModal } = useContext(ModalContext);
   const { checkUser, setCheckUser } = useContext(UserContext);
 
   const navigate = useNavigate();
@@ -59,20 +60,13 @@ const Header = () => {
       setTogglePages(false);
     }
   };
-  const handleModalClick = () => {
-    showModal ? setShowModal(false) : setShowModal(true);
-  };
+
   window.onscroll = () => {
     scrollFunc();
   };
   return (
     <>
-      {showModal && (
-        <ModalLogin
-          handleModalClick={handleModalClick}
-          setShowModal={setShowModal}
-        />
-      )}
+      {showModal && <ModalLogin />}
       <header ref={headerRef}>
         <div className="container">
           <nav>
@@ -90,10 +84,7 @@ const Header = () => {
                 <NavLink to={"allTours"}>All Tours</NavLink>
               </li>
               <li>
-                <DropdownComponent
-                  dropdownSpace={"pages"}
-                  handleModalClick={handleModalClick}
-                />
+                <DropdownComponent dropdownSpace={"pages"} />
               </li>
               <li>
                 <NavLink to={"contact"}>Contact</NavLink>
@@ -104,8 +95,7 @@ const Header = () => {
               {checkUser ? (
                 <>
                   <DropdownComponent
-                    dropdownSpace={"join-us"}
-                    handleModalClick={handleModalClick}
+                    dropdownSpace={"user-profile-details"}
                   />
                   <button className="user-log-out" onClick={handleUSersLogOut}>
                     <CiLogout />
@@ -114,7 +104,7 @@ const Header = () => {
               ) : (
                 <button
                   className="sign-in-btn"
-                  onClick={() => handleModalClick()}
+                  onClick={() => setShowModal(true)}
                 >
                   Sign In
                 </button>

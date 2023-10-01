@@ -14,12 +14,22 @@ export const getUsersData = createAsyncThunk("getUsersData", async () => {
 });
 
 export const addUser = createAsyncThunk("addUser", async (userInfo) => {
-  await axios.post(`${BASE_URL}/users`,userInfo);
+  await axios.post(`${BASE_URL}/users`, userInfo);
 });
 
-export const updateUser=createAsyncThunk("updateUser",async(values)=>{
-  await axios.patch(`${BASE_URL}/users/${values.id}`,values)
-})
+export const updateUser = createAsyncThunk("updateUser", async (values) => {
+  await axios.patch(`${BASE_URL}/users/${values.id}`, values);
+});
+
+export const addDeleteWishList = createAsyncThunk(
+  "addDeleteWishList",
+  async (values) => {
+    await axios.patch(`${BASE_URL}/users/${values.id}`, {
+      wishList: values.wishList,
+    });
+    return values;
+  }
+);
 
 export const usersDataSlice = createSlice({
   name: "usersData",
@@ -34,6 +44,12 @@ export const usersDataSlice = createSlice({
     });
     builder.addCase(getUsersData.rejected, (state) => {
       state.error = "Data not Found";
+    });
+    builder.addCase(addDeleteWishList.fulfilled, (state, action) => {
+      const wishList = action.payload.wishList;
+      state.data = state.data.map((item) =>
+        item.id == action.payload.id ? { ...item, wishList } : item
+      );
     });
   },
 });
