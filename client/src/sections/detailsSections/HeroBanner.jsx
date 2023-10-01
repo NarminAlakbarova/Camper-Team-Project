@@ -1,6 +1,5 @@
 import React from "react";
 const HeroBanner = ({ detailsItem }) => {
-  console.log(detailsItem);
   return (
     <>
       <div id="hero-banner-details">

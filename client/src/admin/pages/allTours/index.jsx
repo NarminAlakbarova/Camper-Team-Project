@@ -1,7 +1,11 @@
 import { Image, Modal, Table } from "antd";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getToursData, searchTours } from "../../../redux/toursDataSlice";
+import {
+  getToursData,
+  searchTours,
+  updatedToursData,
+} from "../../../redux/toursDataSlice";
 import { AiOutlineEye, AiOutlineEdit } from "react-icons/ai";
 import "./index.scss";
 import Search from "antd/es/input/Search";
@@ -13,10 +17,11 @@ const AllToursAdmin = () => {
 
   useEffect(() => {
     dispatch(getToursData());
+    dispatch(updatedToursData());
   }, [dispatch]);
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const [detailsTours, setDetailsTours] = useState();
-
+  console.log(selectedRowKeys);
   const [showModal, setShowModal] = useState(false);
   const onSelectChange = (selectedKeys) => {
     setSelectedRowKeys(selectedKeys);
@@ -32,6 +37,12 @@ const AllToursAdmin = () => {
   };
   const handleCloseModal = () => {
     setShowModal(false);
+  };
+  const handleDelete = () => {
+    const newData = allToursData.filter(
+      (item) => !selectedRowKeys.includes(item.id)
+    );
+    dispatch(updatedToursData(newData));
   };
 
   const columns = [
