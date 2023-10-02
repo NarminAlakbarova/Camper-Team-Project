@@ -8,6 +8,10 @@ const initialState = {
   error: "",
 };
 
+const axiosInstance = axios.create({
+  baseURL: 'http://localhost:8080/newsCamper'
+})
+
 export const getNewsData = createAsyncThunk("getNewsData", async () => {
   const resp = await axios("http://localhost:8080/newsCamper");
   return resp.data;
@@ -28,13 +32,12 @@ export const updateNews = createAsyncThunk("updateNews", async (values) => {
 });
 
 export const deleteNews = createAsyncThunk("deleteNews", async (ids) => {
-  // const resp = await axios("http://localhost:8080/newsCamper");
-  // const test2 = resp.data.filter((item) => !ids.includes(item.id));
-  // resp.data.map((item) =>
-  //   setTimeout(async()=>{
-  //     ids.includes(item.id) && await axios.delete(`http://localhost:8080/newsCamper/${item.id}`)
-  //   },5000)
-  // );
+  await Promise.all([
+    ids.forEach(id => {
+      axiosInstance.delete(`/${id}`)
+    })
+  ])
+  return ids
 });
 
 export const getNewsDataSlice = createSlice({
@@ -72,11 +75,10 @@ export const getNewsDataSlice = createSlice({
       );
     });
     builder.addCase(deleteNews.fulfilled, (state, action) => {
-      // console.log(action.payload);
-      // state.data = state.data.map(
-      //   (item) => action.payload.includes(item.id) || item
-      // );
-      // state.data=action.payload
+      console.log(action.payload);
+      state.data = state.data.filter(
+        (item) => !action.payload.includes(item.id)
+      );
     });
   },
 });
