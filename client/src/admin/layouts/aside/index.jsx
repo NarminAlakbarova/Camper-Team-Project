@@ -22,8 +22,6 @@ const Aside = ({ setAdmin }) => {
     id: "",
   });
   const [selectedItems, setSelectedItems] = useState([]);
-  console.log(allToDoItem);
-  console.log(toDoInputValue);
   const todoRef = useRef();
   const handleLogOutAdmin = () => {
     localStorage.removeItem("savedAdmin");

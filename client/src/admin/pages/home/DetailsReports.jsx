@@ -46,7 +46,7 @@ const DetailsReports = () => {
       count: "793",
     },
   ];
-  console.log(newsData);
+  
   const leftChartData = () => {
     return colorData.map((item, index) => (
       <div className="details-group" key={index}>

@@ -23,15 +23,9 @@ import BookingForm from "./BookingForm";
 import ModalLogin from "../../components/modal/Modal";
 import EnquiryForm from "./EnquiryForm";
 
-const DetailsTour = ({ tour, checkWishlist, setCheckWishlist, user }) => {
+const DetailsTour = ({ tour, user, id }) => {
   const [formType, setFormType] = useState("booking");
-  // const [inpValue, setInpValue] = useState({
-  //   fullName: "",
-  //   email: "",
-  //   enquiry: "",
-  //   checkbox: false,
-  // });
-
+  const checkWishList=user?.wishList.find((item) => item == id)
   const { showModal, setShowModal } = useContext(ModalContext);
   const dispatch = useDispatch();
 
@@ -93,16 +87,7 @@ const DetailsTour = ({ tour, checkWishlist, setCheckWishlist, user }) => {
       children: textFaq,
     },
   ];
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log(inpValue);
-  //   setInpValue({
-  //     fullName: "",
-  //     email: "",
-  //     enquiry: "",
-  //     checkbox: false,
-  //   });
-  // };
+
   const handleAddWishlist = () => {
     if (user) {
       let wishList = [...user?.wishList];
@@ -113,7 +98,6 @@ const DetailsTour = ({ tour, checkWishlist, setCheckWishlist, user }) => {
         
       let newValues = { id: user.id, wishList: wishList };
       dispatch(addDeleteWishList(newValues));
-      checkWishlist ? setCheckWishlist(false) : setCheckWishlist(true);
     } else {
       showModal ? setShowModal(false) : setShowModal(true);
     }
@@ -271,7 +255,7 @@ const DetailsTour = ({ tour, checkWishlist, setCheckWishlist, user }) => {
                 <div className="booking-bar-top">
                   <div className="booking-bar-header">
                     <button onClick={handleAddWishlist}>
-                      {checkWishlist ? (
+                      {checkWishList ? (
                         <BsFillSuitHeartFill />
                       ) : (
                         <BsSuitHeart />

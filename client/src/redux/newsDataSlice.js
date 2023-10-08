@@ -32,12 +32,13 @@ export const updateNews = createAsyncThunk("updateNews", async (values) => {
 });
 
 export const deleteNews = createAsyncThunk("deleteNews", async (ids) => {
-  await Promise.all([
-    ids.forEach(id => {
-      axiosInstance.delete(`/${id}`)
+  await Promise.all(
+    ids.map(async(id) => {
+     await axiosInstance.delete(`/${id}`)
     })
-  ])
+  )
   return ids
+  // console.log(ids);
 });
 
 export const getNewsDataSlice = createSlice({

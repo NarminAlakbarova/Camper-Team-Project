@@ -16,7 +16,7 @@ const BookingPRovider = ({ children }) => {
       adress: "",
     },
     tourTitle:"",
-    tourPrice: bookingData.tourPrice,
+    tourPrice: bookingData?.tourPrice,
     notes: "",
     userName: checkUser?.userName,
   });

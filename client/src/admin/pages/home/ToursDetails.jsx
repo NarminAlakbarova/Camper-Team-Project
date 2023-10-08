@@ -23,7 +23,6 @@ const ToursDetails = () => {
   const currentYear=new Date().getFullYear();
   const dates=[]
   bookedTours.map(item=>item.allSelectedDays.map(item2=>item2.split("-")[0]==currentYear && dates.push(item2.split("-")[1])));
-  console.log(dates);
 
   const labels = [
     "Jan",
@@ -54,7 +53,6 @@ const ToursDetails = () => {
     "Dec":0,
   }
   dates.map(item=>test[item]+=1)
-  console.log(Object.values(test));
   const data2 = {
     labels: labels,
     datasets: [

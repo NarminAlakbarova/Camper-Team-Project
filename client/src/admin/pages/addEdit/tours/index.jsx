@@ -56,13 +56,9 @@ const AllToursForm = () => {
         },
     detailContent: editedTours ? editedTours.detailContent : "",
   });
-  console.log(inputsValue);
-  console.log(startTime);
-  console.log(endTime);
 
   const handleInputsChanges = (e) => {
     const { name, value, type } = e.target;
-    console.log(value);
     const updatedValue = type === "number" ? +value : value;
     if (name.startsWith("details_")) {
       const feildName = name.split("_")[1];
