@@ -10,7 +10,6 @@ import { UserContext } from "../../context/UserProvider";
 import "./index.scss";
 
 const TourDetails = () => {
-  const [checkWishlist, setCheckWishlist] = useState(false);
   const { id } = useParams();
   const { checkUser } = useContext(UserContext);
   const tours = useSelector((state) => state.toursData.data);
@@ -23,7 +22,6 @@ const TourDetails = () => {
     dispatch(getToursData());
     dispatch(getBookingData());
     dispatch(getUsersData());
-    user?.wishList.find((item) => item == id) && setCheckWishlist(true);
   }, [dispatch]);
 
   return (
@@ -31,9 +29,8 @@ const TourDetails = () => {
       <TitleGallery tour={tour} />
       <DetailsTour
         tour={tour}
-        checkWishlist={checkWishlist}
-        setCheckWishlist={setCheckWishlist}
         user={user}
+        id={id}
       />
     </>
   );

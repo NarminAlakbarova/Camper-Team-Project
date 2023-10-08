@@ -21,7 +21,7 @@ const AllToursAdmin = () => {
   }, [dispatch]);
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const [detailsTours, setDetailsTours] = useState();
-  console.log(selectedRowKeys);
+
   const [showModal, setShowModal] = useState(false);
   const onSelectChange = (selectedKeys) => {
     setSelectedRowKeys(selectedKeys);
@@ -33,7 +33,6 @@ const AllToursAdmin = () => {
   const handleShowModal = (tourobj) => {
     setShowModal(true);
     setDetailsTours(tourobj);
-    console.log(detailsTours);
   };
   const handleCloseModal = () => {
     setShowModal(false);
@@ -98,10 +97,8 @@ const AllToursAdmin = () => {
     },
   ];
   const onSearch = (value) => {
-    // console.log(value);
     dispatch(searchTours(value));
   };
-  // console.log(selectedRowKeys);
   return (
     <div className="admin-data-table ">
       <Modal

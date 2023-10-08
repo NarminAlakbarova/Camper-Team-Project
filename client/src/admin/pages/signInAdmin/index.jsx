@@ -12,7 +12,6 @@ import { getUsersData } from "../../../redux/usersDataSlice";
 import { useNavigate } from "react-router-dom";
 
 const SignInAdmin = ({ setAdmin }) => {
-  // console.log(checkAdmin);
   const allUsers = useSelector((state) => state.usersData.data);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -39,14 +38,12 @@ const SignInAdmin = ({ setAdmin }) => {
             }}
             validationSchema={AdminSignInValidation}
             onSubmit={(values, actions) => {
-              console.log(values);
               const checkInputs = allUsers.find(
                 (user) =>
                   user.userName === values.adminName &&
                   user.password === values.password &&
                   user.isAdmin
               );
-              console.log(checkInputs);
 
               checkInputs
                 ? (setAdmin(checkInputs.userName), navigate("/admin/home"))

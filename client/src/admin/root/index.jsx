@@ -5,6 +5,7 @@ import SignInAdmin from "../pages/signInAdmin";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import { store } from "../../redux/store";
 import { getUsersData } from "../../redux/usersDataSlice";
+import UserProvider from "../../context/UserProvider";
 
 const AdminRoot = () => {
   const [checkAdmin, setCheckAdmin] = useState(() => {
@@ -18,6 +19,8 @@ const AdminRoot = () => {
   };
 
   return (
+    <UserProvider>
+
     <Provider store={store}>
       {!checkAdmin ? (
         <SignInAdmin setAdmin={setAdmin} />
@@ -28,6 +31,7 @@ const AdminRoot = () => {
         </div>
       )}
     </Provider>
+    </UserProvider>
   );
 };
 

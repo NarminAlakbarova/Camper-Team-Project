@@ -6,7 +6,7 @@ const Comment = ({ detailsItem }) => {
   const dispatch = useDispatch();
   const signedUser = JSON.parse(localStorage.getItem("checkUser"));
   const [commentInputs, setCommentInputs] = useState({
-    userName: signedUser.userName,
+    userName: signedUser?.userName,
     commentContent: "",
     name: "",
     email: "",
@@ -32,7 +32,6 @@ const Comment = ({ detailsItem }) => {
       email: "",
       website: "",
     });
-    console.log(comments);
   };
 
   const handleInputsChange = (e) => {
