@@ -36,6 +36,11 @@ export const updateFeedback = createAsyncThunk(
   }
 );
 
+export const deleteFeedback = createAsyncThunk("deleteFeedback", async (id) => {
+  await axios.delete(`http://localhost:8080/feedBackCamper/${id}`);
+  return id;
+});
+
 export const feedBackDataSlice = createSlice({
   name: "feedBackData",
   initialState,
@@ -67,6 +72,9 @@ export const feedBackDataSlice = createSlice({
       state.data = state.data.map((item) =>
         item.id == action.payload.id ? action.payload : item
       );
+    });
+    builder.addCase(deleteFeedback.fulfilled, (state, action) => {
+      state.data = state.data.filter((item) => item.id != action.payload);
     });
   },
 });

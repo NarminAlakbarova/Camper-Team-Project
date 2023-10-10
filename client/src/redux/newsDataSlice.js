@@ -31,14 +31,9 @@ export const updateNews = createAsyncThunk("updateNews", async (values) => {
   return values;
 });
 
-export const deleteNews = createAsyncThunk("deleteNews", async (ids) => {
-  await Promise.all(
-    ids.map(async(id) => {
-     await axiosInstance.delete(`/${id}`)
-    })
-  )
-  return ids
-  // console.log(ids);
+export const deleteNews = createAsyncThunk("deleteNews", async (id) => {
+  await axiosInstance.delete(`/${id}`)
+  return id
 });
 
 export const getNewsDataSlice = createSlice({
@@ -76,10 +71,7 @@ export const getNewsDataSlice = createSlice({
       );
     });
     builder.addCase(deleteNews.fulfilled, (state, action) => {
-      console.log(action.payload);
-      state.data = state.data.filter(
-        (item) => !action.payload.includes(item.id)
-      );
+      state.data=state.data.filter(item=>item.id!=action.payload)
     });
   },
 });
