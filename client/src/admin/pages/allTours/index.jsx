@@ -2,15 +2,17 @@ import { Image, Modal, Table } from "antd";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  deleteTours,
   getToursData,
   searchTours,
   updatedToursData,
 } from "../../../redux/toursDataSlice";
-import { AiOutlineEye, AiOutlineEdit } from "react-icons/ai";
+import { AiOutlineEye, AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
 import "./index.scss";
 import Search from "antd/es/input/Search";
 import { BsPlusSquareDotted } from "react-icons/bs";
 import { Link } from "react-router-dom";
+
 const AllToursAdmin = () => {
   const allToursData = useSelector((state) => state.toursData.data);
   const dispatch = useDispatch();
@@ -19,17 +21,8 @@ const AllToursAdmin = () => {
     dispatch(getToursData());
     dispatch(updatedToursData());
   }, [dispatch]);
-  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const [detailsTours, setDetailsTours] = useState();
-
   const [showModal, setShowModal] = useState(false);
-  const onSelectChange = (selectedKeys) => {
-    setSelectedRowKeys(selectedKeys);
-  };
-  const rowSelection = {
-    selectedRowKeys,
-    onChange: onSelectChange,
-  };
   const handleShowModal = (tourobj) => {
     setShowModal(true);
     setDetailsTours(tourobj);
@@ -37,11 +30,9 @@ const AllToursAdmin = () => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
-  const handleDelete = () => {
-    const newData = allToursData.filter(
-      (item) => !selectedRowKeys.includes(item.id)
-    );
-    dispatch(updatedToursData(newData));
+  const handleDelete = (id) => {
+    console.log(id);
+    dispatch(deleteTours(id));
   };
 
   const columns = [
@@ -92,6 +83,9 @@ const AllToursAdmin = () => {
           <Link to={`/admin/tours/${obj.id}`}>
             <AiOutlineEdit />
           </Link>
+          <button>
+            <AiOutlineDelete onClick={() => handleDelete(obj.id)} />
+          </button>
         </div>
       ),
     },
@@ -136,12 +130,7 @@ const AllToursAdmin = () => {
         <div
           className="remove-item d-flex "
           style={{ alignItems: "center", columnGap: "10px" }}
-        >
-          <div className="remove-search-left">
-            <button>Remove</button>
-          </div>
-          <p className="m-0">Item:{selectedRowKeys.length}</p>
-        </div>
+        ></div>
         <div className="search-add ">
           <Search onSearch={onSearch} placeholder="Searh here..." />
           <Link to={"/admin/tours"}>
@@ -154,7 +143,6 @@ const AllToursAdmin = () => {
         columns={columns}
         rowKey={"id"}
         dataSource={allToursData}
-        rowSelection={rowSelection}
       />
     </div>
   );

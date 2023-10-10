@@ -63,6 +63,10 @@ export const changeCurrency = createAsyncThunk(
   }
 );
 
+export const deleteTours = createAsyncThunk("deleteTours", async (id) => {
+  axios.delete(`${BASE_URL}/toursCamper/${id}`);
+  return id;
+});
 export const toursDataSlice = createSlice({
   name: "toursData",
   initialState,
@@ -156,6 +160,9 @@ export const toursDataSlice = createSlice({
     });
     builder.addCase(updatedToursData.fulfilled, (state, action) => {
       state.data = action.payload;
+    });
+    builder.addCase(deleteTours.fulfilled, (state, action) => {
+      state.data = state.data.filter((item) => item.id !== action.payload);
     });
   },
 });

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { AiOutlineEye } from "react-icons/ai";
+import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
 import { Modal, Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import Search from "antd/es/input/Search";
 import {
+  deleteOrders,
   getUserBookingData,
   searchUserBooking,
 } from "../../../redux/userBookingSlice";
@@ -11,14 +12,15 @@ import {
 const Orders = () => {
   const [detailsUserBooking, setDetailsUserBooking] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const userBooking = useSelector((state) => state.userBooking.data);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUserBookingData());
   }, [dispatch]);
-
+const handleDelete=(id)=>{
+  dispatch(deleteOrders(id))
+}
   const columns = [
     {
       title: "Tour Title",
@@ -49,10 +51,13 @@ const Orders = () => {
     },
     {
       title: "Actions",
-      render: (_, record) => (
+      render: (obj, record) => (
         <div className="actions">
           <button onClick={() => showModal(record)}>
             <AiOutlineEye />
+          </button>
+          <button onClick={()=>handleDelete(obj.id)}>
+            <AiOutlineDelete />
           </button>
         </div>
       ),
@@ -66,13 +71,7 @@ const Orders = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  const onSelectChange = (selectedKeys) => {
-    setSelectedRowKeys(selectedKeys);
-  };
-  const rowSelection = {
-    selectedRowKeys,
-    onChange: onSelectChange,
-  };
+
   const onSearch = (value) => {
     dispatch(searchUserBooking(value));
   };
@@ -118,17 +117,12 @@ const Orders = () => {
       </Modal>
       <div className="admin-data-table">
         <div className="remove-search">
-          <div className="remove-search-left">
-            <button>Remove</button>
-            <span>Item: {selectedRowKeys.length}</span>
-          </div>
           <div className="search-add">
             <Search placeholder="Search now..." onSearch={onSearch} />
           </div>
         </div>
         <Table
           style={{ width: "90%" }}
-          rowSelection={rowSelection}
           rowKey={"id"}
           dataSource={userBooking}
           columns={columns}
