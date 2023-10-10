@@ -18,7 +18,6 @@ const ModalLogin = () => {
   const [error, setError] = useState(null);
 
   const handleSubmit = (value) => {
-    console.log(value);
     const checkAllUser = usersData.find(
       (item) =>
         (item.userName == value.userName || item.email == value.userName) &&

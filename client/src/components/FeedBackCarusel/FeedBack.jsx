@@ -7,7 +7,6 @@ import { AiFillStar } from "react-icons/ai";
 
 const FeedBack = () => {
   const users = useSelector((state) => state.feedBackData.data);
-  console.log(users);
   const [slideIndex, setSlideIndex] = useState(0);
   const settings = {
     dots: true,

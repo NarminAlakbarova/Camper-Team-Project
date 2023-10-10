@@ -2,9 +2,8 @@ import React from "react";
 import Confidence from "../blogSections/Confidence";
 import PaymentMethods from "./PaymentMethods";
 
-const TourDetails = ({ pageChanges, setPageChanges }) => {
+const TourDetails = ({ pageChanges }) => {
  let bookingData= JSON.parse(localStorage.getItem("bookingData"))
-console.log(bookingData);
   return (
     <>
       <div id="tour-details">

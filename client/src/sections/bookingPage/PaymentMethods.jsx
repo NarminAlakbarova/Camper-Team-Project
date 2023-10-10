@@ -3,10 +3,10 @@ import visaImg from "../../assets/img/booking/visa.png";
 import masterCardImg from "../../assets/img/booking/masterCard.png";
 import americanExpressImg from "../../assets/img/booking/americanExpress.png";
 import jcbImg from "../../assets/img/booking/jcb.png";
-import { BookingContext } from "../../context/BookingProvider";
 import { useDispatch } from "react-redux";
 import { addUserBookingData } from "../../redux/userBookingSlice";
 import { useNavigate } from "react-router-dom";
+import { BookingContext } from "../../context/BookingPRovider";
 const PaymentMethods = () => {
   const { bookinginfo, setBookingInfo } = useContext(BookingContext);
 

@@ -12,7 +12,6 @@ const EnquiryForm = ({ user, tour }) => {
     let enquiryValues = userEnquiry
       ? [...userEnquiry, { ...values, tourTitle: tour?.tourTitle }]
       : [{ ...values, tourTitle: tour?.tourTitle }];
-    console.log({ enquiryValues, userId: user?.id });
     dispatch(addEnquiry({ enquiryValues, userId: user?.id }));
   };
   
