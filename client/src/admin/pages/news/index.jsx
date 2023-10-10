@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {AiOutlineEye, AiOutlineEdit} from "react-icons/ai"
+import {AiOutlineEye, AiOutlineEdit, AiOutlineDelete} from "react-icons/ai"
 import { Modal, Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteNews, getNewsData, searchNews } from "../../../redux/newsDataSlice";
@@ -11,7 +11,6 @@ import "./index.scss";
 const News = () => {
   const [detailsNews, setDetailsNews] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const newsData = useSelector((state) => state.newsData.data);
   const navigate = useNavigate()
   const dispatch = useDispatch();
@@ -48,6 +47,7 @@ const News = () => {
         <div className="actions">
           <button onClick={()=>showModal(record)}><AiOutlineEye/></button>
           <button onClick={()=>navigate(`/admin/newsForm/${record.id}`)}><AiOutlineEdit/></button>
+          <button onClick={()=>handleDelete(record.id)}><AiOutlineDelete/></button>
         </div>
       ),
       key: "actions",
@@ -60,18 +60,11 @@ const News = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  const onSelectChange = (selectedKeys) => {
-    setSelectedRowKeys(selectedKeys);
-  };
-  const rowSelection = {
-    selectedRowKeys,
-    onChange: onSelectChange,
-  };
   const onSearch = (value) => {
     dispatch(searchNews(value))
   };
-  const handleDelete=()=>{
-    dispatch(deleteNews(selectedRowKeys))
+  const handleDelete=(id)=>{
+    dispatch(deleteNews(id))
   }
   return (
     <>
@@ -88,20 +81,13 @@ const News = () => {
           <img src={detailsNews?.newsImg[0]} alt="NewsImage" />
       </Modal>
       <div className="admin-data-table">
-        <div className="remove-search">
-            <div className="remove-search-left">
-              <button onClick={handleDelete}>Remove</button>
-              <span>Item: {selectedRowKeys.length}</span>
-            </div>
             <div className="search-add">
               <Search placeholder="Search now..." onSearch={onSearch} />
               <Link to={"/admin/newsForm"}>
                 <BsPlusSquareDotted className="add-icon" />
               </Link>
             </div>
-        </div>
         <Table
-        rowSelection={rowSelection} 
         rowKey={"id"}
         dataSource={newsData} columns={columns} style={{width:"90%"}} />
       </div>

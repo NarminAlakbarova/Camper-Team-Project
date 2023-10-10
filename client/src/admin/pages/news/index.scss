@@ -8,29 +8,18 @@
   padding-top: 120px;
   flex-direction: column;
   row-gap: 20px;
-  .remove-search {
+  .search-add {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     width: 90%;
-    .search-add {
-      .ant-input-search {
-        width: 300px;
-        margin-right: 10px;
-      }
-      .add-icon {
-        font-size: 32px;
-        color: #4b49ac;
-      }
+    justify-content: end;
+    left: 0;
+    .ant-input-search {
+      width: 300px;
+      margin-right: 7px;
     }
-    .remove-search-left {
-      button {
-        color: #ff4747;
-        border: 1px solid #ff4747;
-        padding: 5px 10px;
-        border-radius: 20px;
-        margin-right: 10px;
-      }
+    .add-icon {
+      font-size: 32px;
+      color: #4b49ac;
     }
   }
   .ant-table-thead {
@@ -50,6 +39,10 @@
           width: 70px;
         }
         .actions {
+          display: flex;
+          // justify-content: space-between;
+          // justify-content: center;
+          column-gap: 10px;
           button,
           a {
             background-color: #4b49ac;
@@ -60,8 +53,10 @@
               color: #fff;
             }
             &:nth-child(2) {
-              margin-left: 15px;
               background-color: yellowgreen;
+            }
+            &:nth-child(3) {
+              background-color: rgb(129, 10, 10);
             }
           }
           a {

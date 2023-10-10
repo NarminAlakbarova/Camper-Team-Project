@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
-import {AiOutlineEye, AiOutlineEdit} from "react-icons/ai"
+import {AiOutlineEye, AiOutlineEdit, AiOutlineDelete} from "react-icons/ai"
 import { Modal, Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import Search from "antd/es/input/Search";
-import { feedBackData, searchFeedBack } from "../../../redux/feedBackDataSlice";
+import { deleteFeedback, feedBackData, searchFeedBack } from "../../../redux/feedBackDataSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { BsPlusSquareDotted } from "react-icons/bs";
 
 const FeedBack = () => {
   const [detailsFeedback, setDetailsFeedback] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const feedbackData = useSelector((state) => state.feedBackData.data);
   const navigate=useNavigate()
   const dispatch = useDispatch();
@@ -52,6 +51,7 @@ const FeedBack = () => {
         <div className="actions">
           <button onClick={()=>showModal(record)}><AiOutlineEye/></button>
           <button onClick={()=>{navigate(`/admin/feedbackForm/${record.id}`)}} ><AiOutlineEdit/></button>
+          <button onClick={()=>handleDelete(record.id)}><AiOutlineDelete/></button>
         </div>
       ),
       key: "actions",
@@ -64,13 +64,9 @@ const FeedBack = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  const onSelectChange = (selectedKeys) => {
-    setSelectedRowKeys(selectedKeys);
-  };
-  const rowSelection = {
-    selectedRowKeys,
-    onChange: onSelectChange,
-  };
+  const handleDelete=(id)=>{
+    dispatch(deleteFeedback(id))
+  }
   const onSearch = (value) => {
     dispatch(searchFeedBack(value))
   };
@@ -87,21 +83,14 @@ const FeedBack = () => {
           </div>
       </Modal>
       <div className="admin-data-table">
-        <div className="remove-search">
-            <div className="remove-search-left">
-              <button>Remove</button>
-              <span>Item: {selectedRowKeys.length}</span>
-            </div>
             <div className="search-add">
               <Search placeholder="Search now..." onSearch={onSearch} />
               <Link to={"/admin/feedbackForm"}>
                 <BsPlusSquareDotted className="add-icon" />
               </Link>
             </div>
-        </div>
         <Table
         style={{width:'90%'}}
-        rowSelection={rowSelection} 
         rowKey={"id"}
         dataSource={feedbackData} columns={columns} />
       </div>
