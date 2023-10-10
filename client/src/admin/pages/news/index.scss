@@ -10,8 +10,7 @@
   row-gap: 20px;
   .remove-search {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-end;
     width: 90%;
     .search-add {
       .ant-input-search {
