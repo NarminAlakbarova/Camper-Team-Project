@@ -77,21 +77,16 @@
           font-weight: 500;
         }
 
-        input {
-          width: 250px;
-          padding: 8px;
-          outline: none;
-          border: 1px solid #ccc;
-          border-radius: 8px;
-        }
-
-        select {
+        input , select {
           width: 280px;
           padding: 8px;
           outline: none;
           border: 1px solid #ccc;
           border-radius: 8px;
           background-color: #f3f3f3;
+        }
+        input{
+          padding: 5px;
         }
       }
 

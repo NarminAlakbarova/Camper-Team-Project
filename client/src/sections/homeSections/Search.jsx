@@ -12,6 +12,7 @@ const Search = () => {
                 type="search"
                 name=""
                 id=""
+                className="keywords"
                 placeholder="Type your keywords..."
               />
             </div>
