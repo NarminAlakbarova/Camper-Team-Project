@@ -8,7 +8,6 @@ import {
   updatedToursData,
 } from "../../../redux/toursDataSlice";
 import { AiOutlineEye, AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
-import "./index.scss";
 import Search from "antd/es/input/Search";
 import { BsPlusSquareDotted } from "react-icons/bs";
 import { Link } from "react-router-dom";
@@ -126,18 +125,15 @@ const AllToursAdmin = () => {
         </div>
         <img src={detailsTours?.tourImg[0]} alt="" />
       </Modal>
-      <div className="remove-search ">
-        <div
-          className="remove-item d-flex "
-          style={{ alignItems: "center", columnGap: "10px" }}
-        ></div>
+    
+  
         <div className="search-add ">
           <Search onSearch={onSearch} placeholder="Searh here..." />
           <Link to={"/admin/tours"}>
             <BsPlusSquareDotted className="add-icon" />
           </Link>
         </div>
-      </div>
+     
       <Table
         style={{ width: "90%" }}
         columns={columns}
