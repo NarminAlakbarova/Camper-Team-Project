@@ -5,7 +5,6 @@ import {
   deleteTours,
   getToursData,
   searchTours,
-  updatedToursData,
 } from "../../../redux/toursDataSlice";
 import { AiOutlineEye, AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
 import Search from "antd/es/input/Search";
@@ -18,7 +17,6 @@ const AllToursAdmin = () => {
 
   useEffect(() => {
     dispatch(getToursData());
-    dispatch(updatedToursData());
   }, [dispatch]);
   const [detailsTours, setDetailsTours] = useState();
   const [showModal, setShowModal] = useState(false);
