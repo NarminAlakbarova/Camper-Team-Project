@@ -15,6 +15,7 @@ import { getNewsData } from "../../redux/newsDataSlice";
 import { feedBackData } from "../../redux/feedBackDataSlice";
 import { getToursData } from "../../redux/toursDataSlice";
 import { getUsersData } from "../../redux/usersDataSlice";
+import CustomHelmet from "../../components/CustomHelmet";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -23,10 +24,15 @@ const HomePage = () => {
     dispatch(feedBackData());
     dispatch(getToursData());
     dispatch(getUsersData());
-
   }, [dispatch]);
   return (
     <>
+      <CustomHelmet
+        title={"Home Page - Camper"}
+        description={
+          "Exclusive tour packages for travel enthusiasts! Are you ready to explore?"
+        }
+      />
       <HeroBanner />
       <Search />
       <InformationCards />

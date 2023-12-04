@@ -4,11 +4,18 @@ import "./index.scss";
 import UserDetails from "../../sections/bookingPage/UserDetails";
 import TourDetails from "../../sections/bookingPage/TourDetails";
 import PaymentDetails from "../../sections/bookingPage/PaymentDetails";
+import CustomHelmet from "../../components/CustomHelmet";
 const BookingPage = () => {
   const [pageChanges, setPageChanges] = useState(false);
 
   return (
     <div>
+      <CustomHelmet
+        title={"Booking Page - Camper"}
+        description={
+          "Book your adventure now with Camper! Fill in your details, select your preferred tour, and proceed with secure payment."
+        }
+      />
       <HeaderBooking
         pageChanges={pageChanges}
         setPageChanges={setPageChanges}
@@ -24,7 +31,6 @@ const BookingPage = () => {
                   <UserDetails
                     pageChanges={pageChanges}
                     setPageChanges={setPageChanges}
-              
                   />
                 )}
               </div>
@@ -32,7 +38,6 @@ const BookingPage = () => {
                 <TourDetails
                   pageChanges={pageChanges}
                   setPageChanges={setPageChanges}
-           
                 />
               </div>
             </div>
