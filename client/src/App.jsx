@@ -7,6 +7,7 @@ import UserProvider from "./context/UserProvider";
 import BookingPRovider from "./context/BookingPRovider";
 import CurrencyProvider from "./context/CurrencyProvider";
 import ModalProvider from "./context/ModalProvider";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <CurrencyProvider>
             <ModalProvider>
               <Provider store={store}>
+                <ScrollToTop />
                 <Header />
                 <Outlet />
                 <Footer />

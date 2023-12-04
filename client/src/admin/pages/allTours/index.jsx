@@ -8,7 +8,6 @@ import {
   updatedToursData,
 } from "../../../redux/toursDataSlice";
 import { AiOutlineEye, AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
-import "./index.scss";
 import Search from "antd/es/input/Search";
 import { BsPlusSquareDotted } from "react-icons/bs";
 import { Link } from "react-router-dom";
