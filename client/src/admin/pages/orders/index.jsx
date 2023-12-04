@@ -18,9 +18,9 @@ const Orders = () => {
   useEffect(() => {
     dispatch(getUserBookingData());
   }, [dispatch]);
-const handleDelete=(id)=>{
-  dispatch(deleteOrders(id))
-}
+  const handleDelete = (id) => {
+    dispatch(deleteOrders(id));
+  };
   const columns = [
     {
       title: "Tour Title",
@@ -56,7 +56,10 @@ const handleDelete=(id)=>{
           <button onClick={() => showModal(record)}>
             <AiOutlineEye />
           </button>
-          <button onClick={()=>handleDelete(obj.id)}>
+          <button
+            onClick={() => handleDelete(obj.id)}
+            style={{ backgroundColor: "rgb(129, 10, 10)" }}
+          >
             <AiOutlineDelete />
           </button>
         </div>
@@ -116,11 +119,10 @@ const handleDelete=(id)=>{
         </div>
       </Modal>
       <div className="admin-data-table">
-        <div className="remove-search">
-          <div className="search-add">
-            <Search placeholder="Search now..." onSearch={onSearch} />
-          </div>
+        <div className="search-add">
+          <Search placeholder="Search now..." onSearch={onSearch} />
         </div>
+
         <Table
           style={{ width: "90%" }}
           rowKey={"id"}

@@ -5,7 +5,6 @@ import {
   deleteTours,
   getToursData,
   searchTours,
-  updatedToursData,
 } from "../../../redux/toursDataSlice";
 import { AiOutlineEye, AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
 import Search from "antd/es/input/Search";
@@ -18,7 +17,6 @@ const AllToursAdmin = () => {
 
   useEffect(() => {
     dispatch(getToursData());
-    dispatch(updatedToursData());
   }, [dispatch]);
   const [detailsTours, setDetailsTours] = useState();
   const [showModal, setShowModal] = useState(false);
@@ -125,18 +123,15 @@ const AllToursAdmin = () => {
         </div>
         <img src={detailsTours?.tourImg[0]} alt="" />
       </Modal>
-      <div className="remove-search ">
-        <div
-          className="remove-item d-flex "
-          style={{ alignItems: "center", columnGap: "10px" }}
-        ></div>
+    
+  
         <div className="search-add ">
           <Search onSearch={onSearch} placeholder="Searh here..." />
           <Link to={"/admin/tours"}>
             <BsPlusSquareDotted className="add-icon" />
           </Link>
         </div>
-      </div>
+     
       <Table
         style={{ width: "90%" }}
         columns={columns}

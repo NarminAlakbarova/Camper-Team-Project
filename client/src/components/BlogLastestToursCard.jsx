@@ -3,8 +3,6 @@ import { useSelector } from "react-redux";
 
 const BlogLastestToursCard = () => {
   const lastestTours = useSelector((state) => state.toursData.data);
-  console.log(lastestTours);
-  console.log(lastestTours.slice(0, 4));
   return (
     <div id="latest-tours">
       <h5>Latest Tours</h5>

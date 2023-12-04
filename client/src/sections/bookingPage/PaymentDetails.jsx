@@ -4,7 +4,6 @@ import { BookingContext } from "../../context/BookingPRovider";
 
 const PaymentDetails = () => {
   const { bookinginfo } = useContext(BookingContext);
-  console.log(bookinginfo);
   return (
     <>
       <div id="payment-details">

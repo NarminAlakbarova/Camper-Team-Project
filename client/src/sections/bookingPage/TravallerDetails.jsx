@@ -1,9 +1,8 @@
 import React, { useContext, useState } from "react";
-import { BookingContext } from "../../context/BookingProvider";
+import { BookingContext } from "../../context/BookingPRovider";
 
 const TravallerDetails = () => {
   const { bookinginfo, setBookingInfo } = useContext(BookingContext);
-  // console.log(bookinginfo);
   let bookingData = JSON.parse(localStorage.getItem("bookingData"));
   const userNumber = Array.from(
     { length: bookingData.numberPeople },

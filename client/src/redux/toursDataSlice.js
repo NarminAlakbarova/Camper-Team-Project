@@ -25,7 +25,6 @@ export const updatedToursData = createAsyncThunk(
 );
 
 export const sortData = createAsyncThunk("sortData", async (sortType) => {
-  console.log(sortType);
   return sortType;
 });
 

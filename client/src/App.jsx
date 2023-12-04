@@ -8,24 +8,27 @@ import BookingPRovider from "./context/BookingPRovider";
 import CurrencyProvider from "./context/CurrencyProvider";
 import ModalProvider from "./context/ModalProvider";
 import ScrollToTop from "./components/ScrollToTop.jsx";
+import { HelmetProvider } from 'react-helmet-async';
 
 function App() {
   return (
     <>
-      <UserProvider>
-        <BookingPRovider>
-          <CurrencyProvider>
-            <ModalProvider>
-              <Provider store={store}>
-                <ScrollToTop />
-                <Header />
-                <Outlet />
-                <Footer />
-              </Provider>
-            </ModalProvider>
-          </CurrencyProvider>
-        </BookingPRovider>
-      </UserProvider>
+      <HelmetProvider>
+        <UserProvider>
+          <BookingPRovider>
+            <CurrencyProvider>
+              <ModalProvider>
+                <Provider store={store}>
+                  <ScrollToTop />
+                  <Header />
+                  <Outlet />
+                  <Footer />
+                </Provider>
+              </ModalProvider>
+            </CurrencyProvider>
+          </BookingPRovider>
+        </UserProvider>
+      </HelmetProvider>
     </>
   );
 }
