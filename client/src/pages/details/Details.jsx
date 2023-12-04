@@ -9,10 +9,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { getNewsData } from "../../redux/newsDataSlice";
 import { getUsersData } from "../../redux/usersDataSlice";
 import UserComments from "../../sections/detailsSections/UserComments";
+import CustomHelmet from "../../components/CustomHelmet";
 
 const Details = () => {
   const newsAndBlogData = useSelector((state) => state.newsData.data);
-  const dispatch=useDispatch()
+  const dispatch = useDispatch();
   const { id } = useParams();
   const detailsItem = newsAndBlogData.find((item) => item.id == id);
   useEffect(() => {
@@ -21,10 +22,16 @@ const Details = () => {
   }, [dispatch]);
   return (
     <>
+      <CustomHelmet
+        title={"Tour Detail - Camper"}
+        description={
+          "Discover detailed insights about this amazing tour. Read through experiences, insights, and comments from travelers. Plan your adventure today!"
+        }
+      />
       <HeroBanner detailsItem={detailsItem} />
-      <DetailCards  />
+      <DetailCards />
       <Author detailsItem={detailsItem} />
-      <UserComments  detailsItem={detailsItem}/>
+      <UserComments detailsItem={detailsItem} />
       <Comment detailsItem={detailsItem} />
     </>
   );
