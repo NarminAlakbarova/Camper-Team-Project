@@ -12,6 +12,7 @@ import img7 from "../../assets/img/gallery/gallery7-6.jpg";
 import img8 from "../../assets/img/gallery/gallery8-6.jpg";
 import img9 from "../../assets/img/gallery/gallery4-76.jpg";
 import img10 from "../../assets/img/gallery/gallery1-76.jpg";
+import CustomHelmet from "../../components/CustomHelmet";
 
 const GalleryPage = () => {
   const galleryData = [
@@ -80,12 +81,22 @@ const GalleryPage = () => {
 
   return (
     <>
+      <CustomHelmet
+        title={"Gallery Page - Camper"}
+        description={
+          "Explore our stunning gallery featuring a collection of beautiful images!"
+        }
+      />
       <Modal footer={false} open={isModalOpen} onCancel={handleCancel}>
-        <button className="prev-btn" onClick={() => changeImg("prev")}><FaArrowCircleLeft/></button>
+        <button className="prev-btn" onClick={() => changeImg("prev")}>
+          <FaArrowCircleLeft />
+        </button>
         <div className="img-div">
           <img src={imgData.img} alt="Tour Image" />
         </div>
-        <button className="next-btn" onClick={() => changeImg("next")}><FaArrowCircleRight/></button>
+        <button className="next-btn" onClick={() => changeImg("next")}>
+          <FaArrowCircleRight />
+        </button>
       </Modal>
       <div id="hero-banner-gallery">
         <div className="container">

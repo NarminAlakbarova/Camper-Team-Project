@@ -9,6 +9,7 @@ import WishList from "../../sections/userProfileSections/WishList";
 import { useDispatch } from "react-redux";
 import { getToursData } from "../../redux/toursDataSlice";
 import { getUsersData } from "../../redux/usersDataSlice";
+import CustomHelmet from "../../components/CustomHelmet";
 import "./index.scss";
 
 const UserProfile = () => {
@@ -22,6 +23,12 @@ const UserProfile = () => {
 
   return (
     <>
+      <CustomHelmet
+        title={"User Profile - Camper"}
+        description={
+          "View and manage your user profile on Camper. Update your details, preferences, and explore personalized content tailored just for you."
+        }
+      />
       <div id="user-profile-hero-section">
         <div className="container">
           <div className="user-profile-hero-section">

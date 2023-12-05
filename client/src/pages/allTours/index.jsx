@@ -8,6 +8,7 @@ import { getToursData, sortData, sortDataPrice } from "../../redux/toursDataSlic
 import SearchForm from "./searchForm";
 import Card1 from "./cards/Card1";
 import Card2 from "./cards/Card2";
+import CustomHelmet from "../../components/CustomHelmet";
 import "./index.scss";
 
 const AllToursPage = () => {
@@ -35,6 +36,12 @@ const AllToursPage = () => {
   }
   return (
     <>
+      <CustomHelmet
+        title={"All Tours Page - Camper"}
+        description={
+          "Explore our diverse range of tours and embark on unforgettable travel adventures."
+        }
+      />
       <div id="hero-banner-all-tours">
         <div className="container">
           <div className="hero-banner-all-tours">

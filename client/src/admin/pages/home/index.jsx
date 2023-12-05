@@ -9,6 +9,7 @@ import { getNewsData } from "../../../redux/newsDataSlice";
 import { getUserBookingData } from "../../../redux/userBookingSlice";
 import { getToursData } from "../../../redux/toursDataSlice";
 import { getBookingData } from "../../../redux/bookingDataSlice";
+
 const Home = () => {
   const [weatherData, setWeatherData] = useState(null);
   const dispatch = useDispatch();
