@@ -7,6 +7,7 @@ import TitleGallery from "../../sections/tourDetailsSections/TitleGallery";
 import DetailsTour from "../../sections/tourDetailsSections/DetailsTour";
 import { getUsersData } from "../../redux/usersDataSlice";
 import { UserContext } from "../../context/UserProvider";
+import CustomHelmet from "../../components/CustomHelmet";
 import "./index.scss";
 
 const TourDetails = () => {
@@ -26,12 +27,14 @@ const TourDetails = () => {
 
   return (
     <>
-      <TitleGallery tour={tour} />
-      <DetailsTour
-        tour={tour}
-        user={user}
-        id={id}
+      <CustomHelmet
+        title={"Tour Detail Page - Camper"}
+        description={
+          "Explore the details of our exciting tour. Discover highlights, itinerary, and more. Plan your adventure today!"
+        }
       />
+      <TitleGallery tour={tour} />
+      <DetailsTour tour={tour} user={user} id={id} />
     </>
   );
 };
