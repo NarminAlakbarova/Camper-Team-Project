@@ -34,7 +34,7 @@ const SignUpForm = () => {
         setCheckUser(values),
         dispatch(addUser({ ...values, id: uuid(), isAdmin: false, date:`${currentYear}-${currentMonth}-${currentDay}`,wishList:[] })),
         actions.resetForm(),
-        navigate("/")
+        navigate("/allTours")
       )}
     >
         <Form>

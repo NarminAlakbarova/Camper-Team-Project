@@ -7,9 +7,11 @@ import { UserContext } from "../../../context/UserProvider";
 import { useDispatch } from "react-redux";
 import { updateUser } from "../../../redux/usersDataSlice";
 import PasswordInpField from "./PasswordInpField";
+import { Alert, Stack } from "@mui/material";
 
 const ChangePassword = () => {
   const [errorMsg, setErrorMsg] = useState(null);
+  const [updatedMsg, setUpdatedMsg] = useState(null);
   const { checkUser, setCheckUser } = useContext(UserContext);
   const dispatch = useDispatch();
 
@@ -17,6 +19,10 @@ const ChangePassword = () => {
     setErrorMsg(null);
     dispatch(updateUser({ ...checkUser, password: values.newPassword }));
     setCheckUser({ ...checkUser, password: values.newPassword });
+    setUpdatedMsg(true);
+    setTimeout(() => {
+      setUpdatedMsg(null);
+    }, 2000);
   };
   return (
     <div className="user-dashboard-right edit-profile">
@@ -27,6 +33,18 @@ const ChangePassword = () => {
         </Link>{" "}
         Change Password
       </p>
+      {updatedMsg && (
+        <Stack
+          spacing={2}
+          style={{
+            position: "fixed",
+            left: "43%",
+            top: "15%",
+          }}
+        >
+          <Alert severity="success">Password Changed !</Alert>
+        </Stack>
+      )}
       <Formik
         initialValues={{
           oldPassword: "",

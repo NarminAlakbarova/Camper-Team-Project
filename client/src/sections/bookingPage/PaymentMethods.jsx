@@ -29,7 +29,7 @@ const PaymentMethods = () => {
       tourTitle:"",
       notes: "",
     });
-    navigate("/");
+    navigate("/userProfile/myBookings");
   };
   return (
     <div id="payment-methods">
