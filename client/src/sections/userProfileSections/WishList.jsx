@@ -12,7 +12,7 @@ const WishList = () => {
   const { checkUser } = useContext(UserContext);
   const tours = useSelector((state) => state.toursData.data);
   const users = useSelector((state) => state.usersData.data);
-  const user = users.find((user) => user.userName == checkUser.userName);
+  const user = users.find((user) => user.id == checkUser.id);
   const wishTours = [];
   const dispatch = useDispatch();
 

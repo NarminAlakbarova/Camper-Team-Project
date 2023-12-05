@@ -20,7 +20,7 @@ const HeroBanner = () => {
       </Carousel>
       <div className="dark-bg"></div>
       <div className="hero-banner-text">
-        <p>ABOUT US</p>
+        <p>About Us</p>
         <span>Enjoy an Unforgettable Experience</span>
       </div>
     </div>

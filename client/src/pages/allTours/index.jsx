@@ -45,7 +45,7 @@ const AllToursPage = () => {
       <div id="hero-banner-all-tours">
         <div className="container">
           <div className="hero-banner-all-tours">
-            <p>ALL TOURS</p>
+            <p>All Tours</p>
             <span>Impressions of Our Tours</span>
           </div>
         </div>

@@ -101,7 +101,7 @@ const GalleryPage = () => {
       <div id="hero-banner-gallery">
         <div className="container">
           <div className="hero-banner-gallery">
-            <p>GALLERY</p>
+            <p>Gallery</p>
             <span>Impressions of Our Tours</span>
           </div>
         </div>
