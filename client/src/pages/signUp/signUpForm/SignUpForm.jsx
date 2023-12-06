@@ -30,12 +30,13 @@ const SignUpForm = () => {
         accept: false,
       }}
       validationSchema={validate}
-      onSubmit={(values,actions) => (
-        setCheckUser(values),
-        dispatch(addUser({ ...values, id: uuid(), isAdmin: false, date:`${currentYear}-${currentMonth}-${currentDay}`,wishList:[] })),
+      onSubmit={(values,actions) => {
+        const newUser={ ...values, id: uuid(), isAdmin: false, date:`${currentYear}-${currentMonth}-${currentDay}`,wishList:[] };
+        setCheckUser(newUser),
+        dispatch(addUser(newUser)),
         actions.resetForm(),
         navigate("/allTours")
-      )}
+      }}
     >
         <Form>
             <div className="sign-up-form-content row">
