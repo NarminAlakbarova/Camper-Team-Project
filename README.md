@@ -4,7 +4,7 @@ Camper is a web application developed using React.
 
 ## Purpose
 
-The Cemper project is created to enhance React skills and gain practical experience. The web application aims to provide users with functionalities such as introducing different tours, making reservations, writing reviews, adding tours to favorites, From the admin page, we can add, update and display new data etc.
+The Cemper project is created to enhance React skills and gain practical experience. The web application aims to provide users with functionalities such as introducing different tours, making reservations, writing reviews, adding tours to favorites, From the admin page, we can add, update and display new data and etc.
 
 ## Features
 
@@ -17,6 +17,7 @@ The key features of Camper include:
 - User profile management for editing personal information
 
 ## Technologies Used
+
 |  #  | Name                                          |     Why needed?                                       |
 | :-: | ----------------------------------------------| ----------------------------------------------------- |
 | 01  | Axios                                         | For making API requests                               |
@@ -26,7 +27,7 @@ The key features of Camper include:
 | 05  | Formik and Yup                                | For form handling and validation                      |
 | 06  | SCSS, Bootstrap, Ant Design, and Material UI  | For UI/UX and styling                                 |
 | 07  | Slick Carousel                                | For image handling and transitions                    |
-| 08  | Chart.js                                      | For creating charts and graphs (added as per request) |
+| 08  | Chart.js                                      | For creating charts and graphs                        |
 
 
 ## Installation
