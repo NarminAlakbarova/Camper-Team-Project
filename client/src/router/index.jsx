@@ -18,7 +18,6 @@ import AdminRoot from "../admin/root";
 import Orders from "../admin/pages/orders";
 import SignInAdmin from "../admin/pages/signInAdmin";
 import AllToursForm from "../admin/pages/addEdit/tours";
-import FeedbackForm from "../admin/pages/addEdit/feedback";
 import NewsForm from "../admin/pages/addEdit/news";
 import BookingPage from "../pages/bookingPage";
 import UserProfile from "../pages/userProfile";
@@ -109,14 +108,6 @@ export const router = createBrowserRouter([
       {
         path: "tours",
         element: <AllToursForm />,
-      },
-      {
-        path: "feedbackForm",
-        element: <FeedbackForm />,
-      },
-      {
-        path: "feedbackForm/:id",
-        element: <FeedbackForm />,
       },
       {
         path: "newsForm",

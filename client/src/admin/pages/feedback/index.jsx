@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from "react";
-import {AiOutlineEye, AiOutlineEdit, AiOutlineDelete} from "react-icons/ai"
+import { AiOutlineEye, AiOutlineDelete } from "react-icons/ai";
 import { Modal, Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import Search from "antd/es/input/Search";
-import { deleteFeedback, feedBackData, searchFeedBack } from "../../../redux/feedBackDataSlice";
-import { Link, useNavigate } from "react-router-dom";
-import { BsPlusSquareDotted } from "react-icons/bs";
+import {
+  deleteFeedback,
+  feedBackData,
+  searchFeedBack,
+} from "../../../redux/feedBackDataSlice";
 
 const FeedBack = () => {
-  const [detailsFeedback, setDetailsFeedback] = useState(null)
+  const [detailsFeedback, setDetailsFeedback] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const feedbackData = useSelector((state) => state.feedBackData.data);
-  const navigate=useNavigate()
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(feedBackData());
   }, [dispatch]);
-  
+
   const columns = [
     {
       title: "Image",
@@ -37,7 +38,7 @@ const FeedBack = () => {
     {
       title: "Feedback",
       dataIndex: "feedBack",
-      render: (element) => <span>{element.slice(0,25)}...</span>,
+      render: (element) => <span>{element.slice(0, 25)}...</span>,
       key: "releaseDay",
     },
     {
@@ -49,9 +50,12 @@ const FeedBack = () => {
       title: "Actions",
       render: (_, record) => (
         <div className="actions">
-          <button onClick={()=>showModal(record)}><AiOutlineEye/></button>
-          <button onClick={()=>{navigate(`/admin/feedbackForm/${record.id}`)}} ><AiOutlineEdit/></button>
-          <button onClick={()=>handleDelete(record.id)}><AiOutlineDelete/></button>
+          <button onClick={() => showModal(record)}>
+            <AiOutlineEye />
+          </button>
+          <button onClick={() => handleDelete(record.id)}>
+            <AiOutlineDelete />
+          </button>
         </div>
       ),
       key: "actions",
@@ -59,40 +63,46 @@ const FeedBack = () => {
   ];
   const showModal = (newsObj) => {
     setIsModalOpen(true);
-    setDetailsFeedback(newsObj)
+    setDetailsFeedback(newsObj);
   };
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  const handleDelete=(id)=>{
-    dispatch(deleteFeedback(id))
-  }
+  const handleDelete = (id) => {
+    dispatch(deleteFeedback(id));
+  };
   const onSearch = (value) => {
-    dispatch(searchFeedBack(value))
+    dispatch(searchFeedBack(value));
   };
   return (
     <>
-      <Modal className="admin-modal" title="Basic Modal" open={isModalOpen}  onCancel={handleCancel}>
-          <div className="modal-body-left">
-            <div className="author-title">
-              <img src={detailsFeedback?.userImg} alt="Author Image" />
-              <p>{detailsFeedback?.userName}</p>
-            </div>
-            <p className="release-day-title"><span>{detailsFeedback?.userStatus}</span></p>
-            <p className="content-news">{detailsFeedback?.feedBack}</p>
+      <Modal
+        className="admin-modal"
+        title="Basic Modal"
+        open={isModalOpen}
+        onCancel={handleCancel}
+      >
+        <div className="modal-body-left">
+          <div className="author-title">
+            <img src={detailsFeedback?.userImg} alt="Author Image" />
+            <p>{detailsFeedback?.userName}</p>
           </div>
+          <p className="release-day-title">
+            <span>{detailsFeedback?.userStatus}</span>
+          </p>
+          <p className="content-news">{detailsFeedback?.feedBack}</p>
+        </div>
       </Modal>
       <div className="admin-data-table">
-            <div className="search-add">
-              <Search placeholder="Search now..." onSearch={onSearch} />
-              <Link to={"/admin/feedbackForm"}>
-                <BsPlusSquareDotted className="add-icon" />
-              </Link>
-            </div>
+        <div className="search-add">
+          <Search placeholder="Search now..." onSearch={onSearch} />
+        </div>
         <Table
-        style={{width:'90%'}}
-        rowKey={"id"}
-        dataSource={feedbackData} columns={columns} />
+          style={{ width: "90%" }}
+          rowKey={"id"}
+          dataSource={feedbackData}
+          columns={columns}
+        />
       </div>
     </>
   );
