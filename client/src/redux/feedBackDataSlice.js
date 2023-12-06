@@ -20,22 +20,6 @@ export const searchFeedBack = createAsyncThunk(
   }
 );
 
-export const addFeedback = createAsyncThunk("addFeedback", async (values) => {
-  await axios.post("http://localhost:8080/feedBackCamper", values);
-  return values;
-});
-
-export const updateFeedback = createAsyncThunk(
-  "updateFeedback",
-  async (values) => {
-    await axios.patch(
-      `http://localhost:8080/feedBackCamper/${values.id}`,
-      values
-    );
-    return values;
-  }
-);
-
 export const deleteFeedback = createAsyncThunk("deleteFeedback", async (id) => {
   await axios.delete(`http://localhost:8080/feedBackCamper/${id}`);
   return id;
@@ -65,14 +49,7 @@ export const feedBackDataSlice = createSlice({
         )
       );
     });
-    builder.addCase(addFeedback.fulfilled, (state, action) => {
-      state.data.push(action.payload);
-    });
-    builder.addCase(updateFeedback.fulfilled, (state, action) => {
-      state.data = state.data.map((item) =>
-        item.id == action.payload.id ? action.payload : item
-      );
-    });
+
     builder.addCase(deleteFeedback.fulfilled, (state, action) => {
       state.data = state.data.filter((item) => item.id != action.payload);
     });
