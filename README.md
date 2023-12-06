@@ -1,4 +1,4 @@
-# Camper
+# Camper Tours
 
 Camper is a web application developed using React.
 
